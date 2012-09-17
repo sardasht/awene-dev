@@ -1,0 +1,205 @@
+Index: simplenews.admin.inc
+===================================================================
+--- simplenews.admin.inc	(revision 9605)
++++ simplenews.admin.inc	(working copy)
+@@ -816,6 +816,13 @@
+     '#description' => $description,
+     '#default_value' => variable_get('simplenews_format', 'plain'),
+   );
++  $form['simplenews_default_options']['simplenews_plain_field'] = array(
++    '#type' => 'select',
++    '#title' => t('Custom field for plain text newsletter'),
++    '#options' => _simplenews_plain_field_options(),
++    '#description' => t('Choose a text field wich contains the custom plain text content of the newsletter. If no field is chosen, the plain text version of the newsletter is automatically generated.'),
++    '#default_value' => variable_get('simplenews_plain_field', 'none'),
++  );
+   $form['simplenews_default_options']['simplenews_priority'] = array(
+     '#type' => 'select',
+     '#title' => t('Priority'),
+Index: simplenews.install
+===================================================================
+--- simplenews.install	(revision 9605)
++++ simplenews.install	(working copy)
+@@ -88,6 +88,13 @@
+         'not null' => TRUE,
+         'default' => '',
+       ),
++      'plain_field' => array(
++        'description' => 'Custom field for plain text newsletter.',
++        'type' => 'varchar',
++        'length' => 32,
++        'not null' => TRUE,
++        'default' => '',
++      ),
+       'priority' => array(
+         'description' => 'Email priority according to RFC 2156 and RFC 5231 (0 = none; 1 = highest; 2 = high; 3 = normal; 4 = low; 5 = lowest).',
+         'type' => 'int',
+@@ -582,4 +589,13 @@
+   $vocabulary['required'] = TRUE;
+   taxonomy_save_vocabulary($vocabulary);
+   return array();
++}
++
++/**
++ * Add plain_field to simplenews_newsletter table.
++ */
++function simplenews_update_6009() {
++  $ret = array();
++  db_add_field($ret, 'simplenews_newsletters', 'plain_field', array('type' => 'varchar', 'length' => 32, 'not null' => TRUE, 'default' => ''));
++  return $ret;
+ }
+\ No newline at end of file
+Index: simplenews.module
+===================================================================
+--- simplenews.module	(revision 9605)
++++ simplenews.module	(working copy)
+@@ -388,18 +388,18 @@
+       if ($op == 'insert') {
+         // Insert node
+         $s_status = $send_with_permission ? SIMPLENEWS_STATUS_SEND_PENDING : SIMPLENEWS_STATUS_SEND_NOT;
+-        db_query("INSERT INTO {simplenews_newsletters} (nid, vid, tid, s_status, s_format, priority, receipt)
+-                  VALUES (%d, %d, %d, %d, '%s', %d, %d)", $node->nid, $node->vid, $node->simplenews['tid'], $s_status, $node->simplenews['s_format'], $node->simplenews['priority'], $node->simplenews['receipt']);
++        db_query("INSERT INTO {simplenews_newsletters} (nid, vid, tid, s_status, s_format, plain_field, priority, receipt)
++                  VALUES (%d, %d, %d, %d, '%s', '%s', %d, %d)", $node->nid, $node->vid, $node->simplenews['tid'], $s_status, $node->simplenews['s_format'], $node->simplenews['plain_field'], $node->simplenews['priority'], $node->simplenews['receipt']);
+         }
+       else {
+         // Update node
+         if ($send_with_permission) {
+-          db_query("UPDATE {simplenews_newsletters} SET vid = %d, tid = %d, s_status = %d, s_format = '%s', priority = %d, receipt = %d
+-          WHERE nid = %d", $node->vid, $node->simplenews['tid'], SIMPLENEWS_STATUS_SEND_PENDING, $node->simplenews['s_format'], $node->simplenews['priority'], $node->simplenews['receipt'], $node->nid);
++          db_query("UPDATE {simplenews_newsletters} SET vid = %d, tid = %d, s_status = %d, s_format = '%s', plain_field = '%s', priority = %d, receipt = %d
++          WHERE nid = %d", $node->vid, $node->simplenews['tid'], SIMPLENEWS_STATUS_SEND_PENDING, $node->simplenews['s_format'], $node->simplenews['plain_field'], $node->simplenews['priority'], $node->simplenews['receipt'], $node->nid);
+         }
+         else {
+-          db_query("UPDATE {simplenews_newsletters} SET tid = %d, s_format = '%s', priority = %d, receipt = %d
+-          WHERE nid = %d", $node->simplenews['tid'], $node->simplenews['s_format'], $node->simplenews['priority'], $node->simplenews['receipt'], $node->nid);
++          db_query("UPDATE {simplenews_newsletters} SET tid = %d, s_format = '%s', plain_field = '%s', priority = %d, receipt = %d
++          WHERE nid = %d", $node->simplenews['tid'], $node->simplenews['s_format'], $node->simplenews['plain_field'], $node->simplenews['priority'], $node->simplenews['receipt'], $node->nid);
+         }
+       }
+ 
+@@ -409,9 +409,9 @@
+       if (module_exists('translation') && translation_supported_type($node->type) && $send_with_permission) {
+         if ($translations = translation_node_get_translations($node->tnid))  {
+           foreach ($translations as $translation) {
+-            db_query("UPDATE {simplenews_newsletters} SET s_status = %d, s_format = '%s', priority = %d, receipt = %d
++            db_query("UPDATE {simplenews_newsletters} SET s_status = %d, s_format = '%s', plain_field = '%s', priority = %d, receipt = %d
+               WHERE nid = %d",
+-              SIMPLENEWS_STATUS_SEND_PENDING, $node->simplenews['s_format'], $node->simplenews['priority'],
++              SIMPLENEWS_STATUS_SEND_PENDING, $node->simplenews['s_format'], $node->simplenews['plain_field'], $node->simplenews['priority'],
+               $node->simplenews['receipt'], $translation->nid);
+           }
+         }
+@@ -552,6 +552,7 @@
+         // required to prevent errors when data is stored in the database.
+         $form['simplenews']['send'] = array('#type' => 'hidden', '#value' => SIMPLENEWS_COMMAND_SEND_NONE);
+         $form['simplenews']['advanced']['s_format'] = array('#type' => 'hidden', '#value' => variable_get('simplenews_format', 'plain'));
++		$form['simplenews']['advanced']['plain_field'] = array('#type' => 'hidden', '#value' => variable_get('simplenews_plain_field', 'none'));
+         $form['simplenews']['advanced']['priority'] = array('#type' => 'hidden', '#value' => variable_get('simplenews_priority', SIMPLENEWS_PRIORITY_NONE));
+         $form['simplenews']['advanced']['receipt'] = array('#type' => 'hidden', '#value' => variable_get('simplenews_receipt', 0));
+       }
+@@ -629,6 +630,13 @@
+               '#value' => key($format_options),
+             );
+           }
++          
++		  $form['simplenews']['advanced']['plain_field'] = array(
++            '#type' => 'select',
++            '#title' => t('Custom field for plain text newsletter'),
++            '#default_value' => isset($simplenews_values['plain_field']) ? $simplenews_values['plain_field'] : variable_get('simplenews_plain_field', 'none'),
++            '#options' => _simplenews_plain_field_options(),
++          );
+   
+           $form['simplenews']['advanced']['priority'] = array(
+             '#type' => 'select',
+@@ -658,6 +666,7 @@
+             '#attributes' => array('checked' => 'checked', 'disabled' => 'disabled'),
+           );
+           $form['simplenews']['advanced']['s_format'] = array('#type' => 'hidden', '#value' => $simplenews_values['s_format']);
++		  $form['simplenews']['advanced']['plain_field'] = array('#type' => 'hidden', '#value' => $simplenews_values['plain_field']);
+           $form['simplenews']['advanced']['priority'] = array('#type' => 'hidden', '#value' => $simplenews_values['priority']);
+           $form['simplenews']['advanced']['receipt'] = array('#type' => 'hidden', '#value' => $simplenews_values['receipt']);
+         }
+@@ -1600,9 +1609,13 @@
+       // Convert to plain text if required.
+       $variables =  simplenews_mail_tokens($context['account'], $context, is_object($context['account']->language) ? $context['account']->language : language_default());
+       $body = strtr($body, $variables);
+-      if ($context['node']->simplenews['s_format'] == 'plain') {
++      if ($context['node']->simplenews['s_format'] == 'plain' && $context['node']->simplenews['plain_field'] == 'none') {
+         $body = simplenews_html_to_text($body, variable_get('simplenews_hyperlinks_'. $context['node']->simplenews['tid'], 1));
+-      }
++      } else if ($context['node']->simplenews['s_format'] == 'plain') {
++	    $body = theme('simplenews_newsletter_text_alternative', $context['node'], $context['node']->simplenews['tid'], $context['node']->simplenews['plain_field']);
++	  }
++      // Get alternative text field
++      $message['text_alternative'] = theme('simplenews_newsletter_text_alternative', $context['node'], $context['node']->simplenews['tid'], $context['node']->simplenews['plain_field']);
+       $message['body']['body'] = $body;
+ 
+       // Build message footer.
+@@ -1686,7 +1699,7 @@
+         $message['body'],
+         $plain,
+         $message['headers'],
+-        $plain ? $message['body'] : simplenews_html_to_text($message['body'], TRUE),
++        $plain ? $message['body'] : $message['text_alternative'],
+         isset($message['params']['context']['node']->files) ? $message['params']['context']['node']->files : array(),
+         ''
+       );
+@@ -2293,6 +2306,25 @@
+ }
+ 
+ /**
++ * Determine possible plain text field options.
++ *
++ * The CCK module must be installed to use CCK fields.
++ */
++function _simplenews_plain_field_options() {
++  $options = array('none' => t('none'));
++  $options['body'] = t('body');
++  if (module_exists('content')) {
++	$fields = content_fields();
++	foreach($fields as $field){
++	  if ($field['type'] == 'text') {
++	    $options[$field['field_name']] = $field['field_name'];
++	  }
++	}
++  }
++  return $options;
++}
++
++/**
+  * Generate default and custom subscription confirmation email text.
+  *
+  * @param string $key text identification key
+@@ -2382,6 +2414,9 @@
+       'file' => 'simplenews.admin.inc',
+       'arguments' => array('status' => NULL, 'source' => NULL),
+     ),
++    'simplenews_newsletter_text_alternative' => array(
++      'arguments' => array('node' => NULL, 'tid' => NULL, 'plain_field' => NULL),
++    ),
+     'simplenews_newsletter_subject' => array(
+       'arguments' => array('name' => NULL, 'title' => NULL, 'language' => NULL),
+     ),
+@@ -2448,6 +2483,21 @@
+ }
+ 
+ /**
++ * Theme the newsletter message subject and body.
++ */
++function theme_simplenews_newsletter_text_alternative($node, $tid, $plain_field) {
++  // In an override of this function, $text can be loaded with other field from the node.
++  $text  = $node->title . "\n\n";
++  if ($plain_field == 'body') {
++    $text .= $node->body . "\n\n";
++  } 
++  else {
++    $text .= $node->{$plain_field}[0]['value'] . "\n\n";
++  }
++  return $text;
++}
++
++/**
+  * Theme the newsletter email subject.
+  */
+ function theme_simplenews_newsletter_subject($name, $title, $language) {

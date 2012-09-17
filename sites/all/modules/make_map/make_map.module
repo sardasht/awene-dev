@@ -1,0 +1,111 @@
+<?php
+	// $id$
+	
+/**
+ * Use hook_menu to generate a settings menu item for this module
+ * @return menu item
+ */
+function make_map_menu() {
+  $items = array();
+  $items['map_xml'] = array(
+    'title' => 'Make map xml',
+    'page callback' => '_make_map',
+    'access callback' => TRUE,
+  );
+  return $items;
+}
+
+function make_map_init() {
+  $path = drupal_get_path('module', 'make_map');
+  drupal_add_js($path . '/js/customInfoWindow.js');
+  drupal_add_js($path . '/js/gmap.js');
+  drupal_add_js(array('make_map' => array('folder' => $path)), 'setting');
+}
+
+function _make_map($nid = FALSE) {
+  $xml = '';
+  $folder = file_directory_path() . '/mapxml';
+  $file = $folder . '/markers.xml';
+  
+  // check if folders exist
+  if (!file_check_directory($folder)) {
+    mkdir($folder);
+  }
+  
+  if (file_exists($file)) {
+    if (filemtime($file) > (time() - 600)) {
+      $xml = file_get_contents($file);
+    }
+    else {
+      unlink($file);
+      touch($file);
+      $xml = _generate_xml(filemtime($file));
+      file_put_contents($file, $xml);
+    }
+  }
+  else {
+    touch($file);
+    $xml = _generate_xml();
+    file_put_contents($file, $xml);
+  }
+  if (!empty($xml)) {
+    drupal_set_header('Content-Type: text/xml; charset=utf-8');
+    print $xml;
+  }
+}
+
+function _generate_xml($new = FALSE) {
+  global $language;
+  $aSql = "SELECT n.title, node_weight.sticky AS node_weight_sticky, ctm.field_marker_content_nid AS target_nid, l.latitude, l.longitude FROM {node} n LEFT JOIN {node} node_weight ON n.nid = node_weight.nid LEFT JOIN {content_type_marker} ctm ON n.nid = ctm.nid INNER JOIN {location} l ON ctm.field_marker_location_lid = l.lid WHERE (n.status <> %d) AND (n.type = '%s') AND (n.language = '%s') ORDER BY node_weight_sticky DESC";
+  $res = db_query($aSql, 0, 'marker', $language->language);
+  $data = array();
+  while ($row = db_fetch_array($res)) {
+    $data[] = $row;
+  }
+  
+  $i = 0;
+  
+  $xml = '<?xml version="1.0" encoding="UTF-8" ?><markers>';
+  foreach ($data AS $node) {
+    $label = '<div class="gmap_marker">';
+    $label .= '<div class="title">' . l($node['title'], 'node/' . $node['target_nid']) . '</div>';
+    $label .= '<div class="readmore">' . l(t('Click for full article'), 'node/' . $node['target_nid']) . '</div>';
+    $label .= '</div>';
+    
+    $xml .= '
+    <marker new="' . $new . '">';
+    $xml .= '
+    <url><![CDATA[' . check_url(url('node/' . $node['target_nid'])) . ']]></url>';
+    $xml .= '
+    <nid><![CDATA[' . $node['target_nid'] . ']]></nid>';
+    $xml .= '
+    <latitude><![CDATA[' . $node['latitude'] . ']]></latitude>';
+    $xml .= '
+    <longitude><![CDATA[' . $node['longitude'] . ']]></longitude>';
+    $xml .= '
+    <label><![CDATA[' . $label . ']]></label>';
+    $xml .= '</marker>';
+    $i++;
+  }
+  $xml .= '</markers>';
+  return $xml;
+}
+
+function make_map_block($op = 'list', $delta = 0, $edit = array()) {
+  switch($op) {
+    case 'list':
+      $blocks['gmap_block'] = array(
+        'info' => t('Google Maps block'),
+        'cache' => BLOCK_NO_CACHE,
+      );
+      return $blocks;
+    case 'view':
+      $block['content'] = make_map_content();
+      return $block;
+  }
+}
+
+function make_map_content() {
+  $ret = '<div id="gmap" class="google_map"></div>';
+  return $ret;
+}

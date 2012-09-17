@@ -1,0 +1,5 @@
+; $Id$
+name = pressnow_socialmedia
+description = "socialmedia blocks"
+package = Pressnow
+core = 6.x

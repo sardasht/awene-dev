@@ -1,0 +1,126 @@
+<?php
+// $Id$
+
+/**
+ * Implementation of hook_form_alter().
+ */
+function pressnow_petition_alter_form_alter(&$form, $form_state, $form_id) {
+  switch ($form_id) {
+    case 'petition_node_form':
+      $form['petition']['petition_node_settings']['optional_fields']['#options']['anonymous'] = 'anonymous';
+      $form['petition']['petition_node_settings']['required_fields']['#options']['anonymous'] = 'anonymous';
+      $form['petition']['petition_node_settings']['display_fields']['#options']['anonymous'] = 'anonymous';
+      break;
+  }
+  if (strstr($form_id, 'petition_signature_form')) {
+    $node = node_load(arg(1));
+    if (in_array('anonymous', $node->optional_fields, TRUE)) {
+      $req = in_array('anonymous', $node->required_fields);
+      $form['#submit'][] = 'pressnow_petition_alter_submit';
+      $form['signature']['anonymous'] = array(
+      	'#type' => 'checkbox',
+       	'#title' => t('don\'t display my name'),
+       	'#required' => $req,
+      	'#weight' => 99,
+      );
+    }
+  }
+}
+
+function pressnow_petition_alter_submit($form, &$form_state) {
+  if ($form_state['values']['anonymous'] == 1) {
+    $sql = "UPDATE {petition_signatures} SET anonymous = 1 WHERE nid = %d AND email = '%s'";
+    db_query($sql, $form_state['values']['nid'], $form_state['values']['email']);
+  }
+}
+
+function pressnow_petition_alter_signaturedisplay_info() {
+ 
+ $signaturedisplay_info['DontShowAnonymous'] = array(
+   'name' => t('Anonymize anonymous signatures'),
+   'default' => FALSE,
+   'callback' => 'anomymize_display'
+   );
+
+  return $signaturedisplay_info;
+}
+
+function anomymize_display($node) {
+   return theme('anomymize_display', $node);
+}
+
+function pressnow_petition_alter_theme() {
+  return array(
+     'anomymize_display' =>array(
+      'arguments' => array('node' => NULL),
+      ),
+  );
+}
+
+function theme_anomymize_display($node) {
+  // IMPORTANT FOR TRANSLATION MODE. WE WANT THE SIGNATURES TO APPEAR UNDER ALL THE TRANSLATIONS
+  if(is_numeric($node->tnid) AND $node->tnid>0 AND $node->nid!= $node->tnid) {
+    $nid = $node->tnid;
+  }
+  else {
+    $nid =  $node->nid;
+  }
+  
+  $max = variable_get('petition_signature_number', 50) * 3;
+  $title = t('Signatures for the petition: ') . check_plain($node->title);
+  drupal_set_title($title);
+  
+  $sql = "SELECT * FROM {petition_signatures} WHERE nid = %d AND confirmed = 1 ORDER BY date DESC";
+  $result = pager_query($sql , $max, 0, NULL, $nid);
+  
+  $output = '';
+  $prefix = '<div id="petition-results">';
+  $prefix .= '<div class="sign-petition">' . l(t('Sign this petition'), 'node/' . $node->nid) . '</div>';
+  $suffix = '</div>';
+  $header = array(
+    array(
+      'data' => t('Name'),
+      'class' => 'name-cell',
+    ),
+    array(
+      'data' => t('Country'),
+    	'class' => 'country-cell',
+    ),
+    array(
+      'data' => t('Date & time'),
+    	'class' => 'date-cell',
+    ),
+  );
+  $table_attributes = array('id' => 'petition-results-table');
+  $rows = array();
+  while ($signature = db_fetch_object($result)) {
+    if($signature->anonymous == 1) {
+      $name = t('Anonymous');
+    }
+    else {
+      $name = check_plain($signature->firstname) . '  ' . check_plain($signature->name);
+    }
+    $rows[] = array(
+      array(
+      	'data' =>$name,
+        'class' => 'name-cell',
+      ),
+      array(
+      	'data' => check_plain($signature->country),
+        'class' => 'country-cell',
+      ),
+      array(
+      	'data' => t('!date at !time', array('!date' => date('d-m-Y', $signature->date), '!time' => date('H:i', $signature->date))),
+        'class' => 'date-cell',
+      ),
+    );
+  }
+  
+  if (empty($rows)) {
+    return t('There are no signatures for this petition');
+  }
+  else {
+    $output .= theme('table', $header, $rows, $table_attributes);
+    return $prefix . $output . $suffix;
+  }
+}

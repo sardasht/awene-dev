@@ -1,0 +1,43 @@
+<?php
+/**
+ * Implementation of hook_block().
+ */
+function pressnow_soundbite_block($op = 'list', $delta = 0, $edit = array()) {
+  switch($op) {
+    case 'list':
+      $block = array();
+      $block[0]["info"] = t('soundbite block');
+      return $block;
+    case 'view':
+      $n = node_load(arg(1));
+      if($n->field_audio[0] != NULL) {
+        $content = theme('pressnow_soundbite_blok', $n, $delta);
+  	    $block['subject'] = t('Must hear');
+  	    $block['content'] = $content;
+  	    return $block;
+      }
+  }
+}
+
+/**
+ * Implementation of hook_theme().
+ */
+function pressnow_soundbite_theme($n) {
+  return array(
+		'pressnow_soundbite_blok' => array(
+		  'arguments' => array('node' => NULL, 'delta' => NULL),
+  		'template' => 'pressnow_soundbite_blok',
+		),
+	);
+}
+
+function template_preprocess_pressnow_soundbite_blok(&$vars) {
+  drupal_add_js('sites/all/libraries/jPlayer/jquery.jplayer.min.js');
+  drupal_add_css('sites/all/libraries/jPlayer/jplayer.blue.monday.css');
+  $vars['audiopath'] = url($vars['node']->field_audio[0]['filepath']);
+  if (empty($vars['node']->field_audio[0]['data']['description'])) {
+    $vars['audiodescription'] = false;
+  } else {
+    $vars['audiodescription'] = $vars['node']->field_audio[0]['data']['description'];
+  }
+}

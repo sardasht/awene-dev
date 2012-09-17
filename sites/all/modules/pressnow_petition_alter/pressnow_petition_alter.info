@@ -1,0 +1,6 @@
+; $Id$
+name = pressnow_petition_alter
+description = "Module that alters the petition module"
+core = 6.x
+dependencies[] = petition
+package = Pressnow

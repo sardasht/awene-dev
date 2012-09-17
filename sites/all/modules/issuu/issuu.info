@@ -1,0 +1,14 @@
+name = Issuu
+description = Integration with Issuu.
+package = Other
+core = 6.x
+dependencies[] = content
+dependencies[] = filefield
+dependencies[] = swftools
+
+; Information added by drupal.org packaging script on 2011-11-21
+version = "6.x-1.0-rc1"
+core = "6.x"
+project = "issuu"
+datestamp = "1321914640"
+

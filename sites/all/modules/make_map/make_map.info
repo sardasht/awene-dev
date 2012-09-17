@@ -1,0 +1,5 @@
+; $Id$
+name = make_map
+description = Generate a map block
+package = Pressnow
+core = 6.x

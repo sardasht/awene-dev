@@ -1,0 +1,56 @@
+<?php
+function awene_blocks_block($op = 'list', $delta = 0, $edit = array()) {
+  if ($op == 'list') {
+    $blocks['currency'] = array(
+      'info' => t('Currencies'),
+      'weight' => 0,
+    );
+
+    return $blocks;
+  }
+  else if ($op == 'view') {
+    switch ($delta) {
+      case 'currency':
+        // Your module will need to define this function to render the block.
+        $block = array(
+          'subject' => t('Currencies'),
+          'content' => awene_blocks_currencies_block(),
+        );
+        break;
+    }
+    return $block;
+  }
+}
+
+function awene_blocks_currencies_block() {
+  $cache = cache_get('currencies');
+  if ($cache) {
+    $currencies = $cache->data;
+  }
+  else {
+    $currencies = array(
+      'USD-IQD' => _awene_blocks_retrieve_currency('USD', 'IQD'),
+      'EUR-IQD' => _awene_blocks_retrieve_currency('EUR', 'IQD'),
+      'EUR-USD' => _awene_blocks_retrieve_currency('EUR', 'USD'),
+    );
+    cache_set('currencies', $currencies, 'cache', CACHE_TEMPORARY);
+  }
+
+  $rows = array();
+  foreach ($currencies as $currency => $value) {
+    $rows[] = array($currency, number_format($value, 4));
+  }
+  $rows[] = array(t(''), '<a href="/ku/currency">' . t('Custom Conversion') . '</a>');
+  return theme('table', array(t('Currency'), t('Value')), $rows);
+}
+
+function _awene_blocks_retrieve_currency($from, $to) {
+  $url = 'http://finance.yahoo.com/d/quotes.csv?e=.csv&f=sl1d1t1&s='. $from . $to .'=X';
+  $handle = @fopen($url, 'r');
+  if ($handle) {
+    $result = fgets($handle, 4096);
+    fclose($handle);
+  }
+  $parts = explode(',',$result);
+  return $parts[1];
+}

@@ -1,0 +1,5 @@
+; $Id$
+name = pressnow_adsense
+description = "This module creates a settings page to easily change the adsense settings"
+package = Pressnow
+core = 6.x

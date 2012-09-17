@@ -1,0 +1,70 @@
+<?php
+
+/**
+ * Implementation of hook_form_alter().
+ */
+function pressnow_custom_form_alter(&$form, $form_state, $form_id) {
+	switch ($form_id) {
+
+		case 'comment_form':
+			// SB: Alter form field titles
+			if($form['_author']['#title']) $form['_author']['#title'] = t('Name');
+			if($form['_author']['#required']) $form['_author']['#title'] .= ' '.t('(required)');
+
+			if($form['name']['#title']) $form['name']['#title'] = t('Name');
+			if($form['name']['#required']) $form['name']['#title'] .= ' '.t('(required)');
+
+			if($form['mail']['#title']) $form['mail']['#title'] = t('Email address');
+			if($form['mail']['#required']) $form['mail']['#title'] .= ' '.t('(required)');
+
+			if($form['homepage']['#title']) $form['homepage']['#title'] = t('Website');
+			if($form['homepage']['#required']) $form['homepage']['#title'] .= ' '.t('(required)');
+			
+			if($form['comment_filter']['comment']['#title']) $form['comment_filter']['comment']['#title'] = t('Comments');
+			if($form['comment_filter']['comment']['#required']) $form['comment_filter']['comment']['#title'] .= ' '.t('(required)');
+			if($form['comment_filter']) $form['comment_filter']['#weight'] = -20;
+			
+			// SB: Place buttons in extra div
+			$tmp_preview = $form['preview'];
+			$tmp_submit = $form['submit'];
+			unset($form['preview']);
+			unset($form['submit']);
+			$form = array_merge(array('buttons' => array('preview' => $tmp_preview, 'submit' => $tmp_submit, '#prefix' => '<div class="buttons">', '#suffix' => '</div>', '#weight' => 20)), $form);
+		  break;
+		case 'admin_node_form':
+		case 'article_node_form':
+		case 'banner_node_form':
+		case 'broadcast_node_form':
+		case 'dossier_node_form':
+		case 'featured_node_form':
+	  case 'forum_node_form':
+    case 'page_node_form':
+    case 'simplenews_node_form':
+		  $form['body_field']['teaser_include']['#default_value'] = FALSE;
+		  break;
+    case 'system_site_information_settings':
+      $form['is_site_in_demo'] = array(
+        '#weight' => -50,
+        '#type' => 'checkbox',
+        '#title' => t('Demo mode'),
+        '#default_value' => variable_get('is_site_in_demo', 0),
+      );
+      $form['#submit'][] = '_pressnow_custom_demo_mode_submit';
+      break;
+	}
+
+}
+
+function _pressnow_custom_demo_mode_submit($form, &$form_state) {
+  variable_set('is_site_in_demo', $form_state['values']['is_site_in_demo']);
+}
+
+/**
+ * Implementation of hook_link_alter().
+ */
+function pressnow_custom_link_alter(&$links, $node) {
+  $links['pressnow_print'] = array(
+  	'title' => '<a href="#" onClick="javascript: window.print();">' . t('Print') . '</a>',
+    'html' => TRUE,
+  );
+}

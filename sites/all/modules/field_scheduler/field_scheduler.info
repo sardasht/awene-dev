@@ -1,0 +1,9 @@
+; $Id:$
+name = Field Scheduler
+description = Allows users display CCK fields after a chosen date.
+dependencies[] = content
+dependencies[] = date
+dependencies[] = date_api
+dependencies[] = date_timezone
+package = CCK
+core = 6.x

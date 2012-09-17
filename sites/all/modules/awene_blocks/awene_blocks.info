@@ -1,0 +1,5 @@
+; $Id$
+name = Awene Blocks
+description = "This module creates custom blocks for the awena site."
+package = Awene
+core = 6.x

@@ -1,0 +1,18 @@
+Index: mimemail.inc
+===================================================================
+RCS file: /cvs/drupal-contrib/contributions/modules/mimemail/mimemail.inc,v
+retrieving revision 1.31.2.3
+diff -u -p -r1.31.2.3 mimemail.inc
+--- mimemail.inc	14 Apr 2009 23:08:59 -0000	1.31.2.3
++++ mimemail.inc	1 Oct 2009 06:30:39 -0000
+@@ -317,8 +317,8 @@ function mimemail_html_body($body, $subj
+     _mimemail_file($a->filepath, $a->filename, $a->filemime, 'attachment');
+     $parts = array_merge($parts, _mimemail_file());
+   }
+-
+-  return mimemail_multipart_body($parts, "$content_type; charset=utf-8");
++  $content_type = 'multipart/mixed';
++  return mimemail_multipart_body($parts,$content_type);
+ }
+ 
+ function mimemail_parse($message) {

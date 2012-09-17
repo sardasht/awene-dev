@@ -1,0 +1,5 @@
+; $Id$
+name = pressnow_soundbite
+description = "soundbite block"
+package = Pressnow
+core = 6.x

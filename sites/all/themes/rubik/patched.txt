@@ -1,0 +1,4 @@
+core-rtl.css aangepast zodat indentation klopt:
+.tabledrag-processed .indentation {
+	float: right;
+}

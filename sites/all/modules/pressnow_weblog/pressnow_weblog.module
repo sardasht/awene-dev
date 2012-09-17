@@ -1,0 +1,217 @@
+<?php
+
+/**
+ * Implementation of hook_perm().
+ */
+function pressnow_weblog_perm() {
+  return array('administer weblog header text');
+}
+
+/**
+ * Implementation of hook_menu().
+ */
+function pressnow_weblog_menu() {
+  $items = array();
+  $items['admin/content/pressnow_weblog_header'] = array(
+    'title' => 'Weblog header tekst',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('pressnow_weblog_header'),
+    'access arguments' => array('administer weblog header text'),
+  );
+  return $items;
+}
+
+function pressnow_weblog_init() {
+  drupal_add_js(drupal_get_path('module', 'pressnow_weblog') . '/pressnow_weblog.js', 'module');
+}
+
+function pressnow_weblog_block($op = 'list', $delta = 0, $edit = array()) {
+  switch ($op) {
+    case 'list':
+      $blocks[0]["info"] = t('Blog bloggers block');
+      $blocks[2]["info"] = t('Blog tagcloud block');
+      $blocks[3]["info"] = t('Blogger profiel info block');
+      $blocks[5]["info"] = t('Blog meer van tag blok');
+      $blocks[6]["info"] = t('Blog header text');
+      $blocks[7]["info"] = t('Blog Archive');
+      foreach ($blocks AS $k=>$v) {
+        $blocks[$k]['cache'] = BLOCK_NO_CACHE;
+      }
+      return $blocks;
+    case 'view':
+      switch($delta) {
+        case 0:
+          $blocks['content'] = get_PN_bloggers();
+          break;
+        case 2:
+          $blocks['content'] = get_PN_tags();
+          break;
+        case 3:
+          $blocks['content'] = get_PN_blogger_info();
+          break;
+        case 5:
+          $blocks['content'] = get_PN_meer_inhoud(1);
+          break;
+        case 6:
+          $blocks['content'] = get_PN_header();
+          break;
+        case 7:
+          $blocks['content'] = get_PN_archive();
+          break;
+      }
+      return $blocks;
+  }
+}
+
+function get_PN_bloggers() {
+  $sql = "SELECT n.uid, pv.value AS name FROM {node} AS n INNER JOIN {profile_values} AS pv ON n.uid = pv.uid WHERE n.type = 'blog' AND n.uid <> 0 AND pv.fid = 1 GROUP BY n.uid";
+  $res = db_query($sql);
+  if(db_affected_rows()) {
+    $ret = '<div class="bloggers"><ul>';
+    while ($row = db_fetch_object($res)) {
+      $ret .= '<li class="blogger">' . l($row->name, 'blog/' . $row->uid) . '</li>';
+    }
+    $ret .= '</ul></div>';
+  }
+  return $ret;
+}
+
+function get_PN_tags() {
+  $sql = "SELECT td.tid, td.name, COUNT(tn.tid) AS aantal FROM term_data AS td INNER JOIN term_node AS tn ON td.tid = tn.tid INNER JOIN node AS n ON tn.nid = n.nid WHERE n.type = 'blog' AND td.vid = 1 GROUP BY td.name ORDER BY aantal DESC LIMIT 20";
+  $res = db_query($sql);
+  $terms = array();
+  $maximum = 0;
+  if(db_affected_rows()) {
+    while ($row = db_fetch_object($res)) {
+      $term = $row->name;
+    	$counter = $row->aantal;
+    	if ($counter> $maximum) $maximum = $counter;
+    	$terms[] = array('term' => $term, 'counter' => $counter, 'tid' => $row->tid);
+    }
+    shuffle($terms);
+    $ret = '<div class="tagcloud">';
+    foreach ($terms as $k) {
+    	$percent = floor(($k['counter'] / $maximum) * 100);
+    	if ($percent < 20) {
+    		$class = 'smallest';
+    	} elseif ($percent >= 20 and $percent < 40) {
+    		$class = 'small';
+    	} elseif ($percent >= 40 and $percent < 60) {
+    		$class = 'medium';
+    	} elseif ($percent >= 60 and $percent < 80) {
+    		$class = 'large';
+    	} else {
+    		$class = 'largest';
+    	}
+    	$ret .= '<span class="' . $class . '">' . l($k['term'], 'blog/all/' . $k['tid']) . '</span>';
+    }
+    $ret .= '</div>';
+  }
+  return $ret;
+}
+
+function pressnow_weblog_form_alter(&$form, $form_state, $form_id) {
+  switch ($form_id) {
+    case 'user_profile_form':
+      $form['Personal information']['body_format'] = array(
+        '#type' => 'fieldset',
+        '#title' => $form['Personal information']['profile_description']['#title'],
+        '#weight' => 1,
+        '#collapsible' => FALSE,
+        '#collapsed' => FALSE,
+      );
+      $form['Personal information']['body_format']['profile_description'] = $form['Personal information']['profile_description'];
+      $form['Personal information']['body_format']['format'] = filter_form(FILTER_FORMAT_DEFAULT, NULL, array('Personal information', 'body_format', 'format'));
+      unset($form['Personal information']['profile_description']);
+      break;
+  }
+}
+
+function pressnow_weblog_header() {
+  $form = array();
+  $form['pressnow_weblog_header']['body_format'] = array(
+      '#type' => 'fieldset',
+      '#title' => t('Header tekst'),
+      '#weight' => 1,
+      '#collapsible' => FALSE,
+      '#collapsed' => FALSE,
+  );
+  $form['pressnow_weblog_header']['body_format']['pressnow_weblog_headertext'] = array(
+    '#type' => 'textarea',
+    '#title' => t('Header tekst'),
+    '#default_value' => variable_get('pressnow_weblog_headertext', ''),
+    '#required' => TRUE
+  );
+  $form['pressnow_weblog_header']['body_format']['format'] = filter_form(FILTER_FORMAT_DEFAULT, NULL, array('pressnow_weblog_header', 'body_format', 'format'));
+  $form = system_settings_form($form);
+  return $form;
+}
+
+function get_PN_blogger_info() {
+  if (arg(0) == 'node' && is_numeric(arg(1))) {
+    $n = node_load(arg(1));
+    $u = user_load($n->uid);
+    $ret = '<div class="userprofile"><div class="userprofile-inner">';
+      if (strlen($u->picture) > 0) {
+        $ret .= '<div class="image">' . theme('imagecache', 'profile_picture', $u->picture, $u->profile_naam, $u->profile_naam) . '</div>';
+      }
+      $ret .= '<div class="personal">';
+        $ret .= '<div class="name">' . $u->profile_naam . '</div>';
+      $ret .= '</div>';
+    $ret .= '<div class="desc">' . check_markup($u->profile_description) . '</div>';
+    $ret .= '</div></div>';
+  }
+  return $ret;
+}
+
+function get_PN_meer_inhoud($vid) {
+  if (arg(0) == 'node' && is_numeric(arg(1))) {
+    $n = node_load(arg(1));
+    $tids = array();
+    foreach($n->taxonomy AS $tax) {
+      if($vid == $tax->vid) {
+        $tids[] = $tax->tid;
+      }
+    }
+    $where = '';
+    if (!empty($tids)) {
+      $where = 'tn.tid IN (' . implode(',', $tids) . ') AND ';
+    }
+    $sql = "SELECT tn.nid, n.title FROM term_node AS tn INNER JOIN node AS n ON tn.nid = n.nid WHERE " . $where . "tn.nid <> " . arg(1) . " AND n.type = 'blog' GROUP BY tn.nid ORDER BY RAND()";
+    $res = db_query($sql);
+    if(db_affected_rows()) {
+      $ret = '<div class="nodes vid_' . $vid . '">';
+      while ($row = db_fetch_object($res)) {
+        $ret .= '<div class="link">' . l($row->title, 'node/' . $row->nid) . '</div>';
+      }
+      $ret .= '</div>';
+    }
+    if (!empty($ret)) {
+      return $ret;
+    }
+    else {
+      return t('No related blogs found.');
+    }
+  }
+}
+
+function get_PN_header() {
+  $text = variable_get('pressnow_weblog_headertext', '');
+  return t($text);
+}
+
+function get_PN_archive() {
+  $sql = "SELECT DISTINCT(DATE_FORMAT(FROM_UNIXTIME(node.created), '%Y%m')) AS str_created, node.created FROM {node} node WHERE node.status = 1 AND node.type = 'blog' GROUP BY str_created ORDER BY node.created DESC LIMIT 12";
+  $res = db_query($sql);
+  
+  if(db_affected_rows()) {
+    $ret = '<div class="link">' . l('All', 'blog') . '</div>';;
+    while($row = db_fetch_object($res)) {
+      $ret .= '<div class="link">' . l(date('F Y', $row->created), 'blog/' . $row->str_created) . '</div>';
+    }
+    return $ret;
+  }
+  else {
+    return FALSE;
+  }
+}

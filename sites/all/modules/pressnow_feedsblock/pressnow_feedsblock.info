@@ -1,0 +1,5 @@
+; $Id$
+name = pressnow_feedsblock
+description = "This module creates a block shich aggregates RSS feeds"
+core = 6.x
+package = Pressnow

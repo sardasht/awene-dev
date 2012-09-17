@@ -1,0 +1,412 @@
+<?php
+// $Id$
+
+define('MOBYPIC_API_KEY', '8LNvkzk8MPiKDrYB');
+define('SOCIALMEDIA_NUM_POSTS', 10);
+define('SOCIALMEDIA_MOBYPIC_NUM_POSTS', 3);
+
+/**
+ * Implementation of hook_perm().
+ */
+function pressnow_socialmedia_perm() {
+  return array('administer pressnow socialmedia');
+}
+
+/**
+ * Implementation of hook_menu().
+ */
+function pressnow_socialmedia_menu() {
+  $items = array();
+  $items['admin/content/pressnow_socialmedia'] = array(
+    'title' => 'Social Media Blocks',
+    'description' => 'Provides some social media feed blocks.',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('_pressnow_socialmedia_settings'),
+    'access arguments' => array('administer pressnow socialmedia'),
+    'type' => MENU_NORMAL_ITEM,
+  );
+  $items['pressnow_socialmedia/AJAX'] = array(
+    'page callback' => '_get_pressnow_socialmedia_ajax',
+    'access callback' => TRUE,
+    'type' => MENU_CALLBACK,
+  );
+  return $items;
+}
+
+/**
+ * Implementation of hook_init().
+ */
+function pressnow_socialmedia_init() {
+  drupal_add_js(drupal_get_path('module', 'pressnow_socialmedia') . '/js/pressnow_socialmedia.js');
+}
+
+/**
+ * Implementation of hook_block().
+ */
+function pressnow_socialmedia_block($op = 'list', $delta = 0, $edit = array()) {
+  switch ($op) {
+    case 'list':
+      $blocks['twitter']['info'] = t('Social Media Twitter block');
+      $blocks['twitter2']['info'] = t('Social Media Twitter block 2');
+      $blocks['facebook']['info'] = t('Social Media Facebook block');
+      $blocks['facebook2']['info'] = t('Social Media Facebook block 2');
+      $blocks['mobypicture']['info'] = t('Social Media Mobypicture block');
+      $blocks['mobypicture2']['info'] = t('Social Media Mobypicture block 2');
+      
+      return $blocks;
+      break;
+    case 'view':
+      switch ($delta) {
+        case 'twitter':
+        case 'twitter2':
+          $block['subject'] = 'Twitter';
+          $block['content'] = _get_twitter_content();
+          break;
+        case 'facebook':
+        case 'facebook2':
+          $block['subject'] = 'Facebook';
+          $block['content'] = _get_facebook_content();
+          break;
+        case 'mobypicture':
+        case 'mobypicture2':
+          $block['subject'] = 'Mobypicture';
+          $block['content'] = _get_mobypic_content();
+          break;
+      }
+      return $block;
+      break;
+  }
+}
+
+/**
+ * Implementation of hook_theme().
+ */
+function pressnow_socialmedia_theme($data) {
+  return array(
+		'pressnow_socialmedia_row' => array(
+		  'arguments' => array('data' => $data),
+  		'template' => 'pressnow_socialmedia_row',
+		),
+	);
+}
+
+/**
+ * Function that returns the latest twitter content
+ */
+function _get_twitter_content() {
+  $term = variable_get('socialmedia_twitter_terms', '');
+  if (!empty($term)) {
+    $feed = _get_twitter_tweets($term);
+    if ($feed && empty($feed->error)) {
+      $ret = '<div class="social-media-top">Results for <a target="_blank" href="http://www.twitter.com/#search?q=' . str_replace(array(' ', '#'), array('+', '%23'), $term) . '">' . $term . '</a></div>';
+      $ret .= '<div class="social-media-newer"><div class="button">Newer</div></div>';
+      $ret .= '<div class="social-media-content"><div class="social-media-content-inner">';
+      foreach ($feed->results as $item) {
+        $data = array(
+          'user' => $item->from_user,
+          'title' => $item->text,
+          'link' => 'http://www.twitter.com/' . $item->from_user . '/status/' . $item->id_str,
+          'date' => strtotime($item->created_at),
+        	'type' => 'twitter',
+        );
+        $ret .= theme('pressnow_socialmedia_row', $data);
+      }
+      $ret .= '</div></div>';
+      $ret .= '<div class="social-media-older"><div class="button">Older</div></div>';
+      $ret .= '<div id="socialmedia_refresh" class="twitter">refresh</div>';
+    }
+    else {
+      $ret = 'Twitter not available';
+    }
+    return $ret;
+  }
+  return FALSE;
+}
+
+/**
+ * This function returns the twitter rss feed as a Array
+ * @param String $username
+ */
+function _get_twitter_tweets($term) {
+  $term = urlencode($term);
+  $url = 'http://search.twitter.com/search.json?q=' . $term . '&show_user=true&result_type=mixed&rpp=' . SOCIALMEDIA_NUM_POSTS;
+  $data = _get_curl_data($url);
+  if ($data) {
+    return $data;
+  }
+  else {
+    return FALSE;
+  }
+}
+
+/**
+ * Function that returns the latest facebook content
+ */
+function _get_facebook_content() {
+  $userid = variable_get('socialmedia_facebook_user', '');
+  if (!empty($userid)) {
+    $feed = _get_facebook_status($userid);
+    $ret = '<div class="social-media-top">' . t('Become a fan of !userlink on Facebook', array('!userlink' => l($feed->name, $feed->link, array('attributes' => array('target' => '_blank'))))) . '</div>';
+    if ($feed->data) {
+      $ret .= '<div class="social-media-newer"><div class="button">Newer</div></div>';
+      $ret .= '<div class="social-media-content"><div class="social-media-content-inner">';
+      foreach ($feed->data as $item) {
+        $data = array(
+          'title' => $item->message,
+          'link' => $item->link,
+          'date' => strtotime($item->created_time),
+          'type' => 'facebook',
+        );
+        $ret .= theme('pressnow_socialmedia_row', $data);
+      }
+      $ret .= '</div></div>';
+      $ret .= '<div class="social-media-older"><div class="button">Older</div></div>';
+      $ret .= '<div id="socialmedia_refresh" class="facebook">refresh</div>';
+    }
+    else {
+      $ret .= '<div class="social-media-content"><div class="social-media-content-inner">';
+        $ret .= 'No content found';
+      $ret .= '</div></div>';
+      $ret .= '<div id="socialmedia_refresh" class="facebook">refresh</div>';
+    }
+    return $ret;
+  }
+  return FALSE;
+}
+
+/**
+ * Function that loads the last x status updates from a facebook account
+ * @param String $userid
+ */
+function _get_facebook_status($userid) {
+  $url = 'http://graph.facebook.com/' . $userid . '?metadata=1';
+  $data = _get_curl_data($url);
+  if($data) {
+    $ret = new stdClass();
+    $ret->name = $data->name;
+    $ret->link = $data->link;
+    
+    $url = 'http://graph.facebook.com/' . $userid . '/posts?limit=' . SOCIALMEDIA_NUM_POSTS;
+    $data = _get_curl_data($url);
+    $ret->data = $data->data;
+
+    return $ret;
+  }
+  else {
+    return FALSE;
+  }
+}
+
+/**
+ * Function that returns the latest mobypic content
+ */
+function _get_mobypic_content() {
+  $username = variable_get('socialmedia_mobypicture_user', '');
+  if (!empty($username)) {
+    $data = _get_mobypic_data($username);
+    $ret = '<div class="social-media-top">' . t('Follow !userlink on Mobypicture', array('!userlink' => l($username, 'http://www.mobypicture.com/user/' . $username, array('attributes' => array('target' => '_blank'))))) . '</div>';
+    if ($data) {
+      $ret .= '<div class="social-media-newer"><div class="button">Newer</div></div>';
+      $ret .= '<div class="social-media-content"><div class="social-media-content-inner">';
+      foreach ($data as $pic) {
+        $data = array(
+          'title' => $pic->post->title,
+          'link' => $pic->post->link_tiny,
+          'date' => $pic->post->created_on_epoch,
+          'image' => _download_mobypic_file($pic->post->media->url_full),
+          'type' => 'mobypic',
+        );
+        $ret .= theme('pressnow_socialmedia_row', $data);
+      }
+      $ret .= '</div></div>';
+      $ret .= '<div class="social-media-older"><div class="button">Older</div></div>';
+      $ret .= '<div id="socialmedia_refresh" class="mobypic">refresh</div>';
+    }
+    else {
+      $ret .= '<div class="social-media-content"><div class="social-media-content-inner">';
+      $ret .= 'No content found';
+      $ret .= '</div></div>';
+      $ret .= '<div id="socialmedia_refresh" class="mobypic">refresh</div>';
+    }
+    return $ret;
+  }
+  return FALSE;
+}
+
+/**
+ * Function that loads the last x status updates from a mobypic account
+ * @param String $username
+ */
+function _get_mobypic_data($username) {
+  $url = 'http://api.mobypicture.com/?k=' . MOBYPIC_API_KEY . '&action=searchPosts&format=json&searchUsername=' . $username . '&searchItemsPerPage=' . SOCIALMEDIA_MOBYPIC_NUM_POSTS;
+  $data = _get_curl_data($url);
+  if($data) {
+    return $data->results;
+  }
+  else {
+    return FALSE;
+  }
+}
+
+function _download_mobypic_file($url) {
+  $arr = explode('/', $url);
+  $folder = file_directory_path() . '/mobypic_files';
+  $filename = $arr[count($arr) - 1];
+
+  // check if folders exist
+  if (!file_check_directory($folder)) {
+    mkdir($folder);
+  }
+  
+  $file_path = $folder . '/' . $filename;
+  if (!file_exists($file_path)) {
+    $content = file_get_contents(str_replace(' ', '%20', $url));
+    file_put_contents($file_path, $content);
+  }
+  
+  return $file_path;
+}
+
+/**
+ * Helper function that handles the curl requests
+ * @param String $url
+ */
+function _get_curl_data($url) {
+  $c = curl_init($url);
+  curl_setopt($c, CURLOPT_RETURNTRANSFER, 1);
+  $page = json_decode(curl_exec($c));
+  curl_close($c);
+  if($page) {
+    return $page;
+  }
+  else {
+    return FALSE;
+  }
+}
+
+/**
+ * Process variables for pressnow_socialmedia_row.tpl.php.
+ *
+ * The $variables array contains the following arguments:
+ * - $data
+ *
+ */
+function template_preprocess_pressnow_socialmedia_row(&$vars) {
+  $vars['type'] = $vars['data']['type'];
+  switch ($vars['data']['type']) {
+    case 'facebook':
+      if (!empty($vars['data']['link'])) {
+        $vars['title'] = l($vars['data']['title'], $vars['data']['link'], array('attributes' => array('target' => '_blank')));
+      }
+      else {
+        $vars['title'] = twitterify($vars['data']['title']);
+      }
+      $vars['date'] = date('g:i A M jS', $vars['data']['date']);
+      break;
+    case 'mobypic':
+      $vars['title'] = $vars['data']['title'];
+      $vars['image'] = l(theme('imagecache', 'sidebar_image', $vars['data']['image']), $vars['data']['link'], array('html' => TRUE, 'attributes' => array('target' => '_blank')));
+      $vars['date'] = timesince($vars['data']['date']);
+      break;
+    case 'twitter':
+    default:
+      $vars['user'] = l($vars['data']['user'], 'http://www.twitter.com/' . $vars['data']['user'], array('attributes' => array('target' => '_blank')));
+      $vars['title'] = twitterify($vars['data']['title']);
+      $vars['date'] = date('g:i A M jS', $vars['data']['date']);
+      break;
+  }
+}
+
+/**
+ * Settings form for the social media blocks. In this form you can set the usernames that will be used in the blocks
+ */
+function _pressnow_socialmedia_settings() {
+  $form = array();
+  
+  $form['socialmedia_twitter_terms'] = array(
+    '#title' => t('Twitter searchterms'),
+    '#type' => 'textfield',
+    '#default_value' => variable_get('socialmedia_twitter_terms', ''),
+    '#description' => t('Input the term or terms you want to search for. If you want to search for multiple terms use "#term1 OR #term2" or "#term1 #term2".'),
+    '#maxlength' => 130,
+  );
+  $form['socialmedia_facebook_user'] = array(
+    '#title' => t('Facebook user ID'),
+    '#type' => 'textfield',
+    '#default_value' => variable_get('socialmedia_facebook_user', ''),
+    '#maxlength' => 20,
+  	'#size' => 20,
+  );
+  $form['socialmedia_mobypicture_user'] = array(
+    '#title' => t('Mobypicture username'),
+    '#type' => 'textfield',
+    '#default_value' => variable_get('socialmedia_mobypicture_user', ''),
+    '#maxlength' => 255,
+  );
+  
+  $form = system_settings_form($form);
+  return $form;
+}
+
+function _get_pressnow_socialmedia_ajax($type) {
+  $ret = FALSE;
+	switch ($type) {
+  	case 'twitter':
+    	$ret = _get_twitter_content();
+      break;
+    case 'facebook':
+      $ret = _get_facebook_content();
+      break;
+    case 'mobypic':
+      $ret = _get_mobypic_content();
+      break;
+  }
+  print $ret;
+}
+
+function twitterify($ret, $target = '_blank') {
+  $ret = preg_replace("#(^|[\n ])([\w]+?://[\w]+[^ \"\n\r\t< ]*)#", "\\1<a href=\"\\2\" target=\"" . $target . "\">\\2</a>", $ret);
+  $ret = preg_replace("#(^|[\n ])((www|ftp)\.[^ \"\t\n\r< ]*)#", "\\1<a href=\"http://\\2\" target=\"" . $target . "\">\\2</a>", $ret);
+  $ret = preg_replace("/@(\w+)/", "<a href=\"http://www.twitter.com/\\1\" target=\"" . $target . "\">@\\1</a>", $ret);
+  $ret = preg_replace("/#(\w+)/", "<a href=\"http://search.twitter.com/search?q=\\1\" target=\"" . $target . "\">#\\1</a>", $ret);
+  return $ret;
+}
+
+function timesince($original) {
+    // array of time period chunks
+    $chunks = array(
+      array(60 * 60 * 24 * 365 , 'year'),
+      array(60 * 60 * 24 * 30 , 'month'),
+      array(60 * 60 * 24 * 7, 'week'),
+      array(60 * 60 * 24 , 'day'),
+      array(60 * 60 , 'hour'),
+      array(60 , 'minute'),
+      #array(1 , 'second'),
+    );
+
+    $meervoud = array('year' => 'years', 'month' => 'months', 'week' => 'weeks', 'day' => 'days', 'hour' => 'hours', 'minute' => 'minutes', 'second' => 'seconds');
+    
+    $today = time(); /* Current unix time  */
+    $since = $today - $original;
+
+    // $j saves performing the count function each time around the loop
+    for ($i = 0, $j = count($chunks); $i < $j; $i++) {
+      $seconds = $chunks[$i][0];
+      $name = $chunks[$i][1];
+
+      // finding the biggest chunk (if the chunk fits, break)
+      if (($count = floor($since / $seconds)) != 0) {
+          break;
+      }
+    }
+
+    $print = ($count == 1) ? '1 ' . t('@name', array('@name' => $name)) : $count . " " . t('@name', array('@name' => $meervoud[$name]));
+
+    if ($i + 1 < $j) {
+      // now getting the second item
+      $seconds2 = $chunks[$i + 1][0];
+      $name2 = $chunks[$i + 1][1];
+    }
+    $print .= ' ' . t('ago');
+    return $print;
+}

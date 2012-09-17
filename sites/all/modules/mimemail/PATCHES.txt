@@ -1,0 +1,5 @@
+SB: Added patch mimemail-372710.patch
+----------------------------------------------------
+The patch above fixes plain text e-mails in Hotmail and some Outlook versions. Now all clients
+receive the HTML version.
+More on the issue: http://drupal.org/node/372710#comment-2102300

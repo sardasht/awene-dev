@@ -1,0 +1,191 @@
+.readmore a{
+	display: inline;
+}
+.no-sidebars #content{
+	float: right;
+	clear: both;
+	font-size: 13px;
+	margin-right: 0;
+	width: 840px;
+}
+.rtl #content #block-views-newsarchive-block_1 .more-link{
+	text-align: left !important;
+	width: 100%;
+}
+.rtl #block-views-newsarchive-block_1 .content .view-newsarchive {
+	background: #fff;
+	width: 100%;
+	margin: 0;
+	padding: 0;
+}
+.rtl #content #block-views-newsarchive-block_3 .content .view-newsarchive,
+.rtl #content #block-views-newsarchive-block_4 .content .view-newsarchive{
+	width: 520px;
+}
+.rtl #content #block-views-newsarchive-block_3 .more-link,
+.rtl #content #block-views-newsarchive-block_4 .more-link{
+	text-align: left !important;
+}
+.rtl #page{
+	margin-left: -10px;
+}
+.rtl #page-inner{
+	margin-left: 0;
+}
+.rtl .pane-related-by-tags-article .field-content a{
+	background: none;
+}
+.rtl .view-dossierarchive .views-field-field-teaser-image-fid img,
+.rtl .view-newsarchive .views-field-field-teaser-image-fid img,
+.rtl .view-taxonomy-term .views-field-field-teaser-image-fid img{
+	clear: right;
+	float: right;
+}
+.rtl .view-frontpage #carousel-nav{
+	right: 265px;
+}
+.view-frontpage #views_slideshow_thumbnailhover_main_frontpage-page_1{
+	left: 0;
+	position: relative;
+	top: 0;
+}
+.view-frontpage .view-content{
+	position: relative;
+}
+.view-frontpage .views-field-nothing{
+	bottom: 0;
+	width: 260px;
+}
+.view-frontpage .views-slideshow-controls-bottom{
+	height: 250px;
+	position: relative;
+	right: 0;
+	top: 0;
+}
+.view-nodequeue-1 .views-row,
+.view-nodequeue-4 .views-row{
+	clear: both;
+}
+.views_slideshow_singleframe_controls a.views_slideshow_singleframe_next{
+	background: transparent url('../gfx/slideshow-arrows-ie6.gif') right top no-repeat;
+}
+.views_slideshow_singleframe_controls a.views_slideshow_singleframe_previous{
+	background: transparent url('../gfx/slideshow-arrows-ie6.gif') left top no-repeat;
+}
+.views_slideshow_singleframe_slide{
+	width: 540px !important;
+}
+#bannerblock_bottom{
+	margin-left: 5px;
+}
+#bannerblock_header{
+	position: absolute;
+}
+#block-awene_blocks-currency{
+	margin-top: -27px;
+}
+#block-awene_blocks-currency{
+	margin-top: 0 !important;
+}
+#block-block-4{
+	height: 147px;
+	margin-bottom: 8px;
+}
+#block-views-columnists_view-block_1 .view-content ul li.views-row-last a{
+	width: 130px;
+}
+#block-views-homepage_dossiers-block_1{
+	margin: 0 10px;
+}
+#block-views-newsarchive-block_1 .more-link{
+	clear: both;
+	float: right;
+	overflow: hidden;
+}
+#block-views-newsarchive-block_3 .content,
+#block-views-newsarchive-block_4 .content,
+#block-views-blog-block_3 .content{
+	margin: 0;
+	overflow: hidden;
+	padding: 8px;
+	padding-top: 8px;
+}
+#block-views-newsarchive-block_4 .more-link,
+#block-views-newsarchive-block_3 .more-link,
+#block-views-newsarchive-block_5 .more-link{
+	clear: both;
+	overflow: hidden;
+}
+#block-views-newsarchive-block_5 h2.title,
+#block-views-newsarchive-block_4 h2.title,
+#block-views-newsarchive-block_3 h2.title,
+.front h2.title{
+	margin: 0;
+}
+#content #block-views-newsarchive-block_1 .more-link,
+#content #block-views-newsarchive-block_3 .more-link,
+#content #block-views-newsarchive-block_4 .more-link,
+#content #block-views-newsarchive-block_1 .more-link a,
+#content #block-views-newsarchive-block_3 .more-link a,
+#content #block-views-newsarchive-block_4 .more-link a{
+	float: none !important;
+	text-align: right !important;
+}
+#block-views-blog-block_3 .views-row{
+	height: 50px;
+}
+#content #block-views-newsarchive-block_3,
+#content #block-views-newsarchive-block_4{
+	padding: 0;
+}
+#headerimages{
+	border: 1px solid #d4d4d4;
+	border-width: 2px 0 0;
+	padding-left: 10px;
+}
+#header-inner{
+	height: 100px;
+	position: relative;
+	width: 820px;
+}
+#logo{
+	height: 160px;
+	margin: 0 !important;
+	width: 820px;
+}
+#logo-title{
+	height: 100px;
+	position: absolute;
+	right: 0;
+	top: 0;
+	width: 181px;
+}
+#navbar .block-nice_menus ul.nice-menu li a{
+	width: 45px;
+}
+#navbar-inner{
+	height: 30px;
+	width: 820px;
+}
+#queue-footer,
+#queue-footer-inner{
+	border: none;
+}
+#queue-footer-inner{
+	overflow: hidden;
+}
+#search-block-form{
+	height: 22px;
+}
+#views_slideshow_singleframe_controls_header_image-block_1{
+	width: 540px;
+}
+#views_slideshow_singleframe_controls_node_slideshow-default,
+#views_slideshow_singleframe_image_count_node_slideshow-default{
+	bottom: 0;
+	position: absolute;
+	right: 0;
+}
+#wrapper{
+	background-image: url('../gfx/bg.jpg');
+}

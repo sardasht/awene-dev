@@ -1,0 +1,1162 @@
+* html .clear-block{
+	height: 1%;
+}
+a.tabledrag-handle .handle{
+	background: url(../gfx/core/draggable.png) no-repeat 0 0;
+	height: 13px;
+	margin-top: 4px;
+	width: 13px;
+}
+a.tabledrag-handle:hover{
+	text-decoration: none;
+}
+a.tabledrag-handle-hover .handle{
+	background: 0 -20px;
+}
+body.drag{
+	cursor: move;
+}
+div.admin{
+	padding-top: 15px;
+}
+div.admin .expert-link{
+	margin-right: 1em;
+	padding-right: 4px;
+	text-align: right;
+}
+div.admin .left{
+	float: left;
+	margin-left: 1em;
+	width: 47%;
+}
+div.admin .right{
+	float: right;
+	margin-right: 1em;
+	width: 47%;
+}
+div.admin-dependencies,
+div.admin-required{
+	color: #444;
+	font-size: 0.9em;
+}
+div.admin-panel{
+	margin: 0;
+	padding: 5px 5px 15px 5px;
+}
+div.admin-panel .body{
+	padding: 0 4px 2px 8px;
+}
+div.admin-panel .description{
+	margin: 0 0 3px;
+	padding: 2px 0 3px 0;
+}
+div.error{
+	border: 1px solid #d77;
+}
+div.error,
+tr.error{
+	background: #fcc;
+	color: #200;
+	padding: 2px;
+}
+div.indentation{
+	float: left;
+	height: 1.7em;
+	margin: -0.4em 0.2em -0.4em -0.4em;
+	padding: 0.42em 0 0.42em 0.6em;
+	width: 20px;
+}
+div.ok{
+	border: 1px solid #00aa00;
+}
+div.ok,
+tr.ok{
+	background: #dfd;
+	color: #020;
+	padding: 2px;
+}
+div.password-description{
+	font-size: 0.85em;
+	margin: 4px 0 0 0;
+	max-width: 500px;
+	padding: 0 2px;
+}
+div.teaser-button-wrapper{
+	float: right;
+	margin: 0;
+	padding-right: 5%;
+}
+div.tree-child{
+	background: url(../gfx/core/tree.png) no-repeat 11px center;
+}
+div.tree-child-horizontal{
+	background: url(../gfx/core/tree.png) no-repeat -11px center;
+}
+div.tree-child-last{
+	background: url(../gfx/core/tree-bottom.png) no-repeat 11px center;
+}
+div.warning{
+	border: 1px solid #f0c020;
+}
+div.warning,
+tr.warning{
+	background: #ffd;
+	color: #220;
+	padding: 2px;
+}
+dl.multiselect .form-item{
+	height: 1.75em;
+	margin: 0;
+}
+dl.multiselect dd.a,
+dl.multiselect dd.a .form-item{
+	width: 8em;
+}
+dl.multiselect dd.b,
+dl.multiselect dd.b .form-item,
+dl.multiselect dd.b select{
+	font: inherit inherit;
+	width: 14em;
+}
+dl.multiselect dt,
+dl.multiselect dd{
+	float: left;
+	line-height: 1.75em;
+	margin: 0 1em 0 0;
+	padding: 0;
+}
+fieldset{
+	margin-bottom: 1em;
+	padding: .5em;
+}
+form,
+ul.links{
+	margin: 0;
+	padding: 0;
+}
+hr{
+	border: 1px solid gray;
+	height: 1px;
+}
+html.js .js-hide,
+#blocks tr.region-populated,
+#profile-fields tr.category-populated,
+html.js fieldset.collapsed *,
+textarea.teaser,
+html.js .no-js,
+#clean-url.install{
+	display: none;
+}
+html.js .resizable-textarea textarea{
+	display: block;
+	margin-bottom: 0;
+	width: 100%;
+}
+html.js .rtl fieldset.collapsed legend a{
+	background: url(../gfx/core/menu-collapsed-rtl.png) 98% 50%;
+}
+html.js .rtl fieldset.collapsible legend a{
+	background: 98% 75%;
+	padding-left: 0;
+	padding-right: 15px;
+}
+html.js .rtl input.form-autocomplete{
+	background: 0% 2px;
+}
+html.js .rtl input.throbbing{
+	background: 0% -18px;
+}
+html.js fieldset.collapsed{
+	border-bottom-width: 0;
+	border-left-width: 0;
+	border-right-width: 0;
+	height: 1em;
+	margin-bottom: 0;
+}
+html.js fieldset.collapsed legend a{
+	background: url(../gfx/core/menu-collapsed.png) 5px 50%;
+}
+html.js fieldset.collapsible{
+	position: relative;
+}
+html.js fieldset.collapsible .fieldset-wrapper{
+	overflow: auto;
+}
+html.js input.form-autocomplete{
+	background: url(../gfx/core/throbber.gif) no-repeat 100% 2px;
+}
+html.js input.throbbing{
+	background: 100% -18px;
+}
+img{
+	border: 0;
+}
+input.password-field,
+input.password-confirm{
+	margin-right: 10px;
+}
+li a.active{
+	color: #000;
+}
+li.collapsed{
+	list-style-image: url(../gfx/core/menu-collapsed.png);
+	list-style-type: disc;
+	margin: 0;
+	padding: 0.2em 0.5em 0 0;
+}
+li.expanded{
+	list-style-image: url(../gfx/core/menu-expanded.png);
+	list-style-type: circle;
+	margin: 0;
+	padding: 0.2em 0.5em 0 0;
+}
+li.leaf{
+	list-style-image: url(../gfx/core/menu-leaf.png);
+	list-style-type: square;
+	margin: 0;
+	padding: 0.2em 0.5em 0 0;
+}
+span.admin-disabled{
+	color: #800;
+}
+span.admin-enabled{
+	color: #080;
+}
+span.admin-missing,
+.marker,
+.form-required{
+	color: #f00;
+}
+span.password-confirm span{
+	font-weight: normal;
+}
+span.password-confirm,
+html.js .custom-container label,
+span.password-strength{
+	visibility: hidden;
+}
+table{
+	border-collapse: collapse;
+}
+table.screenshot{
+	margin-right: 1em;
+}
+table.sticky-header{
+	background: #fff;
+	margin-top: 0;
+}
+table.system-status-report th{
+	background: no-repeat 5px 50%;
+	padding-bottom: 6px;
+	padding-top: 6px;
+}
+table.system-status-report th,
+table.system-status-report tr.merge-up td{
+	padding-left: 30px;
+}
+table.system-status-report tr.error th{
+	background: url(../gfx/core/watchdog-error.png);
+}
+table.system-status-report tr.ok th{
+	background: url(../gfx/core/watchdog-ok.png);
+}
+table.system-status-report tr.warning th{
+	background: url(../gfx/core/watchdog-warning.png);
+}
+table.update,
+.update table.version{
+	margin-top: .5em;
+	width: 100%;
+}
+tbody{
+	border-top: 1px solid #ccc;
+}
+td.active{
+	background: #ddd;
+}
+td.menu-disabled{
+	background: #ccc;
+}
+td.poll-chtext{
+	width: 80%;
+}
+td.poll-chvotes .form-text{
+	width: 85%;
+}
+td.revision-current,
+tr.selected td{
+	background: #ffc;
+}
+th,
+thead th{
+	border-bottom: 3px solid #ccc;
+	padding-right: 1em;
+	text-align: left;
+}
+tr .ahah-progress .throbber{
+	margin: 0 2px;
+}
+tr.dblog-content{
+	background: #ddf;
+}
+tr.dblog-content .active{
+	background: #cce;
+}
+tr.dblog-error{
+	background: #ffc9c9;
+}
+tr.dblog-error .active{
+	background: #eeb9b9;
+}
+tr.dblog-page-not-found .active,
+tr.dblog-access-denied .active{
+	background: #cec;
+}
+tr.dblog-page-not-found,
+tr.dblog-access-denied,
+.update tr.ok{
+	background: #dfd;
+}
+tr.dblog-user .active{
+	background: #eed;
+}
+tr.dblog-user,
+.update tr.warning{
+	background: #ffd;
+}
+tr.drag{
+	background: #fffff0;
+}
+tr.drag-previous{
+	background: #ffd;
+}
+tr.even,
+tr.odd{
+	background: #eee;
+	border-bottom: 1px solid #ccc;
+	padding: 0.1em 0.6em;
+}
+tr.merge-down,
+tr.merge-down td,
+tr.merge-down th{
+	border-bottom-width: 0 !important;
+}
+tr.merge-up,
+tr.merge-up td,
+tr.merge-up th{
+	border-top-width: 0 !important;
+}
+tr.odd .form-item,
+tr.even .form-item{
+	margin-bottom: 0;
+	margin-top: 0;
+	white-space: nowrap;
+}
+tr.taxonomy-term-divider-bottom{
+	border-top: 1px dotted #CCC;
+}
+tr.taxonomy-term-divider-top{
+	border-bottom: none;
+}
+tr.taxonomy-term-preview{
+	background: #EEE;
+}
+ul.links li{
+	display: inline;
+	list-style-type: none;
+	padding: 0 0.5em;
+}
+ul.menu{
+	border: none;
+	list-style: none;
+	text-align: left;
+}
+ul.menu li{
+	margin: 0 0 0 0.5em;
+}
+ul.primary{
+	border-bottom: 1px solid #bbb;
+	border-collapse: collapse;
+	height: auto;
+	line-height: normal;
+	list-style: none;
+	margin: 5px;
+	padding: 0 0 0 1em;
+	white-space: nowrap;
+}
+ul.primary li a{
+	background: #ddd;
+	border-color: #bbb;
+	border-style: solid solid none solid;
+	border-width: 1px;
+	height: auto;
+	margin-right: 0.5em;
+	padding: 0 1em;
+	text-decoration: none;
+}
+ul.primary li a:hover{
+	background: #eee;
+	border-bottom-color: #eee;
+	border-color: #ccc;
+}
+ul.primary li,
+* html.js fieldset.collapsed legend,
+* html.js fieldset.collapsed legend *,
+* html.js fieldset.collapsed table *,
+.terms-inline,
+ul.links.inline,
+th.active img,
+.container-inline div,
+.container-inline label{
+	display: inline;
+}
+ul.primary li.active a{
+	background: #fff;
+	border: 1px solid #bbb;
+	border-bottom: #fff 1px solid;
+}
+ul.secondary{
+	border-bottom: 1px solid #bbb;
+	margin: 5px;
+	padding: 0.5em 1em;
+}
+ul.secondary a{
+	padding: 0;
+	text-decoration: none;
+}
+ul.secondary a.active{
+	border-bottom: 4px solid #999;
+}
+ul.secondary li{
+	border-right: 1px solid #ccc;
+	display: inline;
+	padding: 0 1em;
+}
+.ahah-progress .throbber{
+	background: transparent url(../gfx/core/throbber.gif) no-repeat 0 -18px;
+	float: left;
+	height: 15px;
+	margin: 2px;
+	width: 15px;
+}
+.ahah-progress-bar{
+	width: 16em;
+}
+.block ul{
+	margin: 0;
+	padding: 0 0 0.25em 1em;
+}
+.block-region{
+	background: #ff6;
+	margin-bottom: 4px;
+	margin-top: 4px;
+	padding: 3px;
+}
+.breadcrumb{
+	padding-bottom: .5em;
+}
+.clear-block,
+html.js fieldset.collapsible legend a,
+html.js fieldset.collapsible legend a,
+.clear-block,
+html.js fieldset.collapsed legend{
+	display: block;
+}
+.clear-block:after{
+	clear: both;
+	content: ".";
+	display: block;
+	height: 0;
+	visibility: hidden;
+}
+.comment-unpublished,
+.node-unpublished{
+	background: #fff4f4;
+}
+.confirm-parent{
+	margin: 5px 0 0 0;
+}
+.current-version,
+.new-version{
+	direction: ltr;
+}
+.date-container{
+	clear: left;
+	overflow: auto;
+}
+.date-container .custom-container{
+	margin-left: 15px;
+	width: 50%;
+}
+.draggable a.tabledrag-handle{
+	cursor: move;
+	float: left;
+	height: 1.7em;
+	margin: -0.4em 0 -0.4em -0.5em;
+	padding: 0.42em 1.5em 0.42em 0.5em;
+	text-decoration: none;
+}
+.error{
+	color: #e55;
+}
+.form-checkboxes .form-item,
+.form-radios .form-item{
+	margin-bottom: 0.4em;
+	margin-top: 0.4em;
+}
+.form-checkboxes,
+.form-radios{
+	margin: 1em 0;
+}
+.form-item{
+	margin-bottom: 1em;
+	margin-top: 1em;
+}
+.form-item input.error,
+.form-item textarea.error,
+.form-item select.error{
+	border: 2px solid red;
+}
+.form-item label{
+	display: block;
+	font-weight: bold;
+}
+.form-item label.option{
+	display: inline;
+	font-weight: normal;
+}
+.forum-topic-navigation{
+	border-bottom: 1px solid #888;
+	border-top: 1px solid #888;
+	padding: 1em 0 0 3em;
+	padding: 0.5em;
+	text-align: center;
+}
+.forum-topic-navigation .topic-next{
+	float: right;
+	text-align: left;
+	width: 46%;
+}
+.forum-topic-navigation .topic-previous{
+	float: left;
+	text-align: right;
+	width: 46%;
+}
+.help-items{
+	float: left;
+	padding-right: 3%;
+	width: 22%;
+}
+.help-items-last{
+	padding-right: 0;
+}
+.indented{
+	margin-left: 25px;
+}
+.item-list .icon{
+	clear: right;
+	color: #555;
+	float: right;
+	padding-left: 0.25em;
+}
+.item-list .pager{
+	clear: both;
+	text-align: center;
+}
+.item-list .pager li{
+	background: none;
+	display: inline;
+	list-style-type: none;
+	padding: 0.5em;
+}
+.item-list ul{
+	margin: 0 0 0.75em 0;
+	padding: 0;
+}
+.item-list ul li{
+	list-style: disc;
+	margin: 0 0 0.25em 1.5em;
+	padding: 0;
+}
+.joined + .grippie{
+	background: center 1px;
+	height: 5px;
+	margin-bottom: -2px;
+}
+.locale-untranslated{
+	font-style: normal;
+	text-decoration: line-through;
+}
+.more-help-link{
+	font-size: 0.85em;
+	text-align: right;
+}
+.node-form #edit-poll-more{
+	margin: 0;
+}
+.node-form .attachments fieldset{
+	display: block;
+	float: none;
+}
+.node-form .container-inline .form-text{
+	display: inline;
+	width: auto;
+}
+.node-form .form-text,
+.node-form textarea{
+	display: block;
+	width: 95%;
+}
+.ok{
+	color: #008000;
+}
+.password-parent{
+	margin: 0 0 0 0;
+}
+.poll .bar{
+	background: #ddd;
+	height: 1em;
+	margin: 1px 0;
+}
+.poll .bar .foreground{
+	background: #000;
+	float: left;
+	height: 1em;
+}
+.poll .vote-form .choices{
+	display: table;
+	margin: 0 auto;
+	text-align: left;
+}
+.preview .comment,
+.preview .node{
+	background: #ffffea;
+}
+.profile{
+	clear: both;
+	margin: 1em 0;
+}
+.profile .picture{
+	float: right;
+	margin: 0 1em 1em 0;
+}
+.profile dd{
+	margin: 0 0 1em 0;
+}
+.profile dl{
+	margin: 0 0 1.5em 0;
+}
+.profile dt{
+	font-weight: bold;
+	margin: 0 0 0.2em 0;
+}
+.profile h3,
+table.system-status-report th,
+tbody th{
+	border-bottom: 1px solid #ccc;
+}
+.progress .bar{
+	background: #fff url(../gfx/core/progress.gif);
+	border: 1px solid #00375a;
+	height: 1.5em;
+	margin: 0 0.2em;
+}
+.progress .filled{
+	background: #0072b9;
+	border-bottom: 0.5em solid #004a73;
+	height: 1em;
+	width: 0%;
+}
+.progress,
+#system-modules div.incompatible,
+#system-themes-form div.incompatible,
+.update table.version-recommended-strong .version-title,
+#permissions td.module,
+#blocks td.region,
+.poll .vote-form .choices .title,
+#profile-fields td.category,
+.item-list .title,
+ol.task-list li.active,
+.pager-current{
+	font-weight: bold;
+}
+.resizable-textarea{
+	width: 95%;
+}
+.resizable-textarea .grippie{
+	background: #eee url(../gfx/core/grippie.png) no-repeat center 2px;
+	border: 1px solid #ddd;
+	border-top-width: 0;
+	cursor: s-resize;
+	height: 9px;
+	overflow: hidden;
+}
+.rtl #access-rules .access-type,
+.rtl #access-rules .rule-type{
+	float: right;
+	margin-left: 1em;
+	margin-right: 0;
+}
+.rtl #dblog-filter-form .form-item{
+	float: right;
+	padding-left: .8em;
+	padding-right: 0;
+}
+.rtl #forum tr td.forum{
+	background: 98% 2px;
+	padding-left: 0.5em;
+	padding-right: 25px;
+}
+.rtl #node-admin-buttons,
+.rtl #user-admin-buttons{
+	clear: left;
+	float: right;
+	margin-left: 0;
+	margin-right: 0.5em;
+}
+.rtl #permissions td.permission{
+	padding-left: 0;
+	padding-right: 1.5em;
+}
+.rtl .ahah-progress .throbber,
+.progress .percentage,
+.rtl .poll .bar .foreground,
+.rtl .date-container .select-container,
+.date-container .custom-container,
+.rtl .progess-disabled,
+.rtl .ahah-progress{
+	float: right;
+}
+.rtl .date-container{
+	clear: right;
+}
+.rtl .date-container .custom-container{
+	margin-left: 0;
+	margin-right: 15px;
+}
+.rtl .draggable a.tabledrag-handle{
+	float: right;
+	margin: -0.4em -0.5em -0.4em 0;
+	padding: 0.42em 0.5em 0.42em 1.5em;
+}
+.rtl .forum-topic-navigation{
+	padding: 1em 3em 0 0;
+}
+.rtl .forum-topic-navigation .topic-next{
+	float: left;
+	text-align: right;
+}
+.rtl .forum-topic-navigation .topic-previous{
+	float: right;
+	text-align: left;
+}
+.rtl .help-items{
+	float: right;
+	padding-left: 3%;
+	padding-right: 0;
+}
+.rtl .help-items-last{
+	padding-left: 0;
+	padding-right: 0;
+}
+.rtl .indented{
+	margin-left: 0;
+	margin-right: 25px;
+}
+.rtl .item-list .icon{
+	clear: left;
+	float: left;
+	padding-left: 0;
+	padding-right: 0.25em;
+}
+.rtl .more-help-link,
+.rtl .poll .percent,
+.rtl .more-link{
+	text-align: left;
+}
+.rtl .poll .vote-form .choices,
+.poll .percent,
+.rtl ul.menu,
+.more-link{
+	text-align: right;
+}
+.rtl .profile .picture{
+	float: left;
+	margin: 0 0 1em 1em;
+}
+.rtl .progress .percentage,
+.progress-disabled,
+.ahah-progress,
+.rtl #aggregator .feed-source .feed-icon,
+.date-container .select-container,
+.date-container .custom-container{
+	float: left;
+}
+.rtl .search-advanced .action{
+	clear: right;
+	float: right;
+}
+.rtl .search-advanced .criterion{
+	float: right;
+	margin-left: 2em;
+	margin-right: 0;
+}
+.rtl .teaser-checkbox div.form-item{
+	float: left;
+	margin: 0 0 0 5%;
+}
+.rtl .update .check-manually{
+	padding-right: 1em;
+}
+.rtl .update .project{
+	padding-right: .25em;
+}
+.rtl .update .version-status{
+	float: left;
+	padding-left: 10px;
+}
+.rtl .update .version-status .icon,
+.update table.version .version-details{
+	padding-right: .5em;
+}
+.rtl .update table.version .version-details{
+	direction: ltr;
+	padding-left: .5em;
+}
+.rtl .update table.version .version-links{
+	padding-left: 1em;
+	text-align: left;
+}
+.rtl .update table.version .version-title,
+.update .check-manually{
+	padding-left: 1em;
+}
+.rtl div.admin .expert-link{
+	margin-left: 1em;
+	margin-right: 0;
+	padding-left: 4px;
+	padding-right: 0;
+	text-align: left;
+}
+.rtl div.admin-panel .body{
+	padding: 0 8px 2px 4px;
+}
+.rtl div.indentation{
+	float: right;
+	margin: -0.4em -0.4em -0.4em 0.2em;
+	padding: 0.42em 0.6em 0.42em 0;
+}
+.rtl div.teaser-button-wrapper{
+	float: left;
+	padding-left: 5%;
+	padding-right: 0;
+}
+.rtl div.tree-child,
+div.tree-child-last{
+	background: -65px center;
+}
+.rtl dl.multiselect dt,
+dl.multiselect dd{
+	float: right;
+	margin: 0 0 0 1em;
+}
+.rtl input.password-field,
+.rtl input.password-confirm{
+	margin-left: 10px;
+	margin-right: 0;
+}
+.rtl li.collapsed{
+	list-style-image: url(../gfx/core/menu-collapsed-rtl.png);
+	padding: 0.2em 0 0 0.5em;
+}
+.rtl li.expanded,
+.rtl li.leaf{
+	padding: 0.2em 0 0 0.5em;
+}
+.rtl table.screenshot{
+	margin-left: 1em;
+}
+.rtl table.system-status-report th{
+	background: 95% 50%;
+}
+.rtl table.system-status-report th,
+table.system-status-report tr.merge-up td{
+	padding-right: 30px;
+}
+.rtl th{
+	padding-left: 1em;
+	padding-right: 0;
+	text-align: right;
+}
+.rtl thead th{
+	padding-left: 1em;
+	padding-right: 0.5em;
+	text-align: right;
+}
+.rtl ul.menu li{
+	margin: 0 0.5em 0 0;
+}
+.rtl ul.primary{
+	padding: 0 1em 0 0;
+}
+.rtl ul.primary li a{
+	margin-left: 0.5em;
+	margin-right: 5px;
+}
+.rtl ul.secondary li{
+	border-left: 1px solid #ccc;
+	border-right: none;
+	display: inline;
+	padding: 0 1em;
+}
+.search-advanced .action{
+	clear: left;
+	float: left;
+}
+.search-advanced .criterion{
+	float: left;
+	margin-right: 2em;
+}
+.search-form input{
+	margin-bottom: 0;
+	margin-top: 0;
+}
+.search-form,
+.search-results dd{
+	margin-bottom: 1em;
+}
+.search-results .search-info,
+.form-item .description{
+	font-size: 0.85em;
+}
+.search-results dt{
+	font-size: 1.1em;
+}
+.search-results p,
+.theme-info p,
+.date-container .form-item,
+#access-rules .access-type .form-item,
+#access-rules .rule-type .form-item{
+	margin-top: 0;
+}
+.taxonomy-term-description{
+	margin: 5px 0 20px;
+}
+.teaser-checkbox{
+	padding-top: 1px;
+}
+.teaser-checkbox div.form-item{
+	float: right;
+	margin: 0 5% 0 0;
+	padding: 0;
+}
+.theme-info h2,
+div.password-description ul{
+	margin-bottom: 0;
+}
+.theme-settings-left{
+	float: left;
+	width: 49%;
+}
+.theme-settings-right{
+	float: right;
+	width: 49%;
+}
+.tips{
+	font-size: 0.9em;
+	margin-bottom: 0;
+	margin-top: 0;
+	padding-bottom: 0;
+	padding-top: 0;
+}
+.update .info{
+	margin: 0;
+	padding: 1em 1em .25em 1em;
+}
+.update .project{
+	font-size: 110%;
+	font-weight: bold;
+	height: 22px;
+	padding-left: .25em;
+}
+.update .security-error{
+	color: #970F00;
+	font-weight: bold;
+}
+.update .version-date,
+#forum td.created,
+#forum td.posts,
+#forum td.topics,
+#forum td.last-reply,
+#forum td.replies,
+#forum td.pager,
+.nowrap{
+	white-space: nowrap;
+}
+.update .version-status{
+	float: right;
+	font-size: 110%;
+	height: 20px;
+	padding-right: 10px;
+}
+.update .version-status .icon{
+	padding-left: .5em;
+}
+.update table.version .version-links{
+	padding-right: 1em;
+	text-align: right;
+}
+.update table.version .version-title{
+	padding-left: 1em;
+	width: 14em;
+}
+.update table.version tbody{
+	border: none;
+}
+.update table.version tr,
+.update table.version td{
+	border: none;
+	line-height: .9em;
+	margin: 0;
+	padding: 0;
+}
+.update table.version-security .version-title{
+	color: #970F00;
+}
+.update tr td{
+	border-bottom: 1px solid #ccc;
+	border-top: 1px solid #ccc;
+}
+.update tr.error{
+	background: #fcc;
+}
+.update tr.error .version-recommended{
+	background: #fdd;
+}
+.update tr.warning .version-recommended{
+	background: #ffe;
+}
+.warning{
+	color: #e09010;
+}
+#access-rules .access-type,
+#access-rules .rule-type{
+	float: left;
+	margin-right: 1em;
+}
+#access-rules .mask,
+.node-form .standard,
+.theme-settings-bottom{
+	clear: both;
+}
+#autocomplete{
+	border: 1px solid;
+	overflow: hidden;
+	position: absolute;
+	z-index: 100;
+}
+#autocomplete li{
+	background: #fff;
+	color: #000;
+	cursor: default;
+	white-space: pre;
+}
+#autocomplete li.selected{
+	background: #0072b9;
+	color: #fff;
+}
+#autocomplete ul{
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+#blocks tr.region-message{
+	color: #999;
+	font-weight: normal;
+}
+#dblog-filter-form .form-item{
+	float: left;
+	margin: 0.1em;
+	padding-right: .8em;
+	width: 15em;
+}
+#dblog-filter-form .form-item select.form-select,
+table.package,
+table.package .description,
+#tracker table{
+	width: 100%;
+}
+#first-time strong{
+	display: block;
+	padding: 1.5em 0 .5em;
+}
+#forum .description{
+	font-size: 0.9em;
+	margin: 0.5em;
+}
+#forum div.indent{
+	margin-left: 20px;
+}
+#forum tr td.forum{
+	background: url(../gfx/core/forum-default.png) no-repeat 2px 2px;
+	padding-left: 25px;
+}
+#forum tr.new-topics td.forum{
+	background: url(../gfx/core/forum-new.png);
+}
+#node-admin-buttons,
+#user-admin-buttons{
+	clear: right;
+	float: left;
+	margin-left: 0.5em;
+}
+#node-admin-filter ul,
+#user-admin-filter ul{
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	width: 100%;
+}
+#permissions td.permission{
+	padding-left: 1.5em;
+}
+#profile-fields tr.category-message{
+	color: #999;
+}
+#update-results{
+	background: #eee;
+	border: 1px solid #ccc;
+	font-size: smaller;
+	margin-top: 3em;
+	padding: 0.25em;
+}
+#update-results h2{
+	margin-top: 0.25em;
+}
+#update-results h4{
+	margin-bottom: 0.25em;
+}
+#update-results li.failure strong{
+	color: #b63300;
+}
+#update-results li.none{
+	color: #888;
+	font-style: italic;
+}
+#user-admin-settings fieldset .description{
+	font-size: 0.85em;
+	padding-bottom: .5em;
+}
+#user-login-form,
+#forum td.posts,
+#forum td.topics,
+#forum td.replies,
+#forum td.pager,
+.poll .links,
+.poll .total,
+.poll .vote-form,
+td.checkbox,
+th.checkbox,
+#tracker td.replies{
+	text-align: center;
+}

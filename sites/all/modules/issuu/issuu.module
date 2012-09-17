@@ -1,0 +1,518 @@
+<?php
+
+include_once dirname(__FILE__) . '/issuu.api.inc';
+
+/**
+ * Implementation of hook_help().
+ */
+function issuu_help($path, $arg) {
+  $output = '';
+  switch ($path) {
+  case "admin/help#issuu":
+    $output = '<p>'.  t("Provides integration with issuu.com API.") .'</p>';
+    break;
+  }
+  return $output;
+}
+
+/**
+ * Implementation of hook_perm().
+ */
+function issuu_perm() {
+  return array('administer global issuu integration');
+}
+
+/**
+ * Implementation of hook_menu().
+ */
+function issuu_menu() {
+
+  $items = array();
+
+  $items['admin/settings/issuu/global'] = array(
+    'title' => 'Issuu Global settings',
+    'description' => 'Modify the information related to the global account of the site',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('issuu_admin'),
+    'access arguments' => array('administer global issuu integration'),
+    'type' => MENU_NORMAL_ITEM,
+   );
+
+  return $items;
+}
+
+/**
+ * Form callback for "admin/settings/issuu/global":
+ */
+function issuu_admin() {
+  $form = array();
+
+  $form['issuu_global_apikey'] = array(
+    '#type' => 'textfield',
+    '#title' => t('issuu.com API key'),
+    '#default_value' => variable_get('issuu_global_apikey', ''),
+    '#maxlength' => 32,
+    '#description' => t('The issuu.com API key which is going to be used as the global access API key.'),
+    '#required' => TRUE,
+  );
+  $form['issuu_global_apisecret'] = array(
+    '#type' => 'textfield',
+    '#title' => t('issuu.com API secret'),
+    '#default_value' => variable_get('issuu_global_apisecret', ''),
+    '#maxlength' => 32,
+    '#description' => t('The issuu.com API secret that is neede to calculate the signature of each request.'),
+    '#required' => TRUE,
+  );
+  $form['issuu_global_width'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Embed Width (px)'),
+    '#default_value' => variable_get('issuu_global_width', '420'),
+    '#maxlength' => 4,
+    '#description' => t('Width for Page Flip and presentation formatters in pixels.'),
+    '#required' => TRUE,
+  );
+  $form['issuu_global_height'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Embed Height (px)'),
+    '#default_value' => variable_get('issuu_global_height', '297'),
+    '#maxlength' => 4,
+    '#description' => t('Height for Page Flip and presentation formatters in pixels.'),
+    '#required' => TRUE,
+  );
+
+  return system_settings_form($form);
+}
+
+/**
+ * Validation callback for "admin/settings/issuu/global":
+ */
+function issuu_admin_validate($form, &$form_state) {
+  $issuu_global_apikey = $form_state['values']['issuu_global_apikey'];
+  $issuu_global_apisecret = $form_state['values']['issuu_global_apisecret'];
+  $issuu_global_width = $form_state['values']['issuu_global_width'];
+  $issuu_global_height = $form_state['values']['issuu_global_height'];
+
+  if (strlen($issuu_global_apikey) != 32) {
+    form_set_error('issuu_global_apikey', t('You must enter a valid issuu.com API key(32 characters).'));
+  }
+  if (strlen($issuu_global_apisecret) != 32) {
+    form_set_error('issuu_global_apisecret', t('You must enter a valid issuu.com API secret(32 characters).'));
+  }
+  if ( $issuu_global_width<=0 || $issuu_global_width!=round($issuu_global_width) ) {
+    form_set_error('issuu_global_width', t('Width should be a positive integer number.'));
+  }
+  if ( $issuu_global_height<=0 || $issuu_global_height!=round($issuu_global_height)  ) {
+    form_set_error('issuu_global_height', t('Height should be a positive integer number.'));
+  }
+}
+
+/**
+ * Implementation of hook_theme().
+ */
+function issuu_theme($existing, $type, $theme, $path) {
+  return array(
+    // issuu_widget form element type theme function.
+    'issuu_widget' => array(
+      'arguments' => array('element' => NULL),
+    ),
+    // Theme function for the field item elements. allows you to place children
+    // within the context of the parent.
+    'issuu_widget_item' => array(
+      'arguments' => array('element' => NULL),
+    ),
+    // Themes for the formatters
+    'issuu_formatter_ffpageflip' => array(
+      'arguments' => array('element' => NULL),
+    ),
+    'issuu_formatter_ffpresentation' => array(
+      'arguments' => array('element' => NULL),
+    ),
+    'issuu_formatter_issuuthumb' => array(
+      'arguments' => array('element' => NULL),
+    ),
+  );
+}
+
+//
+// elements
+//
+
+/**
+ * Implementation of hook_elements().
+ */
+function issuu_elements() {
+  $elements = array();
+  $filefield_elements = module_invoke('filefield', 'elements');
+  $elements['issuu_widget'] = $filefield_elements['filefield_widget'];
+  $elements['issuu_widget']['#process'][] = 'issuu_widget_process';
+  $elements['issuu_widget']['#element_validate'][] = 'issuu_widget_validate';
+  return $elements;
+}
+
+/**
+ * FormAPI theme function. Theme the output of an issuu filefield.
+ */
+function theme_issuu_widget($element) {
+  return theme('form_element', $element, $element['#children']);
+}
+
+function theme_issuu_widget_item($element) {
+  return theme('filefield_widget_item', $element);
+}
+
+/**
+ * Element #process callback function.
+ */
+function issuu_widget_process($element, $edit, &$form_state, $form) {
+  //TODO validate fields on submit
+  $file = $element['#value'];
+  $field = content_fields($element['#field_name'], $element['#type_name']);
+
+  $element['#theme'] = 'issuu_widget_item';
+
+  $invisible = array();
+  foreach ($field['widget']['issuu_visibility'] as $name => $value) {
+    if ($value === 0) {
+      $invisible[] = $name;
+    }
+  }
+
+  //disable edit until we have edit working with issuu
+  $disabled = FALSE;
+  if (isset($element['#value']['data']['doc_metadata'])) {
+    $disabled = TRUE;
+  }
+
+  $issuu_widget_form = issuu_widget_form_builder($element['#default_value']['data'], $disabled, $invisible);
+  $element['data'] = array_merge($element['data'], $issuu_widget_form);
+  return $element;
+}
+
+/**
+ * Returns a the widget form filled with @param $default_values.
+ */
+function issuu_widget_form_builder($default_values, $disabled=FALSE, $invisible_items=array()) {
+  include_once './includes/locale.inc';
+  $form = array();
+  // names are build in this way: issuu_realApiName
+  // using prefix to avoid name collisions
+  $form['issuu_title'] = array(
+    '#type' => (in_array('issuu_title', $invisible_items)) ? 'hidden' : 'textfield',
+    '#title' => t('Title'),
+    '#default_value' => !empty($default_values['issuu_title'])? $default_values['issuu_title'] : '',
+    '#description' => t('The title of the document.'),
+    '#maxlength' => 100,
+    '#disabled' => $disabled,
+  );
+  $form['issuu_description'] = array(
+    '#type' => (in_array('issuu_description', $invisible_items)) ? 'hidden' : 'textarea',
+    '#title' => t('Description'),
+    '#default_value' => !empty($default_values['issuu_description'])? $default_values['issuu_description'] : '',
+    '#description' => t('A description about your document.'),
+    '#maxlength' => 1000,
+    '#disabled' => $disabled,
+  );
+  //TODO name at least 3 chars, lowercase(a-z), numbers(0-9), [_.-]
+  $form['issuu_name'] = array(
+    '#type' => (in_array('issuu_name', $invisible_items)) ? 'hidden' : 'textfield',
+    '#title' => t('Web name'),
+    '#default_value' => !empty($default_values['issuu_name'])? $default_values['issuu_name'] : '',
+    '#description' => t('How it is seen in the URL web address.'),
+    '#maxlength' => 50,//TODO find the issuu.com value
+    '#disabled' => $disabled,
+  );
+  //TODO tags lowercase(a-z), numbers(0-9), [.-]
+  $form['issuu_tags'] = array(
+    '#type' => (in_array('issuu_tags', $invisible_items)) ? 'hidden' : 'textfield',
+    '#title' => t('Keywords'),
+    '#default_value' => !empty($default_values['issuu_tags'])? $default_values['issuu_tags'] : '',
+    '#description' => t('Enter a few descriptive keywords. Example: news, sport, sun'),
+    '#maxlength' => 250,
+    '#disabled' => $disabled,
+  );
+  //TODO infoLink must be edited afternode creation, no maxlimit on issuu, so look at link module to an idea
+  $form['issuu_type'] = array(
+    '#type' => (in_array('issuu_type', $invisible_items)) ? 'hidden' : 'select',
+    '#title' => t('Type'),
+    '#default_value' => !empty($default_values['issuu_type'])? $default_values['issuu_type'] : '000000',
+    '#description' => t('The doument type.'),
+    '#options' => issuu_document_types(),
+    '#disabled' => $disabled,
+  );
+  $form['issuu_explicit'] = array(
+    '#type' => (in_array('issuu_explicit', $invisible_items)) ? 'hidden' : 'radios',
+    '#title' => t('Explicit content'),
+    '#default_value' => !empty($default_values['issuu_explicit'])? $default_values['issuu_explicit'] : 'true',
+    '#options' => array('true' => t('Yes'), 'false' => t('No')),
+    '#description' => t('Does the publication contains explicit content?'),
+    '#disabled' => $disabled,
+  );
+  $form['issuu_category'] = array(
+    '#type' => (in_array('issuu_category', $invisible_items)) ? 'hidden' : 'select',
+    '#title' => t('Category'),
+    '#default_value' => !empty($default_values['issuu_category'])? $default_values['issuu_category'] : '000000',
+    '#description' => t('The doument type.'),
+    '#options' => issuu_document_categories(),
+    '#disabled' => $disabled,
+  );
+  $form['issuu_language'] = array(
+    '#type' => (in_array('issuu_language', $invisible_items)) ? 'hidden' : 'select',
+    '#title' => t('Language'),
+    '#default_value' => !empty($default_values['issuu_language'])? $default_values['issuu_language'] : language_default('language'),
+    '#options' => issuu_get_languages(),
+    '#description' => t('Document language'),
+    '#disabled' => $disabled,
+  );
+  $form['issuu_soundUrl'] = array(
+    '#type' => (in_array('issuu_soundUrl', $invisible_items)) ? 'hidden' : 'textfield',
+    '#title' => t('Sound'),
+    '#default_value' => !empty($default_values['issuu_soundUrl'])? $default_values['issuu_soundUrl'] : '',
+    '#description' => t('Add audio to your publication by linking to an audio file (MP3, M3U).'),
+    '#maxlength' => 500,//TODO no maxlimit on issuu, so look at link module to an idea
+    '#disabled' => $disabled,
+  );
+  $form['issuu_access'] = array(
+    '#type' => (in_array('issuu_access', $invisible_items)) ? 'hidden' : 'radios',
+    '#title' => t('Publishing options'),
+    '#default_value' => !empty($default_values['issuu_access'])? $default_values['issuu_access'] : 'public',
+    '#options' => array('public' => t('Publish'), 'private' => t('Private')),
+    '#description' => t('Private actually means: Not listed on Issuu or Google. So, someone who knows the url can still access.'),
+    '#disabled' => $disabled,
+  );
+  $form['issuu_commentsAllowed'] = array(
+    '#type' => (in_array('issuu_commentsAllowed', $invisible_items)) ? 'hidden' : 'radios',
+    '#title' => t('Issuu comments'),
+    '#default_value' => !empty($default_values['issuu_commentsAllowed'])? $default_values['issuu_commentsAllowed'] : 'true',
+    '#options' => array('true' => t('Yes'), 'false' => t('No')),
+    '#description' => t('Are Issuu members allowed to comment?'),
+    '#disabled' => $disabled,
+  );
+  $form['issuu_ratingsAllowed'] = array(
+    '#type' => (in_array('issuu_ratingsAllowed', $invisible_items)) ? 'hidden' : 'radios',
+    '#title' => t('Issuu rating'),
+    '#default_value' => !empty($default_values['issuu_ratingsAllowed'])? $default_values['issuu_ratingsAllowed'] : 'true',
+    '#options' => array('true' => t('Yes'), 'false' => t('No')),
+    '#description' => t('Can other people rate this document at Issuu?'),
+    '#disabled' => $disabled,
+  );
+  $form['issuu_downloadable'] = array(
+    '#type' => (in_array('issuu_downloadable', $invisible_items)) ? 'hidden' : 'radios',
+    '#title' => t('Issuu download'),
+    '#default_value' => !empty($default_values['issuu_downloadable'])? $default_values['issuu_downloadable'] : 'false',
+    '#options' => array('true' => t('Yes'), 'false' => t('No')),
+    '#description' => t('Can other people download the original document at Issuu?'),
+    '#disabled' => $disabled,
+  );
+  //TODO publishDate field
+  //TODO folderIds field
+
+  return $form;
+}
+
+//
+// cck filefield stuff
+//
+
+/**
+ * Implementation of CCK's hook_widget_info().
+ */
+function issuu_widget_info() {
+  return array(
+    'issuu_widget' => array(
+      'label' => t('Issuu'),
+      'field types' => array('filefield'),
+      'multiple values' => CONTENT_HANDLE_CORE,
+      'callbacks' => array(
+        'default value' => CONTENT_CALLBACK_CUSTOM,
+      ),
+      'description' => t(''),
+    ),
+  );
+}
+
+/**
+ * Implementation of CCK's hook_widget_settings().
+ */
+function issuu_widget_settings($op, $widget) {
+  switch ($op) {
+    case 'form':
+      $form = module_invoke('filefield', 'widget_settings', 'form', $widget);
+      //set extra fields options
+      $issuu_widget_form = issuu_widget_form_builder($widget);
+      $options = array();
+      foreach ($issuu_widget_form as $name => $item) {
+        $options[$name] = $item['#title'];
+      }
+      $form['issuu_visibility'] = array(
+        '#type' => 'checkboxes',
+        '#description' => t('Choose the values you want to show.'),
+        '#default_value' => !empty($widget['issuu_visibility'])? $widget['issuu_visibility'] : array('title', ),
+        '#options' => $options,
+      );
+      $form['issuu_default'] = array(
+        '#type' => 'fieldset',
+        '#title' => t('Issuu default values'),
+        '#collapsible' => TRUE,
+        '#collapsed' => TRUE,
+      );
+      $form['issuu_default'] = array_merge($form['issuu_default'], $issuu_widget_form);
+      return $form;
+    //TODO case 'validate':
+    case 'save':
+      $filefield_settings = module_invoke('filefield', 'widget_settings', 'save', $widget);
+      //mention extra fields options to save
+      $issuu_widget_form = issuu_widget_form_builder($widget);
+      $issuu_settings = array_keys($issuu_widget_form);
+      $issuu_settings[] = 'issuu_visibility';
+      return array_merge($filefield_settings, $issuu_settings);
+  }
+}
+
+/**
+ * Implementation of CCK's hook_widget().
+ */
+function issuu_widget(&$form, &$form_state, $field, $items, $delta = 0) {
+  $element = filefield_widget($form, $form_state, $field, $items, $delta);
+  $item = $element['#default_value'];
+  foreach($field['widget'] as $setting => $default_value) {
+    if (strpos($setting, 'issuu_') !== FALSE) {
+      //$element['#default_value']['data'][$setting] = $default_value;
+      $item['data'][$setting] = $default_value;
+    }
+  }
+  if (isset($items[$delta])) {
+    $item = array_merge($item, $items[$delta]);
+  }
+  $element['#default_value'] = $item;
+  return $element;
+}
+
+/**
+ * Implementation of CCK's hook_default_value().
+ */
+function issuu_default_value(&$form, &$form_state, $field, $delta) {
+  return filefield_default_value($form, $form_state, $field, $delta);
+}
+
+/**
+ * Implementation of hook_nodeapi().
+ */
+function issuu_nodeapi(&$node, $op, $a3 = NULL, $a4 = NULL) {
+  switch ($op) {
+    case 'presave':
+      //TODO handle remove/edit without re-sending ? see scribdfield_widget_process()
+      // search a cck field with an issuu widget
+      foreach ($node as $attribute => $value) {
+        if (strpos($attribute, 'field_') !== FALSE) {
+          $field = content_fields($attribute, $node->type);
+          if ($field['widget']['module'] == 'issuu') {
+            // process multivalues inside the field
+            foreach ($node->{$attribute} as $i => $cck_in) {
+              if (!empty($cck_in['filepath']) && empty($cck_in['data']['doc_metadata'])) { //only allow add by the moment
+                //FIXME horrible line, api suggestion?
+                $path = substr(realpath('index.php'), 0, -10) . '/' . $cck_in['filepath'];
+                $response = issuu_api_issuu_document_upload($path, $cck_in['data']);
+                $doc_metadata = array();
+                if (!issuu_api_process_response($response, $doc_metadata)) {
+                  drupal_set_message(t('The file %file could not be uploaded to issuu.com. Response was: "@response"', array('%file' => basename($cck_in['filepath']), '@response' => $response)));
+                }
+                $node->{$attribute}[$i]['data']['doc_metadata'] = $doc_metadata;
+              }
+            }
+          }
+        }
+      }
+      break;
+  }
+}
+
+//
+// cck formatter stuff
+//
+
+/**
+ * Implementation of hook_field_formatter_info().
+ */
+function issuu_field_formatter_info() {
+  return array(
+    'ffpageflip' => array(
+      'label' => t('Issuu filefield as pageflip'),
+      'field types' => array('filefield'),
+      'multiple values' => CONTENT_HANDLE_CORE,
+    ),
+    'ffpresentation' => array(
+      'label' => t('Issuu filefield as presentation'),
+      'field types' => array('filefield'),
+      'multiple values' => CONTENT_HANDLE_CORE,
+    ),
+    'issuuthumb' => array(
+      'label' => t('Issuu thumbnail'),
+      'field types' => array('filefield'),
+      'multiple values' => CONTENT_HANDLE_CORE,
+    ),
+  );
+}
+
+function theme_issuu_formatter_ffpageflip($element) {
+  global $base_url;
+  $data = $element['#item']['data']['doc_metadata'];
+  if (empty($data)) {
+    return '';
+  }
+  $options = array(
+    'params' => array(
+      'allowfullscreen' => 'true',
+      'menu' => 'false',
+    ),
+    'flashvars' => array(
+      'mode' => 'embed',
+      'layout' => ISSUU_LAYOUT,
+      'showFlipBtn' => 'false',
+      'documentId' => $data['documentId'],
+      'docName' => $data['name'],
+      'username' => $data['username'],
+      'loadingInfoText' => $data['title'],
+      'width' => variable_get('issuu_global_width', '420'),
+      'height' => variable_get('issuu_global_height', '297'),
+      'jsAPIClientDomain' => $base_url,
+    ),
+  );
+  return swf(ISSUU_VIEWER, $options);
+}
+
+function theme_issuu_formatter_ffpresentation($element) {
+  global $base_url;
+  $data = $element['#item']['data']['doc_metadata'];
+  if (empty($data)) {
+    return '';
+  }
+  $options = array(
+    'params' => array(
+      'allowfullscreen' => 'true',
+      'menu' => 'false',
+    ),
+    'flashvars' => array(
+      'mode' => 'embed',
+      'viewMode' => 'presentation',
+      'layout' => ISSUU_LAYOUT,
+      'showFlipBtn' => 'false',
+      'documentId' => $data['documentId'],
+      'docName' => $data['name'],
+      'username' => $data['username'],
+      'loadingInfoText' => $data['title'],
+      'width' => variable_get('issuu_global_width', '420'),
+      'height' => variable_get('issuu_global_height', '297'),
+      'jsAPIClientDomain' => $base_url,
+    ),
+  );
+  return swf(ISSUU_VIEWER, $options);
+}
+
+function theme_issuu_formatter_issuuthumb($element) {
+  if (empty($element['#item']['data']['doc_metadata'])) {
+    return '';
+  }
+  $data = $element['#item']['data']['doc_metadata'];
+  $thumbnail  = ISSUU_URI_IMAGE . $data['documentId'] . '/jpg/page_1_thumb_small.jpg';
+  return theme('image', $thumbnail, 'thumbnail', '', NULL, FALSE);
+}

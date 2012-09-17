@@ -1,0 +1,8 @@
+; $Id$
+name = tweak locale js
+description = Provides locale admin pages with buttons to rebuild/invalidate js translations.
+version = 0.1
+package = Awene
+core = 6.x
+
+dependencies[] = locale

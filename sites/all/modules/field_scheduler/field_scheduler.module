@@ -1,0 +1,94 @@
+<?php
+// $Id:$
+
+/**
+ * @file
+ * Allows users to schedule administrator selected CCK fields for publication
+ * based on a certain date field.
+ *
+ * This is the main script for the Field Scheduler module. It merely contains
+ * the implementation of hooks invoked by Drupal core, CCK, etc.
+ * All common functions are externalized into several scripts that are included
+ * on demand to reduce memory consumption during normal site operation.
+ */
+
+/**
+ * Implementation of hook_form_alter().
+ */
+function field_scheduler_form_alter(&$form, &$form_state, $form_id) {
+  // Alter the node edit form.
+  if (isset($form['#node']) && isset($form['type']['#value']) && $form_id == $form['type']['#value'] .'_node_form') {
+    module_load_include('inc', 'field_scheduler', 'includes/common');
+    $content_type = content_types($form['type']['#value']);
+    foreach ($content_type['fields'] as $fieldname => $field) {
+      $schedule_date_field = field_scheduler_get_content_field_date($field['field_name']);
+      if ($schedule_date_field) {
+        $description = t('This field is scheduled; it will only be visible after the date set in the %field-label field.',
+          array('%field-label' => $content_type['fields'][$schedule_date_field]['widget']['label']));
+        $form[$fieldname]['#description'] = !empty($form[$fieldname]['#description']) ? $form[$fieldname]['#description'] . ' ' . $description : $description ;
+      }
+    }
+  }
+
+  // Alter the CCK Field settings form.
+  if ($form_id == 'content_field_edit_form' && !isset($form_state['change_basic'])) {
+    module_load_include('inc', 'field_scheduler', 'includes/common');
+    module_load_include('inc', 'field_scheduler', 'includes/admin');
+    _field_scheduler_content_field_edit_form_alter($form);
+  }
+}
+
+/**
+ * Implementation of hook_content_fieldapi().
+ */
+function field_scheduler_content_fieldapi($op, $field) {
+  if ($op == 'delete instance') {
+
+    // Check if the field is shared between other content types. If not, then
+    // we can delete the scheduling settings for this field entirely.
+    $instances = (int)db_result(db_query("SELECT COUNT(*) FROM {". content_instance_tablename() ."} WHERE field_name = '%s' AND type_name != '%s'", $field['field_name'], $field['type_name']));
+    if ($instances == 0) {
+      module_load_include('inc', 'field_scheduler', 'includes/common');
+      field_scheduler_set_content_field_date($field['field_name'], FALSE);
+    }
+  }
+}
+
+/**
+ * Implementation of hook_field_access().
+ *
+ * @see content_access()
+ */
+function field_scheduler_field_access($op, $field, $account = NULL, $node = NULL) {
+  // We do not want to check anything other than 'view' access.
+  if ($op == 'view') {
+    module_load_include('inc', 'field_scheduler', 'includes/common');
+    module_load_include('inc', 'field_scheduler', 'includes/field_access');
+    return _field_scheduler_field_view_access($field, $account, $node);
+  }
+}
+
+/**
+ * Modules notify CCK Private Fields module when enabled, disabled, etc.
+ *
+ * @param $op
+ *   The module operation: install, uninstall, enable, disable.
+ * @param $module
+ *   The name of the affected module.
+ */
+function field_scheduler_notify($op, $module) {
+  module_load_include('inc', 'field_scheduler', 'includes/common');
+  module_load_include('inc', 'field_scheduler', 'includes/admin');
+  return _field_scheduler_notify($op, $module);
+}
+
+/**
+ * Modules that provide field access control for Private status should
+ * invoke this function from its own hook_requirements('install')
+ * implementation.
+ */
+function field_scheduler_check_install_requirements($module) {
+  module_load_include('inc', 'field_scheduler', 'includes/common');
+  module_load_include('inc', 'field_scheduler', 'includes/admin');
+  return _field_scheduler_check_install_requirements($module);
+}

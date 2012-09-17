@@ -1,0 +1,95 @@
+<?php
+function pressnow_ads_form_alter(&$form, &$form_state, $form_id) {
+  if ($form_id == 'ad_node_form') {
+    $form['body_field']['#access'] = FALSE;
+    $form['menu']['#access'] = FALSE;
+
+    // Add CSS to the admin theme.
+    drupal_add_css(drupal_get_path('module', 'pressnow_ads') . '/pressnow_ads.css');
+  }
+  if ($form_id == 'ad_admin_ads') {
+    $form['#theme'] = 'pressnow_ad_admin_ads';
+  }
+}
+
+function pressnow_ads_theme() {
+  return array(
+    'pressnow_ad_admin_ads' => array(
+      'arguments' => array(
+        'form' => NULL,
+      ),
+    ),
+  );
+}
+
+/**
+ * Implementation of hook_ad_build_cache().
+ */
+function pressnow_ads_ad_build_cache() {
+  $cache = array();
+  $ads = array();
+  $active = db_query("SELECT a.aid, n.language FROM {ads} a LEFT JOIN {node} n ON a.aid = n.nid WHERE adstatus = 'active'");
+  while ($ad = db_fetch_object($active)) {
+    $ads[$ad->aid] = $ad->language;
+  }
+  $cache['pressnow_ads']['language'] = $ads;
+  $cache['pressnow_ads']['hook_weight'] = array(
+    'weight' => 15,
+    'function' => 'pressnow_ads_cache_filter',
+  );
+
+  return $cache;
+}
+
+function pressnow_ads_cache_filter($ads) {
+  $display = array();
+  global $language;
+  $lang = isset($_GET['language']) ? $_GET['language'] : $language->language;
+  if (is_array($ads)) {
+    $cache = adserve_cache('get_cache', 'pressnow_ads');
+    foreach ($ads as $aid) {
+      if ($cache['language'][$aid] === '' || $cache['language'][$aid] == $lang) {
+        $display[] = $aid;
+      }
+    }
+  }
+  return $display;
+}
+
+function theme_pressnow_ad_admin_ads($form) {
+  // Overview table:
+  $header = array(theme('table_select_header_cell'), t('Title'), t('Group'), t('Type'), t('Probability'), t('Language'), t('Status'), t('Operations'));
+  $languages = language_list();
+  $probability_lables = _ad_weight_probability_weights();
+
+  $output = drupal_render($form['options']);
+  if (isset($form['title']) && is_array($form['title'])) {
+    foreach (element_children($form['title']) as $key) {
+      $node = node_load($key);
+
+      $row = array();
+      $row[] = drupal_render($form['ads'][$key]);
+      $row[] = drupal_render($form['title'][$key]);
+      $row[] = drupal_render($form['group'][$key]);
+      $row[] = drupal_render($form['adtype'][$key]);
+      $row[] = $probability_lables[$node->probability];
+      $row[] = empty($node->language) ? t('Language neutral') : t($languages[$node->language]->name);
+      $row[] = drupal_render($form['adstatus'][$key]);
+      $row[] = drupal_render($form['operations'][$key]);
+      $rows[] = $row;
+    }
+
+  }
+  else  {
+    $rows[] = array(array('data' => t('No ads available.'), 'colspan' => '6'));
+  }
+
+  $output .= theme('table', $header, $rows);
+  if ($form['pager']['#value']) {
+    $output .= drupal_render($form['pager']);
+  }
+
+  $output .= drupal_render($form);
+
+  return $output;
+}

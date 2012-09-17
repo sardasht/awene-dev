@@ -1,0 +1,5 @@
+SB: Added patch simplenews-plain_field.patch
+----------------------------------------------------
+The patch above adds a extra field to the newsletter to select a CCK field wich contains the 
+plain text version of the newsletter. The standard HTML to text function was not good enough.
+More on the issue: http://drupal.org/node/709234

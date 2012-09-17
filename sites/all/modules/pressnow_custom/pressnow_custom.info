@@ -1,0 +1,5 @@
+; $Id$
+name = pressnow_custom
+description = "Container module for simple, site-specific custom code like the print this page button."
+package = Pressnow
+core = 6.x

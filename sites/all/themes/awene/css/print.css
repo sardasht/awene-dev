@@ -1,0 +1,142 @@
+/* $Id: print.css,v 1.1.2.1 2009/02/13 06:40:02 johnalbin Exp $ */
+
+a:link,
+a:visited
+{
+	text-decoration: none!important;
+}
+
+/* CSS2 selector to add visible href after links */
+  #content a:link:after,
+  #content a:visited:after
+  {
+    /* content: " (" attr(href) ") "; */
+	content: "";
+    font-size: 0.9em;
+    font-weight: normal;
+  }
+
+
+/* Un-float the content */
+  #content,
+  #content-inner
+  {
+    float: none;
+    width: 100%;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+/* Turn off any background colors or images */
+  body,
+  #page, #page-inner,
+  #main, #main-inner,
+  #content, #content-inner
+  {
+    color: #000;
+    background-color: transparent !important;
+    background-image: none !important;
+  }
+
+/* Hide sidebars and nav elements */
+  #skip-to-nav, #navbar, #sidebar-left, #sidebar-right, #footer,
+  .breadcrumb, div.tabs, .links, .taxonomy,
+  .book-navigation, .forum-topic-navigation, .pager, .feed-icons
+  {
+    visibility: hidden;
+    display: none;
+  }
+
+/* Otherwise, Firefox clips the content after the first page. */
+  #page
+  {
+    overflow-y: visible;
+  }
+  
+.region-header
+{
+	display: none;
+}
+
+#header
+{
+	border-bottom: none;
+	margin: 0 0 10px 0;
+}
+
+#logo a
+{
+	padding: 0;
+	text-decoration: none;
+	width: auto;
+}
+
+.sidebar-right #content
+{
+	margin-right: 0;
+	width: auto;
+}
+
+.view-frontpage .views-row {
+	width: auto;
+}
+
+.view-frontpage .views-row .views-field-title {
+	height: auto;
+}
+
+.view-frontpage .views-field-nothing, .view-frontpage .views-field-field-related-nid  {
+	margin-right: 0;
+	width: auto;
+}
+
+.views-field-field-related-nid
+{
+	display: none;
+}
+
+#content-bottom
+{
+	display: none;
+}
+
+.panel-2col-stacked .panel-col-last {
+	width: auto;
+}
+
+.panel-2col-stacked .panel-col-last .inside {
+	margin:0 0 1em 0;
+}
+
+.panel-2col-stacked .panel-col-first {
+	display: none;
+}
+
+.pane-node-comment-form
+{
+	display: none;
+}
+
+#search-form,
+#comment-controls,
+#comments .box
+{
+	display: none;
+}
+
+.view-node-slideshow .views_slideshow_singleframe_controls,
+.view-node-slideshow .views_slideshow_singleframe_image_count
+{
+	display: none!important;
+}
+
+.view-node-slideshow .views-field-field-gallery-data-1 {
+	height: auto;
+	padding: 0 3px;
+	width: auto;
+}
+
+.rtl #logo-title {
+	position: relative;
+	right:-40px;;
+}

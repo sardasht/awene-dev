@@ -1,0 +1,5 @@
+; $Id$
+name = pressnow_ads
+description = "This module does some little tweaks to the ads module."
+package = Pressnow
+core = 6.x

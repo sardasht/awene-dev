@@ -1,0 +1,2723 @@
+# Dutch translation of drupal (6.0)
+# Copyright (c) 2008 by the Dutch translation team
+# Generated from files:
+#  system.install,v 1.238.2.1 2008/02/08 17:07:55 goba
+#  system.module,v 1.585.2.6 2008/02/13 14:25:42 goba
+#  system.admin.inc,v 1.63 2008/02/04 12:35:48 goba
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: drupal (6.0)\n"
+"POT-Creation-Date: 2008-02-14 07:52+0000\n"
+"PO-Revision-Date: 2008-02-06 15:42+0000\n"
+"Language-Team: Dutch\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: modules/system/system.install:20
+msgid "Drupal"
+msgstr "Drupal"
+
+#: modules/system/system.module:232
+msgid "Content management"
+msgstr "Inhoudelijk beheer"
+
+#: modules/system/system.module:233
+msgid "Manage your site's content."
+msgstr "De inhoud van de website beheren."
+
+#: modules/system/system.module:62
+msgid ""
+"Welcome to the administration section. Here you may control how your site "
+"functions."
+msgstr ""
+"Welkom op het beheergedeelte. Hier kunt u bepalen hoe de website werkt."
+
+#: modules/system/system.module:64
+msgid "This page shows you all available administration tasks for each module."
+msgstr "Deze pagina toont alle beschikbare beheertaken van iedere module."
+
+#: modules/system/system.module:74
+msgid ""
+"These options control the default display settings for your entire site, "
+"across all themes. Unless they have been overridden by a specific theme, "
+"these settings will be used."
+msgstr ""
+"Deze opties sturen de standaard weergave-instellingen voor uw volledige "
+"website voor alle templates. Tenzij deze teniet gedaan worden door een "
+"specifieke template, zullen deze instellingen gebruikt worden."
+
+#: modules/system/system.module:72
+msgid ""
+"These options control the display settings for the <code>%template</code> "
+"theme. When your site is displayed using this theme, these settings will be "
+"used. By clicking \"Reset to defaults,\" you can choose to use the <a href="
+"\"@global\">global settings</a> for this theme."
+msgstr ""
+"Deze opties bepalen de weergave-instellingen van de <code>%template</code>-"
+"template. Wanneer uw website met deze template wordt weergegeven, zullen "
+"deze instellingen gebruikt worden. Door op \"Standaardwaarden terugzetten\" "
+"te klikken, kunt u de <a href=\"@global\">globale instellingen</a> voor deze "
+"template gebruiken."
+
+#: modules/system/system.module:86
+msgid ""
+"The uninstall process removes all data related to a module. To uninstall a "
+"module, you must first disable it. Not all modules support this feature."
+msgstr ""
+"Het de-installatie proces verwijdert alle gegevens aan een module "
+"gerelateerde gegevens. Schakel een module eerst uit, alvorens deze te de-"
+"installeren. De-installatie wordt niet door alle modules ondersteund."
+
+#: modules/system/system.module:200
+msgid "File download"
+msgstr "Bestand downloaden"
+
+#: modules/system/system.module:206
+msgid "Administer"
+msgstr "Beheren"
+
+#: modules/system/system.module:213
+msgid "Compact mode"
+msgstr "Compacte weergave"
+
+#: modules/system/system.module:219
+msgid "By task"
+msgstr "Per taak"
+
+#: modules/system/system.module:225
+msgid "By module"
+msgstr "Per module"
+
+#: modules/system/system.module:242
+msgid "Site configuration"
+msgstr "Site-instellingen"
+
+#: modules/system/system.module:243
+msgid "Adjust basic site configuration options."
+msgstr "Basisopties site-instellingen wijzigen"
+
+#: modules/system/system.module:250
+msgid "Site building"
+msgstr "Site-constructie"
+
+#: modules/system/system.module:251
+msgid "Control how your site looks and feels."
+msgstr "Bepalen hoe de site er uit ziet."
+
+#: modules/system/system.module:259
+msgid "Settings for how your administrative pages should look."
+msgstr "Instellingen om de lay-out van de beheer-interface te bepalen."
+
+#: modules/system/system.module:270
+msgid "Change which theme your site uses or allows users to set."
+msgstr ""
+"De template voor de weergave van de site bepalen of deze keuze aan de "
+"gebruikers laten."
+
+#: modules/system/system.module:278
+msgid "Select the default theme."
+msgstr "Selecteer de standaard template"
+
+#: modules/system/system.module:289
+msgid "Global settings"
+msgstr "Globale instellingen"
+
+#: modules/system/system.module:307
+msgid "Enable or disable add-on modules for your site."
+msgstr "Aanvullende modules voor de site in- of uitschakelen."
+
+#: modules/system/system.module:367
+msgid ""
+"Change basic site information, such as the site name, slogan, e-mail "
+"address, mission, front page and more."
+msgstr ""
+"Basis website gegevens instellen zoals naam van de site, slogan, e-"
+"mailadres, voorpagina, enz."
+
+#: modules/system/system.module:375
+msgid ""
+"Control how Drupal deals with errors including 403/404 errors as well as PHP "
+"error reporting."
+msgstr ""
+"Bepaal hoe Drupal omgaat met fouten, waaronder 403/404-fouten en PHP-"
+"foutrapportage."
+
+#: modules/system/system.module:389
+msgid "Performance"
+msgstr "Prestatie"
+
+#: modules/system/system.module:398
+msgid "Tell Drupal where to store uploaded files and how they are accessed."
+msgstr ""
+"Bepalen waar Drupal geuploade bestanden opslaat en hoe deze toegankelijk "
+"zijn."
+
+#: modules/system/system.module:405
+msgid "Image toolkit"
+msgstr "Beeldverwerkingstoolkit"
+
+#: modules/system/system.module:406
+msgid ""
+"Choose which image toolkit to use if you have installed optional toolkits."
+msgstr ""
+"Kies welke beeldverwerkingstoolkit gebruikt wordt als er meerdere toolkits "
+"geïnstalleerd zijn."
+
+#: modules/system/system.module:413
+msgid "RSS publishing"
+msgstr "RSS-publicatie"
+
+#: modules/system/system.module:414
+msgid ""
+"Configure the number of items per feed and whether feeds should be titles/"
+"teasers/full-text."
+msgstr ""
+"Bepaal het aantal onderwerpen per feed en of feeds met titel, voorproefje of "
+"volledige tekst worden weergegeven."
+
+#: modules/system/system.module:421
+msgid "Date and time"
+msgstr "Datum en tijd"
+
+#: modules/system/system.module:422
+msgid ""
+"Settings for how Drupal displays date and time, as well as the system's "
+"default timezone."
+msgstr ""
+"Instellingen voor de weergave van datum en tijd en de standaard tijdzone van "
+"het Drupal systeem."
+
+#: modules/system/system.module:435
+msgid "Site maintenance"
+msgstr "Site-onderhoud"
+
+#: modules/system/system.module:436
+msgid "Take the site off-line for maintenance or bring it back online."
+msgstr "Website offline brengen voor onderhoud of opnieuw online brengen."
+
+#: modules/system/system.module:444
+msgid "Enable or disable clean URLs for your site."
+msgstr "Schone URL's in- of uitschakelen."
+
+#: modules/system/system.module:478
+msgid "Status report"
+msgstr "Status rapportage"
+
+#: modules/system/system.module:479
+msgid ""
+"Get a status report about your site's operation and any detected problems."
+msgstr "Weergave van de systeemstatus en eventueel gedetecteerde problemen."
+
+#: modules/system/system.module:486
+msgid "Run cron"
+msgstr "Cron uitvoeren"
+
+#: modules/system/system.module:498
+msgid "SQL"
+msgstr "SQL"
+
+#: modules/system/system.module:544
+msgid "Selecting a different theme will change the look and feel of the site."
+msgstr ""
+"Door een andere template te selecteren zal het uiterlijk en gedrag van de "
+"site veranderen."
+
+#: modules/system/system.module:556
+msgid "Time zone"
+msgstr "Tijdzone"
+
+#: modules/system/system.module:559
+msgid ""
+"Select your current local time. Dates and times throughout this site will be "
+"displayed using this time zone."
+msgstr ""
+"Selecteer uw huidige lokale tijd. Overal op deze site zullen datums en "
+"tijden in deze tijdzone weergegeven worden."
+
+#: modules/system/system.admin.inc:22
+msgid ""
+"One or more problems were detected with your Drupal installation. Check the "
+"<a href=\"@status\">status report</a> for more information."
+msgstr ""
+"Een of meerdere problemen zijn gedetecteerd in de Drupal-installatie. "
+"Controleer <a href=\"@status\">statusrapportage</a> voor meer informatie."
+
+#: modules/system/system.admin.inc:158
+msgid "System default"
+msgstr "Systeemstandaard"
+
+#: modules/system/system.admin.inc:167
+msgid ""
+"Choose which theme the administration pages should display in. If you choose "
+"\"System default\" the administration pages will use the same theme as the "
+"rest of the site."
+msgstr ""
+"Bepaal met welke template de beheerpagina's worden weergegeven. Als u de "
+"\"Systeemstandaard\" kiest, worden de beheerpagina's met de zelfde template "
+"als de rest van de site weergegeven."
+
+#: modules/system/system.module:684
+msgid "Theme configuration"
+msgstr "Template-instellingen"
+
+#: modules/system/system.module:707
+msgid "(site default theme)"
+msgstr "(standaardtemplate site)"
+
+#: modules/system/system.admin.inc:2149,2207
+msgid "Screenshot"
+msgstr "Schermafdruk"
+
+#: modules/system/system.admin.inc:1143
+msgid "Slogan"
+msgstr "Slogan"
+
+#: modules/system/system.admin.inc:1149
+msgid "Mission"
+msgstr "Missie"
+
+#: modules/system/system.admin.inc:1155
+msgid "Footer message"
+msgstr "Voettekst"
+
+#: modules/system/system.admin.inc:1157
+msgid ""
+"This text will be displayed at the bottom of each page. Useful for adding a "
+"copyright notice to your pages."
+msgstr ""
+"Deze tekst zal aan de onderkant van elke pagina worden weergeven. Bruikbaar "
+"voor het toevoegen van een copyrightmelding aan al uw pagina's."
+
+#: modules/system/system.admin.inc:1161
+msgid "Anonymous user"
+msgstr "Anonieme gebruiker"
+
+#: modules/system/system.admin.inc:1163
+msgid "The name used to indicate anonymous users."
+msgstr ""
+"De naam die gebruikt wordt om een anonieme (niet ingelogde) gebruiker aan te "
+"duiden."
+
+#: modules/system/system.admin.inc:1168
+msgid "Default front page"
+msgstr "Standaard voorpagina"
+
+#: modules/system/system.admin.inc:1171
+msgid ""
+"The home page displays content from this relative URL. If unsure, specify "
+"\"node\"."
+msgstr ""
+"De voorpagina toont de inhoud van deze relatieve URL. Gebruik bij twijfel "
+"\"node\"."
+
+#: modules/system/system.admin.inc:1210
+msgid "Default 403 (access denied) page"
+msgstr "Standaard 403 (verboden toegang) pagina"
+
+#: modules/system/system.admin.inc:1213
+msgid ""
+"This page is displayed when the requested document is denied to the current "
+"user. If unsure, specify nothing."
+msgstr ""
+"Deze pagina wordt weergegeven wanneer de huidige gebruiker geen toegang "
+"krijgt tot het gevraagde document. Bij twijfel, niets opgeven."
+
+#: modules/system/system.admin.inc:1219
+msgid "Default 404 (not found) page"
+msgstr "Standaard 404 (niet gevonden) pagina"
+
+#: modules/system/system.admin.inc:1222
+msgid ""
+"This page is displayed when no other content matches the requested document. "
+"If unsure, specify nothing."
+msgstr ""
+"Deze pagina wordt weergegeven wanneer geen enkele andere inhoud overeenstemt "
+"met het gevraagde document. Bij twijfel, niets opgeven."
+
+#: modules/system/system.admin.inc:1228
+msgid "Write errors to the log"
+msgstr "Schrijf fouten in de log"
+
+#: modules/system/system.admin.inc:1228
+msgid "Write errors to the log and to the screen"
+msgstr "Schrijf fouten zowel in de log als op het scherm"
+
+#: modules/system/system.admin.inc:1264
+msgid ""
+"<strong class=\"ok\">Currently, all enabled modules are compatible with the "
+"aggressive caching policy.</strong> Please note, if you use aggressive "
+"caching and enable new modules, you will need to check this page again to "
+"ensure compatibility."
+msgstr ""
+"<strong class=\"ok\">Alle op dit moment ingeschakelde modules zijn "
+"compatibel met de agressieve cache-methode.</strong> Let op: wanneer u de "
+"agressieve cache-methode gebruikt en nieuwe modules inschakelt, moet u deze "
+"pagina opnieuw bezoeken om de compatibiliteit te verifiëren."
+
+#: modules/system/system.admin.inc:1268
+msgid "Page cache"
+msgstr "Pagina-cache"
+
+#: modules/system/system.admin.inc:1274
+msgid "Caching mode"
+msgstr "Cache-methode"
+
+#: modules/system/system.admin.inc:1276
+msgid "Aggressive (experts only, possible side effects)"
+msgstr "Agressief (alleen voor experts, mogelijke bijwerkingen)"
+
+#: modules/system/system.admin.inc:1284
+msgid "Minimum cache lifetime"
+msgstr "Minimum cache-levensduur"
+
+#: modules/system/system.admin.inc:1314
+msgid "Bandwidth optimizations"
+msgstr "Bandbreedte-optimalisaties"
+
+#: modules/system/system.admin.inc:1375
+msgid "File system path"
+msgstr "Bestandssysteempad"
+
+#: modules/system/system.admin.inc:1384
+msgid "Temporary directory"
+msgstr "Tijdelijke map"
+
+#: modules/system/system.admin.inc:1393
+msgid "Download method"
+msgstr "Downloadmethode"
+
+#: modules/system/system.admin.inc:1395
+msgid "Public - files are available using HTTP directly."
+msgstr "Publiek - bestanden zijn direct met HTTP toegankelijk."
+
+#: modules/system/system.admin.inc:1395
+msgid "Private - files are transferred by Drupal."
+msgstr "Privé - bestanden worden door Drupal zelf verstuurd."
+
+#: modules/system/system.admin.inc:1413
+msgid "Select an image processing toolkit"
+msgstr "Selecteer een beelverwerkingstoolkit"
+
+#: modules/system/system.admin.inc:1446
+msgid "Titles only"
+msgstr "Alleen titels"
+
+#: modules/system/system.admin.inc:1446
+msgid "Titles plus teaser"
+msgstr "Titels en voorproefje"
+
+#: modules/system/system.admin.inc:1446
+msgid "Full text"
+msgstr "Volledige tekst"
+
+#: modules/system/system.admin.inc:1502
+msgid "Select the default site time zone."
+msgstr "Selecteer de standaard tijdzone van de site."
+
+#: modules/system/system.admin.inc:1531
+msgid "Short date format"
+msgstr "Formaat korte datum"
+
+#: modules/system/system.admin.inc:1535
+msgid "The short format of date display."
+msgstr "Het korte formaat om datums weer te geven."
+
+#: modules/system/system.admin.inc:1554
+msgid "Medium date format"
+msgstr "Formaat middellange datum"
+
+#: modules/system/system.admin.inc:1558
+msgid "The medium sized date display."
+msgstr "Het middellange formaat om datums weer te geven."
+
+#: modules/system/system.admin.inc:1577
+msgid "Long date format"
+msgstr "Formaat lange datum"
+
+#: modules/system/system.admin.inc:1581
+msgid "Longer date format used for detailed display."
+msgstr "Het lange formaat om datums weer te geven."
+
+#: modules/system/system.admin.inc:1515
+msgid "First day of week"
+msgstr "Eerste dag van de week"
+
+#: modules/system/system.admin.inc:1518
+msgid "The first day of the week for calendar views."
+msgstr "De begindag van de week voor kalenderweergaves."
+
+#: modules/system/system.admin.inc:1636
+msgid "Site status"
+msgstr "Site-status"
+
+#: modules/system/system.admin.inc:1638
+msgid "Online"
+msgstr "Online"
+
+#: modules/system/system.admin.inc:1638
+msgid "Off-line"
+msgstr "Offline"
+
+#: modules/system/system.admin.inc:1639
+msgid ""
+"When set to \"Online\", all visitors will be able to browse your site "
+"normally. When set to \"Off-line\", only users with the \"administer site "
+"configuration\" permission will be able to access your site to perform "
+"maintenance; all other visitors will see the site off-line message "
+"configured below. Authorized users can log in during \"Off-line\" mode "
+"directly via the <a href=\"@user-login\">user login</a> page."
+msgstr ""
+"Als \"Online\" is ingesteld, kunnen alle bezoekers uw site gewoon bezoeken. "
+"Als \"Offline\" is ingesteld, kunnen alleen gebruikers met de \"Site-"
+"instellingen beheren\" rechten uw site bezoeken om onderhoud te verrichten. "
+"Alle andere bezoekers zullen het off-line bericht zien dat u hieronder kunt "
+"instellen. Geauthoriseerde gebruikers kunnen tijdens de \"Off-line\" modus "
+"inloggen via de <a href=\"@user-login\">inlogpagina</a>."
+
+#: modules/system/system.admin.inc:1644
+msgid "Site off-line message"
+msgstr "Site-offline-boodschap"
+
+#: modules/system/system.admin.inc:1646
+msgid "Message to show visitors when the site is in off-line mode."
+msgstr ""
+"De boodschap die aan uw bezoekers getoond wordt wanneer de site offline is."
+
+#: modules/system/system.module:1020
+msgid "The settings have not been saved because of the errors."
+msgstr "De instellingen zijn niet bewaard omdat er fouten zijn opgetreden."
+
+#: modules/system/system.admin.inc:288
+msgid ""
+"Please note that the <a href=\"!admin_theme_page\">administration theme</a> "
+"is still set to the %admin_theme theme; consequently, the theme on this page "
+"remains unchanged. All non-administrative sections of the site, however, "
+"will show the selected %selected_theme theme by default."
+msgstr ""
+"Let op: de <a href=\"!admin_theme_page\">beheertemplate</a> is op %"
+"admin_theme ingesteld; daarom is de template op deze pagina ongewijzigd. "
+"Voor alle niet-beheerpagina's van deze website wordt standaard de template %"
+"selected_theme gebruikt."
+
+#: modules/system/system.admin.inc:683,715
+msgid " (<span class=\"admin-disabled\">disabled</span>)"
+msgstr " (<span class=\"admin-disabled\">uitgeschakeld</span>)"
+
+#: modules/system/system.admin.inc:686
+msgid " (<span class=\"admin-missing\">missing</span>)"
+msgstr " (<span class=\"admin-missing\">ontbrekend</span>)"
+
+#: modules/system/system.admin.inc:692,710
+msgid " (<span class=\"admin-enabled\">enabled</span>)"
+msgstr " (<span class=\"admin-enabled\">ingeschakeld</span>)"
+
+#: modules/system/system.admin.inc:699
+msgid "Depends on: !dependencies"
+msgstr "Afhankelijk van: !dependencies"
+
+#: modules/system/system.admin.inc:722
+msgid "Required by: !required"
+msgstr "Vereist voor: !required"
+
+#: modules/system/system.admin.inc:841
+msgid "Some required modules must be enabled"
+msgstr "Enkele vereiste modules moeten worden ingeschakeld."
+
+#: modules/system/system.admin.inc:843
+msgid "Would you like to continue with enabling the above?"
+msgstr "Wilt u doorgaan met het inschakelen van het bovenstaande?"
+
+#: modules/system/system.admin.inc:844
+msgid "Continue"
+msgstr "Doorgaan"
+
+#: modules/system/system.admin.inc:2023,2207
+msgid "Version"
+msgstr "Versie"
+
+#: modules/system/system.admin.inc:2030
+msgid "Other"
+msgstr "Andere"
+
+#: modules/system/system.admin.inc:1075
+msgid ""
+"The following modules will be completely uninstalled from your site, and "
+"<em>all data from these modules will be lost</em>!"
+msgstr ""
+"De volgende modules zullen volledig van de site verwijderd worden en "
+"<em>alle gegevens van deze modules zullen verloren gaan</em>!"
+
+#: modules/system/system.admin.inc:1078
+msgid "Confirm uninstall"
+msgstr "De-installeren bevestigen"
+
+#: modules/system/system.admin.inc:1080
+msgid "Would you like to continue with uninstalling the above?"
+msgstr "Wilt u doorgaan met het de-installeren van de bovenstaande modules?"
+
+#: modules/system/system.admin.inc:2123
+msgid "No modules are available to uninstall."
+msgstr "Geen modules beschikbaar voor de-installatie."
+
+#: modules/system/system.admin.inc:1093
+msgid "No modules selected."
+msgstr "Geen modules geselecteerd."
+
+#: modules/system/system.admin.inc:1110
+msgid "The selected modules have been uninstalled."
+msgstr "De geselecteerde modules zijn gede-installeerd."
+
+#: modules/system/system.admin.inc:1751
+msgid "Variable"
+msgstr "Variabele"
+
+#: modules/system/system.admin.inc:1751
+msgid "Value"
+msgstr "Waarde"
+
+#: modules/system/system.admin.inc:1766
+msgid "Command counters"
+msgstr "Opdrachttellers"
+
+#: modules/system/system.admin.inc:1768
+msgid "The number of <code>SELECT</code>-statements."
+msgstr "Aantal <code>SELECT</code>-opdrachten."
+
+#: modules/system/system.admin.inc:1769
+msgid "The number of <code>INSERT</code>-statements."
+msgstr "Aantal <code>INSERT</code>-opdrachten."
+
+#: modules/system/system.admin.inc:1770
+msgid "The number of <code>UPDATE</code>-statements."
+msgstr "Aantal <code>UPDATE</code>-opdrachten."
+
+#: modules/system/system.admin.inc:1771
+msgid "The number of <code>DELETE</code>-statements."
+msgstr "Aantal <code>DELETE</code>-opdrachten."
+
+#: modules/system/system.admin.inc:1772
+msgid "The number of table locks."
+msgstr "Aantal tabelvergrendelingen."
+
+#: modules/system/system.admin.inc:1773
+msgid "The number of table unlocks."
+msgstr "Aantal ongedaan gemaakte tabelvergrendelingen."
+
+#: modules/system/system.admin.inc:1776
+msgid "Query performance"
+msgstr "Query-prestatie"
+
+#: modules/system/system.admin.inc:1778
+msgid "The number of joins without an index; should be zero."
+msgstr "Aantal joins zonder index; moet nul zijn."
+
+#: modules/system/system.admin.inc:1780
+msgid "The number of sorts done without using an index; should be zero."
+msgstr "Aantal sorteringen zonder gebruik van een index; moet nul zijn."
+
+#: modules/system/system.admin.inc:1781
+msgid "The number of times a lock could be acquired immediately."
+msgstr "Aantal vergrendelingen dat onmiddellijk verkregen kon worden."
+
+#: modules/system/system.admin.inc:1782
+msgid "The number of times the server had to wait for a lock."
+msgstr "Aantal maal dat de server moest wachten op een vergrendeling."
+
+#: modules/system/system.admin.inc:1785
+msgid "Query cache information"
+msgstr "Query-cache informatie"
+
+#: modules/system/system.admin.inc:1788
+msgid "The number of queries in the query cache."
+msgstr "Aantal queries in de cache."
+
+#: modules/system/system.admin.inc:377
+msgid "Logo"
+msgstr "Logo"
+
+#: modules/system/system.admin.inc:379
+msgid "Site slogan"
+msgstr "Slogan site"
+
+#: modules/system/system.admin.inc:380
+msgid "Mission statement"
+msgstr "Missie-statement"
+
+#: modules/system/system.admin.inc:381
+msgid "User pictures in posts"
+msgstr "Gebruikersafbeeldingen in berichten"
+
+#: modules/system/system.admin.inc:382
+msgid "User pictures in comments"
+msgstr "Gebruikersafbeeldingen in reacties"
+
+#: modules/system/system.admin.inc:383
+msgid "Search box"
+msgstr "Zoekvak"
+
+#: modules/system/system.admin.inc:384
+msgid "Shortcut icon"
+msgstr "Snelkoppelingspictogram"
+
+#: modules/system/system.admin.inc:401
+msgid "Toggle display"
+msgstr "Weergave wisselen"
+
+#: modules/system/system.admin.inc:402
+msgid "Enable or disable the display of certain page elements."
+msgstr "Weergave van bepaalde pagina-elementen in- of uitschakelen."
+
+#: modules/system/system.admin.inc:427
+msgid "Display post information on"
+msgstr "Berichtinformatie weergeven over"
+
+#: modules/system/system.admin.inc:428
+msgid ""
+"Enable or disable the <em>submitted by Username on date</em> text when "
+"displaying posts of the following type."
+msgstr ""
+"De tekst <em>Ingediend door gebruiker op datum</em> in- of uitschakelen "
+"wanneer berichten van het bovenstaande type getoond worden."
+
+#: modules/system/system.admin.inc:447
+msgid "Logo image settings"
+msgstr "Instellingen logo-afbeelding"
+
+#: modules/system/system.admin.inc:448
+msgid "If toggled on, the following logo will be displayed."
+msgstr "Indien ingeschakeld, zal volgend logo weergegeven worden."
+
+#: modules/system/system.admin.inc:453
+msgid "Use the default logo"
+msgstr "Gebruik het standaard logo"
+
+#: modules/system/system.admin.inc:456
+msgid "Check here if you want the theme to use the logo supplied with it."
+msgstr "Vink dit vakje aan indien u het logo van de template wilt gebruiken."
+
+#: modules/system/system.admin.inc:460
+msgid "Path to custom logo"
+msgstr "Pad naar eigen logo"
+
+#: modules/system/system.admin.inc:462
+msgid ""
+"The path to the file you would like to use as your logo file instead of the "
+"default logo."
+msgstr ""
+"Het pad naar het bestand dat u wilt gebruiken in plaats van het standaard "
+"logo."
+
+#: modules/system/system.admin.inc:466
+msgid "Upload logo image"
+msgstr "Logo-afbeelding uploaden"
+
+#: modules/system/system.admin.inc:468
+msgid ""
+"If you don't have direct file access to the server, use this field to upload "
+"your logo."
+msgstr ""
+"Als u geen directe toegang tot de bestanden op de server hebt, gebruik dan "
+"dit veld om uw logo te uploaden."
+
+#: modules/system/system.admin.inc:475
+msgid "Shortcut icon settings"
+msgstr "Instellingen snelkoppelingspictogram"
+
+#: modules/system/system.admin.inc:480
+msgid "Use the default shortcut icon."
+msgstr "Gebruik het standaard snelkoppelingspictogram."
+
+#: modules/system/system.admin.inc:482
+msgid "Check here if you want the theme to use the default shortcut icon."
+msgstr ""
+"Selecteer dit als u de template een eigen snelkoppelingspictogram wilt laten "
+"gebruiken."
+
+#: modules/system/system.admin.inc:486
+msgid "Path to custom icon"
+msgstr "Pad naar eigen pictogram."
+
+#: modules/system/system.admin.inc:488
+msgid ""
+"The path to the image file you would like to use as your custom shortcut "
+"icon."
+msgstr ""
+"Pad naar de afbeelding die u als eigen snelkoppelingspictogram wil gebruiken."
+
+#: modules/system/system.admin.inc:493
+msgid "Upload icon image"
+msgstr "Pictogramafbeelding laden"
+
+#: modules/system/system.admin.inc:494
+msgid ""
+"If you don't have direct file access to the server, use this field to upload "
+"your shortcut icon."
+msgstr ""
+"Als u geen directe toegang tot de bestanden op de server hebt, gebruik dan "
+"dit veld om uw snelkoppelingspictogram te uploaden."
+
+#: modules/system/system.admin.inc:515
+msgid ""
+"These settings only exist for all the templates and styles based on the %"
+"engine theme engine."
+msgstr ""
+"Deze instellingen bestaan alleen voor templates en stijlen die gebaseerd "
+"zijn op de %engine template-engine."
+
+#: modules/system/system.admin.inc:527
+msgid "Theme-specific settings"
+msgstr "Template-specifieke instellingen"
+
+#: modules/system/system.admin.inc:527
+msgid ""
+"These settings only exist for the %theme theme and all the styles based on "
+"it."
+msgstr ""
+"Deze instellingen bestaan alleen voor de %theme template en alle daarop "
+"gebaseerde stijlen."
+
+#: modules/system/system.admin.inc:1904
+msgid "Show descriptions"
+msgstr "Beschrijvingen weergeven"
+
+#: modules/system/system.admin.inc:1907
+msgid "Hide descriptions"
+msgstr "Beschrijvingen verbergen"
+
+#: modules/system/system.admin.inc:118
+msgid "Get help"
+msgstr "Hulp"
+
+#: modules/system/system.module:1191
+msgid "Configure permissions"
+msgstr "Toegangsrechten instellen"
+
+#: modules/system/system.module:158
+msgid "administer site configuration"
+msgstr "site-configuratie beheren"
+
+#: modules/system/system.module:158
+msgid "access administration pages"
+msgstr "toegang to beheerpagina's"
+
+#: modules/system/system.module:158
+msgid "select different theme"
+msgstr "selecteer een andere template"
+
+#: modules/system/system.install:30
+msgid "Web server"
+msgstr "Webserver"
+
+#: modules/system/system.install:40
+msgid ""
+"Your PHP installation is too old. Drupal requires at least PHP %version."
+msgstr ""
+"Uw PHP-installatie is te oud. Drupal heeft minstens PHP %version nodig."
+
+#: modules/system/system.install:107,254
+msgid "Not protected"
+msgstr "Niet beveiligd"
+
+#: modules/system/system.install:115
+msgid ""
+"The file %file is not protected from modifications and poses a security "
+"risk. You must change the file's permissions to be non-writable."
+msgstr ""
+"Het bestand %file is niet beveiligd tegen wijzigingen en vormt daarom een "
+"veiligheidsrisico. U moet de schrijfrechten van dit bestand verwijderen."
+
+#: modules/system/system.install:120,261
+msgid "Protected"
+msgstr "Beveiligd"
+
+#: modules/system/system.install:123
+msgid "Configuration file"
+msgstr "Configuratiebestand"
+
+#: modules/system/system.install:166
+msgid "Last run !time ago"
+msgstr "Voor het laatst !time geleden uitgevoerd"
+
+#: modules/system/system.install:162
+msgid "Never run"
+msgstr "Nooit uitgevoerd"
+
+#: modules/system/system.install:174
+msgid "Cron maintenance tasks"
+msgstr "Cron-onderhoudstaken"
+
+#: modules/system/system.install:201
+msgid "The directory %directory is not writable."
+msgstr "Map %directory is niet schrijfbaar."
+
+#: modules/system/system.install:196
+msgid "Not writable"
+msgstr "Niet schrijfbaar"
+
+#: modules/system/system.install:205
+msgid ""
+"You may need to set the correct directory at the <a href=\"@admin-file-system"
+"\">file system settings page</a> or change the current directory's "
+"permissions so that it is writable."
+msgstr ""
+"U dient de juiste map in te stellen op de pagina <a href=\"@admin-file-system"
+"\">bestandssysteeminstellingen</a> of wijzig de toegangsrechten van de map "
+"zodat deze schrijfbaar is."
+
+#: modules/system/system.install:220
+msgid "Writable (<em>public</em> download method)"
+msgstr "Schrijfbaar (<em>openbare</em> downloadmethode)"
+
+#: modules/system/system.install:223
+msgid "Writable (<em>private</em> download method)"
+msgstr "Schrijfbaar (<em>privé</em> downloadmethode)"
+
+#: modules/system/system.install:243
+msgid ""
+"Some modules have database schema updates to install. You should run the <a "
+"href=\"@update\">database update script</a> immediately."
+msgstr ""
+"Voor enkele modules moet de databasestructuur worden opgewaardeerd. U moet "
+"direct het <a href=\"@update\">database update-script</a> uitvoeren."
+
+#: modules/system/system.admin.inc:58,79
+msgid "You do not have any administrative items."
+msgstr "U heeft geen beheeritems."
+
+#: modules/system/system.admin.inc:173
+msgid "Use administration theme for content editing"
+msgstr "Gebruik de beheertemplate voor het bewerken van inhoud."
+
+#: modules/system/system.admin.inc:174
+msgid ""
+"Use the administration theme when editing existing posts or creating new "
+"ones."
+msgstr ""
+"Gebruik de beheertemplate tijdens het bewerken van bestaande of aanmaken van "
+"nieuwe berichten."
+
+#: modules/system/system.admin.inc:515
+msgid "Theme-engine-specific settings"
+msgstr "templatemachine-specifieke instellingen."
+
+#: modules/system/system.admin.inc:1131
+msgid "The name of this website."
+msgstr "De naam van deze website."
+
+#: modules/system/system.admin.inc:1229
+msgid ""
+"Specify where Drupal, PHP and SQL errors are logged. While it is recommended "
+"that a site running in a production environment write errors to the log "
+"only, in a development or testing environment it may be helpful to write "
+"errors both to the log and to the screen."
+msgstr ""
+"Waar Drupal-, PHP- en SQL-foutmeldingen worden gelogd. Op een "
+"productieserver wordt het aangeraden om fouten alleen naar de foutlog te "
+"schrijven. Op een testserver kan het nuttig zijn om logs op het scherm weer "
+"te geven."
+
+#: modules/system/system.admin.inc:1255
+msgid ""
+"The normal cache mode is suitable for most sites and does not cause any side "
+"effects. The aggressive cache mode causes Drupal to skip the loading (boot) "
+"and unloading (exit) of enabled modules when serving a cached page. This "
+"results in an additional performance boost but can cause unwanted side "
+"effects."
+msgstr ""
+"De normale cache-methode is bruikbaar voor de meeste websites en heeft geen "
+"bijwerkingen. De agressieve cache-methode zorgt ervoor dat Drupal bij het "
+"weergeven van een pagina het inladen (init) en uitladen (exit) van "
+"ingeschakelde modules achterwege laat. Dit resulteert in een aanvullende "
+"prestatieverbetering maar kan ongewenste bijwerkingen hebben."
+
+#: modules/system/system.admin.inc:1261
+msgid ""
+"<strong class=\"error\">The following enabled modules are incompatible with "
+"aggressive mode caching and will not function properly: %modules</strong>"
+msgstr ""
+"<strong class=\"error\">De volgende modules zijn niet compatibel met de "
+"agressieve cache-methode en zullen daarom niet goed werken: %modules</strong>"
+
+#: modules/system/system.admin.inc:1269
+msgid ""
+"Enabling the page cache will offer a significant performance boost. Drupal "
+"can store and send compressed cached pages requested by <em>anonymous</em> "
+"users. By caching a web page, Drupal does not have to construct the page "
+"each time it is viewed."
+msgstr ""
+"De pagina-cache inschakelen leidt tot significant betere prestaties. Drupal "
+"kan gecomprimeerde cache-pagina's bewaren en deze tonen aan <em>anonieme</"
+"em> gebruikers. Door een pagina op te slaan in de cache hoeft Drupal deze "
+"pagina niet bij elk bezoek opnieuw op te bouwen."
+
+#: modules/system/system.admin.inc:1276
+msgid "Normal (recommended for production sites, no side effects)"
+msgstr "Normaal (aanbevolen voor productiewebsites, geen neveneffecten)"
+
+#: modules/system/system.admin.inc:1287
+msgid ""
+"On high-traffic sites, it may be necessary to enforce a minimum cache "
+"lifetime. The minimum cache lifetime is the minimum amount of time that will "
+"elapse before the cache is emptied and recreated, and is applied to both "
+"page and block caches. A larger minimum cache lifetime offers better "
+"performance, but users will not see new content for a longer period of time."
+msgstr ""
+"Op sites met erg veel verkeer kan het nodig zijn een minimum cache-"
+"levensduur in te stellen. Deze bepaalt hoeveel tijd er minimaal voorbij moet "
+"gaan voordat de cache geleegd en opnieuw aangemaakt wordt en is van "
+"toepassing op zowel de pagina- als de blok-cache. Een langere cache-"
+"levensduur biedt betere prestaties, maar gebruikers zullen nieuwe inhoud pas "
+"na langere tijd kunnen zien."
+
+#: modules/system/system.admin.inc:1291
+msgid "Page compression"
+msgstr "Pagina compressie"
+
+#: modules/system/system.admin.inc:1294
+msgid ""
+"By default, Drupal compresses the pages it caches in order to save bandwidth "
+"and improve download times. This option should be disabled when using a "
+"webserver that performs compression."
+msgstr ""
+"Standaard comprimeert Drupal de pagina's die gecached worden, om bandbreedte "
+"te besparen en downloadtijden te verbeteren. Deze optie moet uitgeschakeld "
+"worden als u een webserver gebruikt die zelf al compressie toepast."
+
+#: modules/system/system.admin.inc:1299,1305
+msgid "Block cache"
+msgstr "Blok-cache"
+
+#: modules/system/system.admin.inc:1300
+msgid ""
+"Enabling the block cache can offer a performance increase for all users by "
+"preventing blocks from being reconstructed on each page load. If the page "
+"cache is also enabled, performance increases from enabling the block cache "
+"will mainly benefit authenticated users."
+msgstr ""
+"Door de blok-cache in te schakelen kunnen gebruikers een "
+"prestatieverbetering merken; u voorkomt zo dat blokken bij elke raadpleging "
+"van een pagina opnieuw opgebouwd worden. Indien de pagina-cache ook is "
+"ingeschakeld dan zal de blok-cache vooral geregistreerde gebruikers ten "
+"goede komen."
+
+#: modules/system/system.admin.inc:1307
+msgid "Enabled (recommended)"
+msgstr "Ingeschakeld (aanbevolen)"
+
+#: modules/system/system.admin.inc:1309
+msgid ""
+"Note that block caching is inactive when modules defining content access "
+"restrictions are enabled."
+msgstr ""
+"Let op: blok-cache werkt niet wanneer modules zijn ingeschakeld die "
+"toegangscontrole voor de site regelen."
+
+#: modules/system/system.admin.inc:1322
+msgid "Optimize CSS files"
+msgstr "Optimaliseert CSS-bestanden"
+
+#: modules/system/system.admin.inc:1330
+msgid "Optimize JavaScript files"
+msgstr "Optimaliseert JavaScript-bestanden"
+
+#: modules/system/system.admin.inc:1378
+msgid ""
+"A file system path where the files will be stored. This directory must exist "
+"and be writable by Drupal. If the download method is set to public, this "
+"directory must be relative to the Drupal installation directory and be "
+"accessible over the web. If the download method is set to private, this "
+"directory should not be accessible over the web. Changing this location will "
+"modify all download paths and may cause unexpected problems on an existing "
+"site."
+msgstr ""
+"Een bestandssysteempad waar de bestanden zullen worden opgeslagen. De map "
+"moet bestaan en Drupal moet schrijftoegang hebben. Indien de downloadmethode "
+"publiek is, dan moet deze map als relatief pad naar de Drupal-installatiemap "
+"worden opgegeven en toegankelijk zijn via het internet. Indien de "
+"downloadmethode privé is, dan mag de map niet te benaderen zijn via het "
+"internet. Indien u deze locatie wijzigt zullen alle downloadpaden wijzigen, "
+"wat op een bestaande site onverwachte problemen kan opleveren."
+
+#: modules/system/system.admin.inc:1387
+msgid "A file system path where uploaded files will be stored during previews."
+msgstr ""
+"Een systeempad waarde geuploade bestanden worden bewaard tijdens "
+"voorbeeldweergaves."
+
+#: modules/system/system.admin.inc:1396
+msgid ""
+"Choose the <em>Public download</em> method unless you wish to enforce fine-"
+"grained access controls over file downloads. Changing the download method "
+"will modify all download paths and may cause unexpected problems on an "
+"existing site."
+msgstr ""
+"Kies de <em>Publieke download-methode</em> tenzij u gedetailleerde controle "
+"wil uitoefenen over het downloaden van bestanden. Indien u de "
+"downloadmethode wijzigt, dan wijzigen alle downloadpaden, wat op een "
+"bestaande site onverwachte problemen kan opleveren."
+
+#: modules/system/system.admin.inc:1490
+msgid "Custom format"
+msgstr "Aangepast formaat"
+
+#: modules/system/system.admin.inc:1507
+msgid "User-configurable time zones"
+msgstr "Gebruikerinstelbare tijdzones"
+
+#: modules/system/system.admin.inc:1510
+msgid ""
+"When enabled, users can set their own time zone and dates will be displayed "
+"accordingly."
+msgstr ""
+"Indien ingeschakeld kunnen gebruikers hun eigen tijdzone instellen. Datums "
+"worden overeenkomstig weergegeven."
+
+#: modules/system/system.admin.inc:1523
+msgid "Formatting"
+msgstr "Opmaak"
+
+#: modules/system/system.admin.inc:1543
+msgid "Custom short date format"
+msgstr "Aangepast formaat korte datum"
+
+#: modules/system/system.admin.inc:1546
+msgid ""
+"A user-defined short date format. See the <a href=\"@url\">PHP manual</a> "
+"for available options. This format is currently set to display as <span>%"
+"date</span>."
+msgstr ""
+"Een door de gebruiker gedefinieerd formaat voor korte datum. Bekijk de <a "
+"href=\"@url\">PHP handleiding</a> voor beschikbare opties. Dit formaat is "
+"momenteel ingesteld om weergegeven te worden als <span>%date</span>."
+
+#: modules/system/system.admin.inc:1566
+msgid "Custom medium date format"
+msgstr "Aangepast formaat middellange datum"
+
+#: modules/system/system.admin.inc:1569
+msgid ""
+"A user-defined medium date format. See the <a href=\"@url\">PHP manual</a> "
+"for available options. This format is currently set to display as <span>%"
+"date</span>."
+msgstr ""
+"Een door de gebruiker gedefinieerd formaat voor middellange datum. Bekijk de "
+"<a href=\"@url\">PHP handleiding</a> voor beschikbare opties. Dit formaat is "
+"momenteel ingesteld om weergegeven te worden als <span>%date</span>."
+
+#: modules/system/system.admin.inc:1589
+msgid "Custom long date format"
+msgstr "Aangepast formaat lange datum"
+
+#: modules/system/system.admin.inc:1592
+msgid ""
+"A user-defined long date format. See the <a href=\"@url\">PHP manual</a> for "
+"available options. This format is currently set to display as <span>%date</"
+"span>."
+msgstr ""
+"Een door de gebruiker gedefinieerd formaat voor lange datum. Bekijk de <a "
+"href=\"@url\">PHP handleiding</a> voor beschikbare opties. Dit formaat is "
+"momenteel ingesteld om weergegeven te worden als <span>%date</span>."
+
+#: modules/system/system.admin.inc:1671
+msgid ""
+"Before enabling clean URLs, you must perform a test to determine if your "
+"server is properly configured. If you are able to see this page again after "
+"clicking the \"Run the clean URL test\" link, the test has succeeded and the "
+"radio buttons above will be available. If instead you are directed to a "
+"\"Page not found\" error, you will need to change the configuration of your "
+"server. The <a href=\"@handbook\">handbook page on Clean URLs</a> has "
+"additional troubleshooting information."
+msgstr ""
+"Alvorens schone URL's in te schakelen moet u een test uitvoeren om na te "
+"gaan of uw server de juiste instellingen heeft. Als u deze pagina na het "
+"aanklikken van de 'Schakel de schone URL test in' nog ziet dan is de test "
+"geslaagd en zullen de radiobuttons bovenaan beschikbaar zijn. Als u "
+"daarentegen het bericht 'Pagina niet gevonden' ziet moet u de instellingen "
+"van uw server wijzigen. Meer informatie hierover vindt u op de <a href=\\"
+"\"@handbook\\\">handboekpagina over Schone URL's</a>."
+
+#: modules/system/system.admin.inc:1675
+msgid "<a href=\"@clean_url\">Run the clean url test</a>."
+msgstr "<a href=\"@clean_url\">Schone url test uitvoeren</a>."
+
+#: modules/system/system.admin.inc:2045,2050,2175,2180
+msgid "incompatible"
+msgstr "niet compatibel"
+
+#: modules/system/system.admin.inc:2045,2175
+msgid "Incompatible with this version of Drupal core"
+msgstr "Niet compatibel met deze versie van de Drupal-kern"
+
+#: modules/system/system.admin.inc:2046,2176
+msgid ""
+"This version is incompatible with the !core_version version of Drupal core."
+msgstr "Deze versie is niet compatibel met versie !core_version van Drupal."
+
+#: modules/system/system.admin.inc:2050,2180
+msgid "Incompatible with this version of PHP"
+msgstr "Niet compatibel met deze versie van PHP"
+
+#: modules/system/system.admin.inc:2055
+msgid ""
+"This module requires PHP version @php_required and is incompatible with PHP "
+"version !php_version."
+msgstr ""
+"Deze module vereist PHP versie @php_required en is onverenigbaar met PHP "
+"versie !php_version."
+
+#: modules/system/system.admin.inc:2185
+msgid ""
+"This theme requires PHP version @php_required and is incompatible with PHP "
+"version !php_version."
+msgstr ""
+"Deze tempate vereist PHP-versie @php_required en is niet verenigbaar met PHP-"
+"versie !php_version."
+
+#: modules/system/system.admin.inc:833
+msgid "You must enable the @dependencies module to install @module."
+msgid_plural "You must enable the @dependencies modules to install @module."
+msgstr[0] ""
+"Module @dependencies dient geïnstalleerd te worden voordat @module "
+"geïnstalleerd kan worden."
+msgstr[1] ""
+"Module @dependencies dient geïnstalleerd te worden voordat @module "
+"geïnstalleerd kan worden."
+
+#: modules/system/system.module:78
+msgid ""
+"The auto-throttle functionality must be enabled on the <a href=\"@throttle"
+"\">throttle configuration page</a> after having enabled the throttle module."
+msgstr ""
+"De auto-throttle functie moet op de <a href=\"@throttle\">throttle "
+"instellingenpagina</a> ingeschakeld worden nadat de Throttle-module "
+"ingeschakeld is."
+
+#: modules/system/system.module:89
+msgid ""
+"The <em>Powered by Drupal</em> block is an optional link to the home page of "
+"the Drupal project. While there is absolutely no requirement that sites "
+"feature this link, it may be used to show support for Drupal."
+msgstr ""
+"Het Powered by Drupal blok is een optionele link naar de webpagina van het "
+"Drupal project. Hoewel het absoluut geen vereiste is om deze link op te "
+"nemen, kan de link gebruikt worden als ondersteuning van Drupal."
+
+#: modules/system/system.module:94
+msgid ""
+"Actions are individual tasks that the system can do, such as unpublishing a "
+"piece of content or banning a user. Modules, such as the trigger module, can "
+"fire these actions when certain system events happen; for example, when a "
+"new post is added or when a user logs in. Modules may also provide "
+"additional actions."
+msgstr ""
+"Acties zijn individuele taken die door het systeem uitgevoerd kunnen worden, "
+"zoals publicatie van een pagina ongedaan maken of uitsluiten van een "
+"gebruiker. Modules, zoals de Trigger-module, kunnen deze acties starten "
+"wanneer bepaalde systeemgebeurtennissen plaatsvinden; bijvoorbeeld wanneer "
+"een nieuw bericht wordt toegevoegd of wanneer een gebruiker inlogt. Modules "
+"kunnen voorzien in extra acties."
+
+#: modules/system/system.module:95
+msgid ""
+"There are two types of actions: simple and advanced. Simple actions do not "
+"require any additional configuration, and are listed here automatically. "
+"Advanced actions can do more than simple actions; for example, send an e-"
+"mail to a specified address, or check for certain words within a piece of "
+"content. These actions need to be created and configured first before they "
+"may be used. To create an advanced action, select the action from the drop-"
+"down below and click the <em>Create</em> button."
+msgstr ""
+"Er zijn twee soorten acties: eenvoudige en geavanceerde. Eenvoudige acties "
+"behoeven geen extra configuratie en worden hier automatisch opgesomd. "
+"Geavanceerde acties kunnen meer dan eenvoudige acties, bijvoorbeeld een e-"
+"mail versturen naar een gespecificeerd adres, of inhoud controleren op "
+"bepaalde woorden. Deze acties moeten eerst worden aangemaakt en "
+"geconfigureerd voordat ze gebruikt kunnen worden. Selecteer een actie uit "
+"het keuzelijstmenu en klik op de knop <em>Aanmaken</em> om een geavanceerde "
+"actie aan te maken."
+
+#: modules/system/system.module:97
+msgid ""
+"You may proceed to the <a href=\"@url\">Triggers</a> page to assign these "
+"actions to system events."
+msgstr ""
+"U kunt nu verder naar de <a href=\"@url\">Triggers</a> pagina om deze acties "
+"toe te kennen aan systeemgebeurtenissen."
+
+#: modules/system/system.module:101
+msgid ""
+"An advanced action offers additional configuration options which may be "
+"filled out below. Changing the <em>Description</em> field is recommended, in "
+"order to better identify the precise action taking place. This description "
+"will be displayed in modules such as the trigger module when assigning "
+"actions to system events, so it is best if it is as descriptive as possible "
+"(for example, \"Send e-mail to Moderation Team\" rather than simply \"Send e-"
+"mail\")."
+msgstr ""
+"Een geavanceerde actie biedt extra configuratiemogelijkheden die hieronder "
+"ingevuld kunnen worden. Het is raadzaam om het veld <em>Beschrijving</em> te "
+"veranderen, zodat duidelijk is wat de actie precies doet. Deze beschrijving "
+"wordt getoond in modules zoals de Trigger-module wanneer u acties aan "
+"systeemgebeurtenissen toekent. Het is daarom het beste om zo specifiek "
+"mogelijk te zijn (bijvoorbeeld, \"Verstuur e-mail naar moderatieteam\" in "
+"plaats van alleen maar \"Verstuur e-mail\")."
+
+#: modules/system/system.module:576
+msgid "Powered by Drupal"
+msgstr "Gerealiseerd met Drupal"
+
+#: modules/system/system.module:586
+msgid "Badge color"
+msgstr "Kleur naamplaatje"
+
+#: modules/system/system.module:588
+msgid "Black"
+msgstr "Zwart"
+
+#: modules/system/system.module:588
+msgid "Blue"
+msgstr "Blauw"
+
+#: modules/system/system.module:588
+msgid "Gray"
+msgstr "Grijs"
+
+#: modules/system/system.module:592
+msgid "Badge size"
+msgstr "Grootte naamplaatje"
+
+#: modules/system/system.module:594
+msgid "Small"
+msgstr "Klein"
+
+#: modules/system/system.module:594
+msgid "Large"
+msgstr "Groot"
+
+#: modules/system/system.module:1224
+msgid "Could not delete temporary file \"%path\" during garbage collection"
+msgstr ""
+"Kan tijdelijk bestand \"%path\" niet verwijderen tijdens opruimen van "
+"tijdelijke bestanden"
+
+#: modules/system/system.module:1240
+msgid "When cron runs"
+msgstr "Wanneer cron wordt uitgevoerd"
+
+#: modules/system/system.module:1254
+msgid "Display a message to the user"
+msgstr "Toon een bericht aan de gebruiker"
+
+#: modules/system/system.module:1275
+msgid "Redirect to URL"
+msgstr "Verwijzing naar URL"
+
+#: modules/system/system.module:1295
+msgid "Choose an advanced action"
+msgstr "Kies een geavanceerde actie"
+
+#: modules/system/system.module:1310
+msgid "Action type"
+msgstr "Actietype"
+
+#: modules/system/system.module:1330
+msgid "Actions available to Drupal:"
+msgstr "Beschikbare acties voor Drupal:"
+
+#: modules/system/system.module:1356
+msgid "Make a new advanced action available"
+msgstr "Een nieuwe geavanceerde actie beschikbaar maken"
+
+#: modules/system/system.module:1368
+msgid "Create"
+msgstr "Aanmaken"
+
+#: modules/system/system.module:1435
+msgid ""
+"A unique description for this advanced action. This description will be "
+"displayed in the interface of modules that integrate with actions, such as "
+"Trigger module."
+msgstr ""
+"Een unieke omschrijving voor deze geavanceerde actie. Deze omschrijving "
+"wordt getoond in de interface van modules die met de Actions-module "
+"samenwerken, zoals de Trigger-module."
+
+#: modules/system/system.module:1491
+msgid "The action has been successfully saved."
+msgstr "De actie is succesvol opgeslagen."
+
+#: modules/system/system.module:1509
+msgid "Are you sure you want to delete the action %action?"
+msgstr "Weet u zeker dat u actie %action wilt verwijderen?"
+
+#: modules/system/system.module:1511
+msgid "This cannot be undone."
+msgstr "Dit kan niet ongedaan worden gemaakt."
+
+#: modules/system/system.module:1527
+msgid "Action %action was deleted"
+msgstr "Actie %action is verwijderd"
+
+#: modules/system/system.module:1539
+msgid "Deleted orphaned action (%action)."
+msgstr "Weesactie verwijderd (%action)."
+
+#: modules/system/system.module:1575
+msgid "Recipient"
+msgstr "Ontvanger"
+
+#: modules/system/system.module:1578
+msgid ""
+"The email address to which the message should be sent OR enter %author if "
+"you would like to send an e-mail to the author of the original post."
+msgstr ""
+"Het e-mailadres waar dit bericht naar verstuurd moet worden OF vul %author "
+"in om de e-mail naar de auteur van het oorspronkelijke bericht te sturen."
+
+#: modules/system/system.module:1585
+msgid "The subject of the message."
+msgstr "Het onderwerp van het bericht."
+
+#: modules/system/system.module:1593
+msgid ""
+"The message that should be sent. You may include the following variables: %"
+"site_name, %username, %node_url, %node_type, %title, %teaser, %body. Not all "
+"variables will be available in all contexts."
+msgstr ""
+"Het bericht dat verszonden moet worden. U kan volgende variabelen opnemen: %"
+"site_name, %username, %node_url, %node_type, %title, %teaser, %body. Niet "
+"alle variabelen zijn in elke context beschikbaar."
+
+#: modules/system/system.module:1606
+msgid "Please enter a valid email address or %author."
+msgstr "Voer een geldig e-mailadres of %author in."
+
+#: modules/system/system.module:1812
+msgid ""
+"The URL to which the user should be redirected. This can be an internal URL "
+"like node/1234 or an external URL like http://drupal.org."
+msgstr ""
+"De URL waarheen de gebruiker moet worden doorverwezen. Dit kan zowel een "
+"interne URL zijn zoals node/1234 of een externe URL zoals http://drupal.org."
+
+#: modules/system/system.module:1875
+msgid "Powered by Drupal, an open source content management system"
+msgstr "Gerealiseerd met Drupal, een open source content management systeem"
+
+#: modules/system/system.module:1526
+msgid "Deleted action %aid (%action)"
+msgstr "Actie %aid (%action) is verwijderd"
+
+#: modules/system/system.module:1653
+msgid "Cannot use %author token in this context."
+msgstr "Kan het token %author in deze context niet gebruiken."
+
+#: modules/system/system.module:1684
+msgid "Sent email to %recipient"
+msgstr "E-mail naar %recipient is verzonden"
+
+#: modules/system/system.module:1687
+msgid "Unable to send email to %recipient"
+msgstr "Versturen van e-mail naar %recipient is mislukt"
+
+#: modules/system/system.module:158
+msgid "administer actions"
+msgstr "acties beheren"
+
+#: modules/system/system.module:158
+msgid "administer files"
+msgstr "bestanden beheren"
+
+#: modules/system/system.module:334,340
+msgid "Manage the actions defined for your site."
+msgstr "Voor deze site gedefinieerde acties beheren."
+
+#: modules/system/system.module:339
+msgid "Manage actions"
+msgstr "Acties beheren"
+
+#: modules/system/system.module:346
+msgid "Configure an advanced action"
+msgstr "Een geavanceerde actie instellen"
+
+#: modules/system/system.module:352
+msgid "Delete action"
+msgstr "Actie verwijderen"
+
+#: modules/system/system.module:353
+msgid "Delete an action."
+msgstr "Verwijder een actie."
+
+#: modules/system/system.module:359
+msgid "Remove orphans"
+msgstr "Wezen verwijderen"
+
+#: modules/system/system.module:382
+msgid "Logging and alerts"
+msgstr "Loggen en waarschuwingen"
+
+#: modules/system/system.module:383
+msgid ""
+"Settings for logging and alerts modules. Various modules can route Drupal's "
+"system events to different destination, such as syslog, database, email, ..."
+"etc."
+msgstr ""
+"Instellingen voor het logboek en alarmmodules. Verschillende modules kunnen "
+"Drupals systeemgebeurtenissen doorsturen naar verschillende bestemmingen "
+"(het systeemlogboek, een database, e-mail, enz.)."
+
+#: modules/system/system.module:390
+msgid ""
+"Enable or disable page caching for anonymous users and set CSS and JS "
+"bandwidth optimization options."
+msgstr ""
+"Pagina-cache voor anonieme gebruikers in of uitschakelen en CSS- en JS-"
+"bandbreedte-optimalisatie instellingen."
+
+#: modules/system/system.module:429
+msgid "Date and time lookup"
+msgstr "Datum en tijd opzoeken"
+
+#: modules/system/system.module:451
+msgid "Clean URL check"
+msgstr "Schone URL controle"
+
+#: modules/system/system.module:469
+msgid "Reports"
+msgstr "Rapporten"
+
+#: modules/system/system.module:470
+msgid "View reports from system logs and other status information."
+msgstr "Rapporten van systeemmeldingen en andere statusinformatie bekijken."
+
+#: modules/system/system.install:420
+msgid "The name of the variable."
+msgstr "De naam van de variabele."
+
+#: modules/system/system.install:426
+msgid "The value of the variable."
+msgstr "De waarde van de variabele."
+
+#: modules/system/system.install:435
+msgid "Stores action information."
+msgstr "Slaat actie-informatie op."
+
+#: modules/system/system.install:438,474
+msgid "Primary Key: Unique actions ID."
+msgstr "Primaire Sleutel: Uniek acties ID."
+
+#: modules/system/system.install:444
+msgid ""
+"The object that that action acts on (node, user, comment, system or custom "
+"types.)"
+msgstr ""
+"Het object dat onderwerp is van de actie (node, gebruiker, opmerking, "
+"systeem of custom type)"
+
+#: modules/system/system.install:450
+msgid "The callback function that executes when the action runs."
+msgstr "De functie die wordt uitgevoerd wanneer de actie plaats vindt."
+
+#: modules/system/system.install:456
+msgid "Parameters to be passed to the callback function."
+msgstr "Parameters die aan de functie worden doorgegeven."
+
+#: modules/system/system.install:461
+msgid "Description of the action."
+msgstr "Beschrijving van de actie"
+
+#: modules/system/system.install:471
+msgid "Stores action IDs for non-default actions."
+msgstr "Slaat actie ID's op voor niet-standaard acties."
+
+#: modules/system/system.install:483
+msgid ""
+"Stores details about batches (processes that run in multiple HTTP requests)."
+msgstr ""
+"Slaat details van batches op (processen die in meerdere HTTP-verzoeken "
+"worden uitgevoerd)"
+
+#: modules/system/system.install:486
+msgid "Primary Key: Unique batch ID."
+msgstr "Primaire Sleutel: Unieke batch ID."
+
+#: modules/system/system.install:491
+msgid ""
+"A string token generated against the current user's session id and the batch "
+"id, used to ensure that only the user who submitted the batch can "
+"effectively access it."
+msgstr ""
+"Een token gemaakt aan de hand van de batch-ID en sessie-ID van de huidige "
+"gebruiker om er voor te zorgen dat alleen die gebruiker toegang tot de batch "
+"heeft die de batch heeft aangemaakt."
+
+#: modules/system/system.install:496
+msgid ""
+"A Unix timestamp indicating when this batch was submitted for processing. "
+"Stale batches are purged at cron time."
+msgstr ""
+"Unix-tijdsstip dat aangeeft wanneer de opdracht voor verwerking werd "
+"doorgegeven. Verouderde opdrachten worden opgeruimd door cron."
+
+#: modules/system/system.install:500
+msgid "A serialized array containing the processing data for the batch."
+msgstr "Een serialized-array met de bewerkingsdata voor de batch."
+
+#: modules/system/system.install:510
+msgid ""
+"Generic cache table for caching things not separated out into their own "
+"tables. Contributed modules may also use this to store cached items."
+msgstr ""
+"Generieke cache-tabel voor gegevens die niet in een eigen tabel geplaatst "
+"worden. Uitbreidingsmodules kunnen deze tabel gebruiken om gegevens in op te "
+"slaan."
+
+#: modules/system/system.install:513
+msgid "Primary Key: Unique cache ID."
+msgstr "Primaire sleutel: Unieke cache ID."
+
+#: modules/system/system.install:519
+msgid "A collection of data to cache."
+msgstr "Een verzameling data om te cachen."
+
+#: modules/system/system.install:524
+msgid ""
+"A Unix timestamp indicating when the cache entry should expire, or 0 for "
+"never."
+msgstr ""
+"Het tijdstip (Unix timestamp) waarop het cache-item verloopt. 0 indien deze "
+"nooit verloopt."
+
+#: modules/system/system.install:529
+msgid "A Unix timestamp indicating when the cache entry was created."
+msgstr "Het tijdstip waarop het cache-item werd aangemaakt."
+
+#: modules/system/system.install:534
+msgid "Any custom HTTP headers to be added to cached data."
+msgstr "Aangepaste HTTP-headers om aan de gegevens in de cache toe te voegen."
+
+#: modules/system/system.install:538
+msgid "A flag to indicate whether content is serialized (1) or not (0)."
+msgstr "Een vlag die aangeeft of de inhoud 'serialized' is (1) of niet (0)."
+
+#: modules/system/system.install:549
+msgid ""
+"Cache table for the form system to store recently built forms and their "
+"storage data, to be used in subsequent page requests."
+msgstr ""
+"Cache-tabel voor het formuliersysteem om recent opgebouwde formulieren en "
+"hun gegevens op te slaan. Deze wordt gebruikt in opeenvolgende pagina-"
+"aanvragen."
+
+#: modules/system/system.install:551
+msgid ""
+"Cache table used to store compressed pages for anonymous users, if page "
+"caching is enabled."
+msgstr ""
+"Cache-tabel om gecomprimeerde pagina's voor anonieme gebruikers op te slaan "
+"wanneer pagina-caching ingeschakeld is."
+
+#: modules/system/system.install:553
+msgid ""
+"Cache table for the menu system to store router information as well as "
+"generated link trees for various menu/page/user combinations."
+msgstr ""
+"Cache-tabel voor het menusysteem om router-information en aangemaakte links "
+"voor diverse combinaties van menu's, pagina's en gebruikers  op te slaan"
+
+#: modules/system/system.install:556
+msgid "Stores information for uploaded files."
+msgstr "Slaat informatie op voor geuploade files."
+
+#: modules/system/system.install:559
+msgid "Primary Key: Unique files ID."
+msgstr "Primaire sleutel: Unieke bestand-ID's."
+
+#: modules/system/system.install:564
+msgid "The {users}.uid of the user who is associated with the file."
+msgstr "De {users}.uid van de gebruiker die met dit bestand verbonden is."
+
+#: modules/system/system.install:570
+msgid "Name of the file."
+msgstr "Naam van de file."
+
+#: modules/system/system.install:576
+msgid "Path of the file relative to Drupal root."
+msgstr "Bestandspad relatief ten opzichte van de Drupal-root."
+
+#: modules/system/system.install:582
+msgid "The file MIME type."
+msgstr "Het MIME-type van het bestand."
+
+#: modules/system/system.install:588
+msgid "The size of the file in bytes."
+msgstr "Grootte van de file in bytes."
+
+#: modules/system/system.install:594
+msgid "A flag indicating whether file is temporary (1) or permanent (0)."
+msgstr "Een vlag die aangeeft of de file tijdelijk (1) of permanent (0) is."
+
+#: modules/system/system.install:599
+msgid "UNIX timestamp for when the file was added."
+msgstr "Door UNIX gegenereerd tijdstip waarop het bestand is toegevoegd."
+
+#: modules/system/system.install:614
+msgid ""
+"Flood controls the threshold of events, such as the number of contact "
+"attempts."
+msgstr ""
+"'Flood' bepaalt de drempelwaarde voor gebeurtenissen, zoals het aantal keer "
+"dat er contact gemaakt wordt."
+
+#: modules/system/system.install:617
+msgid "Unique flood event ID."
+msgstr "Uniek Flood-gebeurtenis ID."
+
+#: modules/system/system.install:621
+msgid "Name of event (e.g. contact)."
+msgstr "Naam van de gebeurtenis. Bijvoorbeeld: contact."
+
+#: modules/system/system.install:627
+msgid "Hostname of the visitor."
+msgstr "Hostnaam van de bezoeker"
+
+#: modules/system/system.install:633
+msgid "Timestamp of the event."
+msgstr "Tijdstip van de gebeurtenis."
+
+#: modules/system/system.install:645
+msgid "A record of which {users} have read which {node}s."
+msgstr "Een record waarvan {users} de {node}s gelezen hebben."
+
+#: modules/system/system.install:648
+msgid "The {users}.uid that read the {node} nid."
+msgstr "De {users}.uid die {node} nid leest."
+
+#: modules/system/system.install:653
+msgid "The {node}.nid that was read."
+msgstr "De {node}.nid die gelezen is."
+
+#: modules/system/system.install:658
+msgid "The Unix timestamp at which the read occurred."
+msgstr "Het Unix-tijdsstip waarop er werd gelezen."
+
+#: modules/system/system.install:669
+msgid "Maps paths to various callbacks (access, page and title)"
+msgstr "Koppelt paden aan verschillende 'callbacks' (toegang, pagina en titel)"
+
+#: modules/system/system.install:672
+msgid "Primary Key: the Drupal path this entry describes"
+msgstr "Primaire sleutel: het Drupal-pad van dit item"
+
+#: modules/system/system.install:678
+msgid ""
+"A serialized array of function names (like node_load) to be called to load "
+"an object corresponding to a part of the current path."
+msgstr ""
+"Een serialized-array van functienamen (bijvoorbeeld: node_load) nodig om "
+"een  object te laden dat correspondeert met een gedeelte van het huidige pad."
+
+#: modules/system/system.install:684
+msgid ""
+"A serialized array of function names (like user_current_to_arg) to be called "
+"to replace a part of the router path with another string."
+msgstr ""
+"Een serialized-array van functienamen (bijvoorbeeld: user_current_to_arg) "
+"nodig om een deel van het Router-pad door een andere tekenreeks te vervangen."
+
+#: modules/system/system.install:690
+msgid ""
+"The callback which determines the access to this router path. Defaults to "
+"user_access."
+msgstr ""
+"De 'callback' die de toegang tot dit pad bepaalt. Is standaard 'user_access'."
+
+#: modules/system/system.install:696
+msgid "A serialized array of arguments for the access callback."
+msgstr "Een serialized-array van argumenten voor de 'acces callback'."
+
+#: modules/system/system.install:700
+msgid "The name of the function that renders the page."
+msgstr "De naam van de functie die de paginaweergave opbouwt."
+
+#: modules/system/system.install:706
+msgid "A serialized array of arguments for the page callback."
+msgstr "Een serialized-array van argumenten voor de 'page callback'."
+
+#: modules/system/system.install:710
+msgid "A numeric representation of how specific the path is."
+msgstr "Een getal dat weergeeft hoe specifiek het pad is."
+
+#: modules/system/system.install:715
+msgid "Number of parts in this router path."
+msgstr "Aantal onderdelen in dit pad."
+
+#: modules/system/system.install:721
+msgid ""
+"Only for local tasks (tabs) - the router path of the parent page (which may "
+"also be a local task)."
+msgstr ""
+"Uitsluitend voor 'local tasks' (tabbladen) - het 'router path' van de "
+"bovenliggende pagina (dit mag ook weer een 'local task' zijn)."
+
+#: modules/system/system.install:733
+msgid ""
+"The title for the current page, or the title for the tab if this is a local "
+"task."
+msgstr ""
+"De titel van de huidige pagina of de titel van het tabblad indien dit een "
+"lokale taak is."
+
+#: modules/system/system.install:739
+msgid "A function which will alter the title. Defaults to t()"
+msgstr "Een functie die de titel zal veranderen. De standaardfunctie is t()"
+
+#: modules/system/system.install:751
+msgid ""
+"Numeric representation of the type of the menu item, like MENU_LOCAL_TASK."
+msgstr ""
+"Een getal dat het soort menuonderdeel weergeeft, zoals MENU_LOCAL_TASK."
+
+#: modules/system/system.install:756
+msgid ""
+"Name of a function used to render the block on the system administration "
+"page for this item."
+msgstr ""
+"Naam van een functie om het blok van dit item op de systeembeheerpagina weer "
+"te geven."
+
+#: modules/system/system.install:762
+msgid "A description of this item."
+msgstr "Een beschrijving van dit onderdeel."
+
+#: modules/system/system.install:766
+msgid ""
+"The position of the block (left or right) on the system administration page "
+"for this item."
+msgstr ""
+"De positie van het blok (links of rechts) op de systeembeheerpagina voor dit "
+"item."
+
+#: modules/system/system.install:772
+msgid ""
+"Weight of the element. Lighter weights are higher up, heavier weights go "
+"down."
+msgstr ""
+"Gewicht van het element. Lichtere elementen komen hoger in de lijst te "
+"staan, zwaardere lager."
+
+#: modules/system/system.install:777
+msgid ""
+"The file to include for this element, usually the page callback function "
+"lives in this file."
+msgstr ""
+"Het bestand dat voor dit menu-onderdeel geladen moet worden. In dit bestand "
+"bevindt zich meestal de page callback-functie"
+
+#: modules/system/system.install:789
+msgid "Contains the individual links within a menu."
+msgstr "Bevat de afzonderlijke links in een menu."
+
+#: modules/system/system.install:792
+msgid ""
+"The menu name. All links with the same menu name (such as 'navigation') are "
+"part of the same menu."
+msgstr ""
+"De naam van het menu. Alle links met dezelfde naam (bijvoorbeeld "
+"'navigatie') maken onderdeel uit van hetzelfde menu."
+
+#: modules/system/system.install:798
+msgid "The menu link ID (mlid) is the integer primary key."
+msgstr "Het menu link-ID (mlid) is de primaire sleutel."
+
+#: modules/system/system.install:803
+msgid ""
+"The parent link ID (plid) is the mlid of the link above in the hierarchy, or "
+"zero if the link is at the top level in its menu."
+msgstr ""
+"Het parent link-ID (plid) is de 'mlid' van de bovenliggende link of is nul "
+"als de link het bovenste niveau in het betreffende menu is."
+
+#: modules/system/system.install:809
+msgid "The Drupal path or external path this link points to."
+msgstr "Het Drupal-pad of het externe pad waarnaar deze link verwijst."
+
+#: modules/system/system.install:815
+msgid ""
+"For links corresponding to a Drupal path (external = 0), this connects the "
+"link to a {menu_router}.path for joins."
+msgstr ""
+"Voor links die met een Drupal-pad overeenkomen (external = 0), verbindt dit "
+"de link met {menu_router}.path voor 'joins'."
+
+#: modules/system/system.install:821
+msgid ""
+"The text displayed for the link, which may be modified by a title callback "
+"stored in {menu_router}."
+msgstr ""
+"De weergegeven tekst van de link die door een 'title callback' opgeslagen in "
+"{menu_router} gewijzigd kan worden."
+
+#: modules/system/system.install:827
+msgid ""
+"A serialized array of options to be passed to the url() or l() function, "
+"such as a query string or HTML attributes."
+msgstr ""
+"Een serialized-array van opties die aan de url() of l() functie wordt "
+"meegegeven, zoals een zoekterm of HTML-attributen."
+
+#: modules/system/system.install:831
+msgid "The name of the module that generated this link."
+msgstr "De naam van de module die deze link heeft gegenereerd"
+
+#: modules/system/system.install:837
+msgid ""
+"A flag for whether the link should be rendered in menus. (1 = a disabled "
+"menu item that may be shown on admin screens, -1 = a menu callback, 0 = a "
+"normal, visible link)"
+msgstr ""
+"Een optie die aangeeft of de link in het menu wordt weergegeven. (1 = "
+"uitgeschakeld menu-onderdeel dat alleen op de beheerpagina wordt "
+"weergegeven; -1 = een 'menu callback'; 0 = een normale, zichtbare link)"
+
+#: modules/system/system.install:843
+msgid ""
+"A flag to indicate if the link points to a full URL starting with a "
+"protocol, like http:// (1 = external, 0 = internal)."
+msgstr ""
+"Een optie die aangeeft of de link verwijst naar een volledige URL die start "
+"met een protocol als http:// (1 = extern, 0 = intern)."
+
+#: modules/system/system.install:849
+msgid ""
+"Flag indicating whether any links have this link as a parent (1 = children "
+"exist, 0 = no children)."
+msgstr ""
+"Optie die aangeeft of er links zijn die deze link als een ouder hebben (1 = "
+"kinderen bestaan, 0 = geen kinderen)."
+
+#: modules/system/system.install:855
+msgid ""
+"Flag for whether this link should be rendered as expanded in menus - "
+"expanded links always have their child links displayed, instead of only when "
+"the link is in the active trail (1 = expanded, 0 = not expanded)"
+msgstr ""
+"Optie om deze link uitgeklapt weer te geven in menus. Bij uitgeklapte links "
+"worden de onderliggende menu-items altijd weergegeven, in tegenstelling tot "
+"niet-uitgeklapte links waarbij de onderliggende menu-items alleen worden "
+"weergegeven wanneer de link in het actieve pad voorkomt (1 = uitgeklapt, 0 = "
+"niet uitgeklapt)."
+
+#: modules/system/system.install:861
+msgid "Link weight among links in the same menu at the same depth."
+msgstr ""
+"Gewicht van de link ten opzichte van de links in hetzelfde menu op dezelfde "
+"diepte."
+
+#: modules/system/system.install:866
+msgid ""
+"The depth relative to the top level. A link with plid == 0 will have depth "
+"== 1."
+msgstr ""
+"De diepte ten opzichte van het hoogste niveau. Een link met plid gelijk aan "
+"0 zal diepte van 1 hebben."
+
+#: modules/system/system.install:872
+msgid ""
+"A flag to indicate that the user has manually created or edited the link (1 "
+"= customized, 0 = not customized)."
+msgstr ""
+"Een optie die aangeeft dat de gebruiker deze link heeft aangemaakt of "
+"gewijzigd (1 = aangepast, 0 = niet aangepast)"
+
+#: modules/system/system.install:884
+msgid "The second mlid in the materialized path. See p1."
+msgstr "De tweede mlid van het pad. Zie ook p1."
+
+#: modules/system/system.install:890
+msgid "The third mlid in the materialized path. See p1."
+msgstr "De derde mlid van het pad. Zie ook p1."
+
+#: modules/system/system.install:896
+msgid "The fourth mlid in the materialized path. See p1."
+msgstr "De vierde mlid van het pad. Zie ook p1."
+
+#: modules/system/system.install:902
+msgid "The fifth mlid in the materialized path. See p1."
+msgstr "De vijfde mlid van het pad. Zie ook p1."
+
+#: modules/system/system.install:908
+msgid "The sixth mlid in the materialized path. See p1."
+msgstr "De zesde mlid van het pad. Zie ook p1."
+
+#: modules/system/system.install:914
+msgid "The seventh mlid in the materialized path. See p1."
+msgstr "De zevende mlid van het pad. Zie ook p1."
+
+#: modules/system/system.install:920
+msgid "The eighth mlid in the materialized path. See p1."
+msgstr "De achtste mlid van het pad. Zie ook p1."
+
+#: modules/system/system.install:926
+msgid "The ninth mlid in the materialized path. See p1."
+msgstr "De negende mlid van het pad. Zie ook p1."
+
+#: modules/system/system.install:932
+msgid ""
+"Flag that indicates that this link was generated during the update from "
+"Drupal 5."
+msgstr ""
+"Markering om aan te geven dat deze link aangemaakt werd tijdens de update "
+"vanaf Drupal 5."
+
+#: modules/system/system.install:950
+msgid ""
+"Drupal's session handlers read and write into the sessions table. Each "
+"record represents a user session, either anonymous or authenticated."
+msgstr ""
+"De sessiebeheerders van Drupal lezen en schrijven in de sessietabel. Elk "
+"record komt overeen met een gebruikersessie, anoniem of geverifieerd."
+
+#: modules/system/system.install:953
+msgid "The {users}.uid corresponding to a session, or 0 for anonymous user."
+msgstr ""
+"De {users}.uid die met een sessie overeenkomt of 0 voor anonieme gebruiker."
+
+#: modules/system/system.install:958
+msgid "Primary key: A session ID. The value is generated by PHP's Session API."
+msgstr ""
+"Primaire sleutel: Een sessie ID. De waarde wordt bepaald door PHP's sessie "
+"API."
+
+#: modules/system/system.install:964
+msgid "The IP address that last used this session ID (sid)."
+msgstr "Het IP adres waarop deze sessie ID (sid) het laatst gebruikt is."
+
+#: modules/system/system.install:970
+msgid ""
+"The Unix timestamp when this session last requested a page. Old records are "
+"purged by PHP automatically."
+msgstr ""
+"De tijdstip waarop deze sessie een pagina voor het laatst heeft opgevraagd. "
+"Oude records worden automatisch verwijderd."
+
+#: modules/system/system.install:975
+msgid ""
+"The time of this user's last post. This is used when the site has specified "
+"a minimum_cache_lifetime. See cache_get()."
+msgstr ""
+"Tijdstip van het laatste bericht door deze gebruiker. Wordt gebruikt als "
+"voor de site minimum_cache_lifetime is ingesteld. Zie cache_get()."
+
+#: modules/system/system.install:993
+msgid ""
+"A list of all modules, themes, and theme engines that are or have been "
+"installed in Drupal's file system."
+msgstr ""
+"Een lijst van alle modules, templates en template-machines die geïnstalleerd "
+"zijn (geweest) op Drupals bestandssysteem."
+
+#: modules/system/system.install:996
+msgid ""
+"The path of the primary file for this item, relative to the Drupal root; e."
+"g. modules/node/node.module."
+msgstr ""
+"Het pad naar het primaire bestand voor dit item, relatief ten opzichte van "
+"de Drupal root. Bijvoorbeeld: modules/node/node.module."
+
+#: modules/system/system.install:1002
+msgid "The name of the item; e.g. node."
+msgstr "De naam van het item, bijvoorbeeld node."
+
+#: modules/system/system.install:1008
+msgid "The type of the item, either module, theme, or theme_engine."
+msgstr "Het type item: module, template of template-machine"
+
+#: modules/system/system.install:1014
+msgid "A theme's 'parent'. Can be either a theme or an engine."
+msgstr ""
+"De 'ouder' van een template. Kan zowel een template als een template-machine "
+"zijn."
+
+#: modules/system/system.install:1020
+msgid "Boolean indicating whether or not this item is enabled."
+msgstr ""
+"Boolean waarde die aangeeft of dit onderdeel wel of niet is ingeschakeld."
+
+#: modules/system/system.install:1031
+msgid ""
+"Boolean indicating whether this module is loaded during Drupal's early "
+"bootstrapping phase (e.g. even before the page cache is consulted)."
+msgstr ""
+"Boolean die aangeeft of deze module geladen wordt tijdens Drupals "
+"opstartfase (bijvoorbeeld nog voor de pagina-cache wordt geraadpleegd)."
+
+#: modules/system/system.install:1047
+msgid ""
+"A serialized array containing information from the module's .info file; keys "
+"can include name, description, package, version, core, dependencies, "
+"dependents, and php."
+msgstr ""
+"Een serialized array die informatie bevat uit de .info bestanden van de "
+"module; sleutels kunnen naam, omschrijving, package, versie, core, "
+"afhankelijkheden, afhankelijke modules en php bevatten."
+
+#: modules/system/system.install:1060
+msgid ""
+"A list of URL aliases for Drupal paths; a user may visit either the source "
+"or destination path."
+msgstr ""
+"Een lijst van URL-aliassen voor Drupal paden; een gebruiker mag zowel het "
+"bron- als het bestemmingspad bezoeken."
+
+#: modules/system/system.install:1063
+msgid "A unique path alias identifier."
+msgstr "Een unieke pad-alias identificatie."
+
+#: modules/system/system.install:1068
+msgid "The Drupal path this alias is for; e.g. node/12."
+msgstr "Het Drupal-pad waar deze alias voor staat. Bijvoorbeeld: node/12."
+
+#: modules/system/system.install:1074
+msgid "The alias for this path; e.g. title-of-the-story."
+msgstr "De alias voor dit pad. Bijvoorbeeld: naam-van-het-artikel."
+
+#: modules/system/system.install:112
+msgid ""
+"The directory %file is not protected from modifications and poses a security "
+"risk. You must change the directory's permissions to be non-writable. "
+msgstr ""
+"De map %file is niet beschermd tegen wijzigingen, wat een veiligheidsrisico "
+"met zich mee brengt. U moet de toegangsrechten van de mappen op 'niet "
+"schrijfbaar' zetten."
+
+#: modules/system/system.install:177
+msgid "You can <a href=\"@cron\">run cron manually</a>."
+msgstr "U kunt <a href=\"@cron\">cron handmatig uitvoeren</a>."
+
+#: modules/system/system.install:230
+msgid "Database updates"
+msgstr "Database updates"
+
+#: modules/system/system.install:256
+msgid ""
+"The update.php script is accessible to everyone without authentication "
+"check, which is a security risk. You must change the $update_free_access "
+"value in your settings.php back to FALSE."
+msgstr ""
+"Het update.php script is toegangkelijk voor iedereen, zonder "
+"authorisatiecontrole. Dit is een veiligheidsrisico. U dient de "
+"$update_free_access waarde in uw settings.php terug te zetten op FALSE."
+
+#: modules/system/system.install:264
+msgid "Access to update.php"
+msgstr "Toegang tot update.php"
+
+#: modules/system/system.install:275
+msgid "Not enabled"
+msgstr "Niet in gebruik"
+
+#: modules/system/system.install:277
+msgid ""
+"Update notifications are not enabled. It is <strong>highly recommended</"
+"strong> that you enable the update status module from the <a href=\"@module"
+"\">module administration page</a> in order to stay up-to-date on new "
+"releases. For more information please read the <a href=\"@update\">Update "
+"status handbook page</a>."
+msgstr ""
+"Update-berichten zijn niet ingeschakeld. Om bij nieuwe versies up-to-date te "
+"blijven wordt het <strong>dringend aangeraden</strong> om de pagina <a href="
+"\"@module\">modulebeheer</a> de Update Status-module in te schakelen."
+
+#: modules/system/system.module:333
+msgid "Actions"
+msgstr "Actions"
+
+#: modules/system/system.module:0
+msgid "system"
+msgstr "systeem"
+
+#: modules/system/system.module:0
+msgid "Footer"
+msgstr "Voet"
+
+#: modules/system/system.admin.inc:476
+msgid ""
+"Your shortcut icon, or 'favicon', is displayed in the address bar and "
+"bookmarks of most browsers."
+msgstr ""
+"Het snelkoppelingspictogram, ook wel 'favicon', wordt in de adresbalk en "
+"bladwijzers van de meeste browsers getoond."
+
+#: modules/system/system.admin.inc:1145
+msgid ""
+"Your site's motto, tag line, or catchphrase (often displayed alongside the "
+"title of the site)."
+msgstr ""
+"Motto, slogan of slagzin van de site (wordt vaak samen met de naam van de "
+"site getoond)."
+
+#: modules/system/system.admin.inc:1151
+msgid ""
+"Your site's mission or focus statement (often prominently displayed on the "
+"front page)."
+msgstr "De missie van de site (wordt vaak prominent op de voorpagina getoond)."
+
+#: modules/system/system.admin.inc:1196
+msgid "The path '@path' is either invalid or you do not have access to it."
+msgstr "Het pad '@path' is óf ongeldig óf u heeft er geen toegang toe."
+
+#: modules/system/system.admin.inc:1315
+msgid ""
+"<p>Drupal can automatically optimize external resources like CSS and "
+"JavaScript, which can reduce both the size and number of requests made to "
+"your website. CSS files can be aggregated and compressed into a single file, "
+"while JavaScript files are aggregated (but not compressed). These optional "
+"optimizations may reduce server load, bandwidth requirements, and page "
+"loading times.</p><p>These options are disabled if you have not set up your "
+"files directory, or if your download method is set to private.</p>"
+msgstr ""
+"<p>Drupal kan automatisch externe bronnen zoals CSS en JavaScript "
+"optimaliseren, wat zowel de grootte als het aantal aanvragen aan uw website "
+"kan verminderen. CSS-bestanden kunnen samengevoegd en gecomprimeerd worden "
+"tot één enkel bestand, terwijl JavaScript-bestanden samengevoegd (maar niet "
+"gecomprimeerd) worden. Deze optimalisaties zijn optioneel en kunnen de "
+"serverbelasting, benodigde bandbreedte en paginalaadtijden verminderen.</"
+"p><p>Deze opties zijn uitgeschakeld als u de map 'files' niet heeft "
+"aangemaakt of als de downloadmethode op 'privaat' staat ingesteld.</p>"
+
+#: modules/system/system.admin.inc:1326
+msgid ""
+"This option can interfere with theme development and should only be enabled "
+"in a production environment."
+msgstr ""
+"Deze optie kan het ontwikkelen van templates hinderen en dient alleen "
+"ingeschakeld te zijn in een produktieomgeving."
+
+#: modules/system/system.admin.inc:1334
+msgid ""
+"This option can interfere with module development and should only be enabled "
+"in a production environment."
+msgstr ""
+"Deze instelling kan de ontwikkeling van modules belemmeren en dient dus "
+"alleen maar in een productieomgeving ingeschakeld te worden."
+
+#: modules/system/system.admin.inc:1339,1345
+msgid "Clear cached data"
+msgstr "Cache-data opschonen"
+
+#: modules/system/system.admin.inc:1340
+msgid ""
+"Caching data improves performance, but may cause problems while "
+"troubleshooting new modules, themes, or translations, if outdated "
+"information has been cached. To refresh all cached data on your site, click "
+"the button below. <em>Warning: high-traffic sites will experience "
+"performance slowdowns while cached data is rebuilt.</em>"
+msgstr ""
+"Bufferen van gegevens verbetert de prestaties van de website, maar kan "
+"problemen opleveren tijdens foutzoeken in nieuwe modules, templates of "
+"vertalingen als verouderde informatie wordt gebufferd. Klik op de "
+"onderstaande knop om alle gebufferde informatie op de site te verversen. "
+"<em>Waarschuwing: websites met veel dataverkeer zullen merkbaar langzamer "
+"reageren gedurende het opbouwen van de cache.</em>"
+
+#: modules/system/system.admin.inc:1437
+msgid "Number of items in each feed"
+msgstr "Aantal onderdelen in elke feed"
+
+#: modules/system/system.admin.inc:1440
+msgid "Default number of items to include in each feed."
+msgstr "Het standaard aantal onderdelen dat in elke feed wordt opgenomen."
+
+#: modules/system/system.admin.inc:1444
+msgid "Feed content"
+msgstr "Feedinhoud"
+
+#: modules/system/system.admin.inc:1447
+msgid "Global setting for the default display of content items in each feed."
+msgstr "Algemene instelling voor de standaardweergave van inhoud in elke feed."
+
+#: modules/system/system.admin.inc:1786
+msgid ""
+"The MySQL query cache can improve performance of your site by storing the "
+"result of queries. Then, if an identical query is received later, the MySQL "
+"server retrieves the result from the query cache rather than parsing and "
+"executing the statement again."
+msgstr ""
+"De MySQL query-cache kan de prestatie van de website verbeteren door de "
+"resultaten van de queries op te slaan. Wanneer een zelfde query opnieuw "
+"wordt ontvangen zal de MySQL-server het resultaat uit de cache halen in "
+"plaats van het verzoek opnieuw uit te voeren."
+
+#: modules/system/system.admin.inc:1789
+msgid "The number of times MySQL found previous results in the cache."
+msgstr "Het aantal keren dat MySQL vorige resultaten in de cache vond."
+
+#: modules/system/system.admin.inc:1790
+msgid "The number of times MySQL added a query to the cache (misses)."
+msgstr ""
+"Het aantal keren dat MySQL een verzoek aan de cache heeft toegevoegd "
+"(missers)."
+
+#: modules/system/system.admin.inc:1791
+msgid ""
+"The number of times MySQL had to remove queries from the cache because it "
+"ran out of memory. Ideally should be zero."
+msgstr ""
+"Het aantal keren dat MySQL verzoeken uit de cache moest verwijderen wegens "
+"gebrek aan geheugen. Zou idealiter nul moeten zijn."
+
+#: modules/system/system.admin.inc:1904
+msgid "Expand layout to include descriptions."
+msgstr "Vergroot de layout om beschrijvingen toe te voegen."
+
+#: modules/system/system.admin.inc:1907
+msgid "Compress layout by hiding descriptions."
+msgstr "Verklein de layout door beschrijvingen te verbergen."
+
+#: modules/system/system.module:52
+msgid ""
+"The system module is at the foundation of your Drupal website, and provides "
+"basic but extensible functionality for use by other modules and themes. Some "
+"integral elements of Drupal are contained in and managed by the system "
+"module, including caching, enabling or disabling of modules and themes, "
+"preparing and displaying the administrative page, and configuring "
+"fundamental site settings. A number of key system maintenance operations are "
+"also part of the system module."
+msgstr ""
+"De System-module is het fundament van uw Drupal website en bevat basale maar "
+"uitbreidbare functionaliteit die gebruik kan worden door andere modules en "
+"templates. Een aantal onderdelen van Drupal zoals caching, modules en "
+"templates in- of uitschakelen, de beheerpagina tonen en het configureren van "
+"basisinstellingen voor de site, worden door de System-module afgehandeld. "
+"Ook een aantal belangrijke onderhoudsbewerkingen maken deel uit van de "
+"System-module."
+
+#: modules/system/system.module:53
+msgid "The system module provides:"
+msgstr "De System-module biedt:"
+
+#: modules/system/system.module:54
+msgid ""
+"support for enabling and disabling <a href=\"@modules\">modules</a>. Drupal "
+"comes packaged with a number of core modules; each module provides a "
+"discrete set of features and may be enabled depending on the needs of your "
+"site. A wide array of additional modules contributed by members of the "
+"Drupal community are available for download at the <a href=\"@drupal-modules"
+"\">Drupal.org module page</a>."
+msgstr ""
+"ondersteuning voor het in- en uitschakelen van <a href=\"@modules\">modules</"
+"a>. Drupal wordt geleverd met een aantal kernmodules; elke module biedt een "
+"afgebakende set functies die afhankelijk van de eisen voor uw site aangezet "
+"kan worden. Een grote verscheidenheid aan extra modules bijgedragen door de "
+"Drupal gemeenschap zijn beschikbaar op de <a href=\"@drupal-modules\">drupal."
+"org-modulepagina</a>."
+
+#: modules/system/system.module:55
+msgid ""
+"support for enabling and disabling <a href=\"@themes\">themes</a>, which "
+"determine the design and presentation of your site. Drupal comes packaged "
+"with several core themes and additional contributed themes are available at "
+"the <a href=\"@drupal-themes\">Drupal.org theme page</a>."
+msgstr ""
+"Ondersteuning voor het in- of uitschakelen van <a href=\"@themes"
+"\">templates</a>, die het design en de presentatie van uw site bepalen. "
+"Drupal wordt geleverd met een aantal kerntemplates. Uitbreidingstemplates "
+"zijn beschikbaar op de <a href=\"@drupal-themes\">drupal.org-templatepagina</"
+"a>."
+
+#: modules/system/system.module:56
+msgid ""
+"a robust <a href=\"@cache-settings\">caching system</a> that allows the "
+"efficient re-use of previously-constructed web pages and web page "
+"components. Drupal stores the pages requested by anonymous users in a "
+"compressed format; depending on your site configuration and the amount of "
+"your web traffic tied to anonymous visitors, Drupal's caching system may "
+"significantly increase the speed of your site."
+msgstr ""
+"een robuust <a href=\"@cache-settings\">caching systeem</a> dat efficient "
+"hergebruik van reeds samengestelde webpagina's en webpaginaonderdelen "
+"mogelijk maakt. Drupal bewaart pagina's die door anonieme gebruikers worden "
+"opgevraagd in een gecomprimeerd formaat; afhankelijk van uw site-"
+"instellingen en de hoeveelheid verkeer op uw website door anonieme bezoekers "
+"zal Drupal's caching systeem de snelheid van uw site aanzienlijk verbeteren."
+
+#: modules/system/system.module:57
+msgid ""
+"a set of routine administrative operations that rely on a correctly-"
+"configured <a href=\"@cron\">cron maintenance task</a> to run automatically. "
+"A number of other modules, including the feed aggregator, ping module and "
+"search also rely on <a href=\"@cron\">cron maintenance tasks</a>. For more "
+"information, see the online handbook entry for <a href=\"@handbook"
+"\">configuring cron jobs</a>."
+msgstr ""
+"een verzameling routinehandelingen die vereisen dat <a href=\"@cron\">cron-"
+"beheerstaken</a> automatisch worden uitgevoerd. Een aantal andere modules "
+"waaronder de feed-aggregator, de Ping-module en de zoek-functie zijn "
+"afhankelijk van <a href=\"@cron\">cron-beheerstaken</a>. Lees voor meer "
+"informatie de <a href=\"@ handbook\">Cron-pagina</a> in het 'configuration "
+"and customization'-handboek."
+
+#: modules/system/system.module:58
+msgid ""
+"basic configuration options for your site, including <a href=\"@date-settings"
+"\">date and time settings</a>, <a href=\"@file-system\">file system "
+"settings</a>, <a href=\"@clean-url\">clean URL support</a>, <a href=\"@site-"
+"info\">site name and other information</a>, and a <a href=\"@site-maintenance"
+"\">site maintenance</a> function for taking your site temporarily off-line."
+msgstr ""
+"basisinstellingen voor uw site, waaronder <a href=\"@date-settings\">datum- "
+"en tijdinstellingen</a>, <a href=\"@file-system"
+"\">bestandssysteeminstellingen</a>, ondersteuning van <a href=\"@clean-url"
+"\">schone URL's</a>, <a href=\"@site-info\">sitenaam en andere informatie</"
+"a> en een <a href=\"@site-maintenance\">site-onderhoud</a> functie om uw "
+"site tijdelijk offline te zetten."
+
+#: modules/system/system.module:59
+msgid ""
+"For more information, see the online handbook entry for <a href=\"@system"
+"\">System module</a>."
+msgstr ""
+"Lees voor meer informatie het online-handboek over de <a href=\"@system"
+"\">System-module</a>."
+
+#: modules/system/system.module:66
+msgid ""
+"Select which themes are available to your users and specify the default "
+"theme. To configure site-wide display settings, click the \"configure\" task "
+"above. Alternatively, to override these settings in a specific theme, click "
+"the \"configure\" link for that theme. Note that different themes may have "
+"different regions available for displaying content; for consistency in "
+"presentation, you may wish to enable only one theme."
+msgstr ""
+"Selecteer de templates die voor uw gebruikers beschikbaar zijn en stel een "
+"standaard template in. Klik voor algemene weergave-instellingen op de  Link "
+"'instellen' hierboven. Klik op de link voor het betreffende template "
+"waarvoor u deze instellingen wilt wijzigen. Let er op dat verschillende "
+"templates verschillende regionen voor weergave van inhoud kunnen hebben; "
+"voor consistentie in de presentatie kunt u het best slechts één template "
+"inschakelen."
+
+#: modules/system/system.module:67
+msgid ""
+"To change the appearance of your site, a number of <a href=\"@themes"
+"\">contributed themes</a> are available."
+msgstr ""
+"Om het uiterlijk van uw website te veranderen zijn er diverse <a href="
+"\"@themes\">uitbreidingstemplates</a> beschikbaar."
+
+#: modules/system/system.module:76
+msgid ""
+"Modules are plugins that extend Drupal's core functionality. Enable modules "
+"by selecting the <em>Enabled</em> checkboxes below and clicking the <em>Save "
+"configuration</em> button. Once a module is enabled, new <a href="
+"\"@permissions\">permissions</a> may be available. To reduce server load, "
+"modules with their <em>Throttle</em> checkbox selected are temporarily "
+"disabled when your site becomes extremely busy. (Note that the <em>Throttle</"
+"em> checkbox is only available if the Throttle module is enabled.)"
+msgstr ""
+"Modules zijn plugins voor Drupal die de kernfunctionaliteit uitbreiden. Hier "
+"kunt u de ingeschakelde modules kiezen. Klik in het navigatiemenu op de naam "
+"van de module voor de betreffende instellingenpagina. Als een module eenmaal "
+"is ingeschakeld kunnen nieuwe <a href=\"@permissions\">toegangsrechten</a> "
+"beschikbaar zijn. Met behulp van de Throttle-module kunnen modules "
+"automatisch tijdelijk worden uitgeschakeld om de belasting van de server te "
+"verminderen op momenten dat de site extreem druk wordt bezocht."
+
+#: modules/system/system.module:81
+msgid ""
+"It is important that <a href=\"@update-php\">update.php</a> is run every "
+"time a module is updated to a newer version."
+msgstr ""
+"Het is belangrijk om <a href=\"@update-php\">update.php</a> uit te voeren "
+"nadat een nieuwere versie van een module is geïnstalleerd."
+
+#: modules/system/system.module:82
+msgid ""
+"You can find all administration tasks belonging to a particular module on "
+"the <a href=\"@by-module\">administration by module page</a>."
+msgstr ""
+"U kunt alle beheertaken van een bepaalde module vinden op de <a href=\"@by-"
+"module\">pagina beheer per module</a>."
+
+#: modules/system/system.module:83
+msgid ""
+"To extend the functionality of your site, a number of <a href=\"@modules"
+"\">contributed modules</a> are available."
+msgstr ""
+"Om de functionaliteit van uw website uit te breiden is een groot aantal <a "
+"href=\"@modules\">uitbreidingsmodules</a> beschikbaar."
+
+#: modules/system/system.module:103
+msgid ""
+"Here you can find a short overview of your site's parameters as well as any "
+"problems detected with your installation. It may be useful to copy and paste "
+"this information into support requests filed on drupal.org's support forums "
+"and project issue queues."
+msgstr ""
+"Hier vindt u een kort overzicht van de parameters van uw site en eventuele "
+"problemen met uw installatie. Het kan nuttig zijn deze informatie mee te "
+"geven bij het indienen van ondersteuningsvragen op de forums van drupal.org "
+"en in de project 'issue queues'."
+
+#: modules/system/system.module:1739
+msgid ""
+"The message to be displayed to the current user. You may include the "
+"following variables: %site_name, %username, %node_url, %node_type, %title, %"
+"teaser, %body. Not all variables will be available in all contexts."
+msgstr ""
+"Het bericht dat aan de huidige gebruiker getoond wordt. U kunt de variabelen "
+"%site_name, %username, %node_url, %node_type, %title, %teaser, %body "
+"gebruiken. Niet alle variabelen zijn in elke context beschikbaar."
+
+#: modules/system/system.module:460
+msgid "Request test"
+msgstr "Verzoektest"
+
+#: modules/system/system.install:417
+msgid ""
+"Named variable/value pairs created by Drupal core or any other module or "
+"theme. All variables are cached in memory at the start of every Drupal "
+"request so developers should not be careless about what is stored here."
+msgstr ""
+"Door Drupal, module of template aangemaakte naam-waarde-paren. Bij de start "
+"van elke pagina-aanvraag worden alle variabelen in het geheugen opgeslagen. "
+"Daarom moeten ontwikkelaars zorgvuldig zijn met wat hier wordt opgeslagen."
+
+#: modules/system/system.install:727
+msgid ""
+"Router path of the closest non-tab parent page. For pages that are not local "
+"tasks, this will be the same as the path."
+msgstr ""
+"Het pad van de dichtstbijzijnde bovenliggende 'non-tab'-pagina. Voor "
+"pagina's die geen 'local task' zijn is dit meestal gelijk aan het pad."
+
+#: modules/system/system.install:745
+msgid ""
+"A serialized array of arguments for the title callback. If empty, the title "
+"will be used as the sole argument for the title callback."
+msgstr ""
+"Een serialized-array van argumenten voor de 'acces callback'. Als deze leeg "
+"is zal de titel als enige argument voor de 'title callback' worden gebruikt."
+
+#: modules/system/system.install:878
+msgid ""
+"The first mlid in the materialized path. If N = depth, then pN must equal "
+"the mlid. If depth > 1 then p(N-1) must equal the plid. All pX where X > "
+"depth must equal zero. The columns p1 .. p9 are also called the parents."
+msgstr ""
+"De eerste mlid in het pad. Als N = diepte, dan is pN gelijk aan de mlid. Als "
+"diepte > 1, dan is p(N-1) gelijk aan de plid. Alle pX, waarbij X > diepte, "
+"moeten gelijk aan nul zijn. De kolommen p1 .. p9 worden ook bovenliggend "
+"(parents) genoemd."
+
+#: modules/system/system.install:980
+msgid ""
+"The serialized contents of $_SESSION, an array of name/value pairs that "
+"persists across page requests by this session ID. Drupal loads $_SESSION "
+"from here at the start of each request and saves it at the end."
+msgstr ""
+"De serialized-inhoud van $_SESSION. Een array van naam-waarde-paren die per "
+"sessie-ID beschikbaar zijn in iedere opgevraagde pagina. Drupal betrekt bij "
+"de aanvang van de opgevraagde pagina hier de waarde van $_SESSION en slaat "
+"deze aan het einde hier  weer op."
+
+#: modules/system/system.install:1025
+msgid ""
+"Boolean indicating whether this item is disabled when the throttle.module "
+"disables throttleable items."
+msgstr ""
+"Een optie die aangeeft of dit onderdeel uitgeschakeld wordt als de Throttle-"
+"module onderdelen uitschakelt."
+
+#: modules/system/system.install:1036
+msgid ""
+"The module's database schema version number. -1 if the module is not "
+"installed (its tables do not exist); 0 or the largest N of the module's "
+"hook_update_N() function that has either been run or existed when the module "
+"was first installed."
+msgstr ""
+"Het versienummer van de database-structuur. -1 als de module nog niet "
+"geïnstalleerd is (tabellen van de module bestaan nog niet); 0 of de hoogste "
+"N-waarde van de functie hook_update_N() die is uitgevoerd of bij installatie "
+"aanwezig was."
+
+#: modules/system/system.install:1042
+msgid ""
+"The order in which this module's hooks should be invoked relative to other "
+"modules. Equal-weighted modules are ordered by name."
+msgstr ""
+"De volgorde waarin de hooks van deze module aangeroepen moeten worden, in "
+"relatie tot andere modules. Modules van gelijk gewicht worden op volgorde "
+"van naam aangeroepen."
+
+#: modules/system/system.install:1080
+msgid ""
+"The language this alias is for; if blank, the alias will be used for unknown "
+"languages. Each Drupal path can have an alias for each supported language."
+msgstr ""
+"De taal waar deze alias voor bestemd is; indien leeggelaten zal deze alias "
+"gebruikt worden voor onbekende talen. Elk pad in Drupal kan voor elke "
+"ondersteunde taal een eigen alias hebben."
+
+#: modules/system/system.install:133
+msgid ""
+"For more information, see the online handbook entry for <a href=\"@cron-"
+"handbook\">configuring cron jobs</a>."
+msgstr ""
+"Lees voor meer informatie het online-handboek over <a href=\"@cron-handbook"
+"\">configureren van cron-jobs</a>."
+
+#: modules/system/system.install:157
+msgid ""
+"Cron has not run. Please visit the <a href=\"@status\">status report</a> for "
+"more information."
+msgstr ""
+"Cron is niet uitgevoerd. Bekijk de <a href=\"@status\">statusrapportage</a> "
+"voor meer informatie."
+
+#: modules/system/system.install:163
+msgid "Cron has not run."
+msgstr "Cron is niet uitgevoerd."
+
+#: modules/system/system.install:169
+msgid "Cron has not run recently."
+msgstr "Cron is niet recentelijk uitgevoerd."
+
+#: modules/system/system.install:286
+msgid "HTTP request status"
+msgstr "status HTTP-aanvraag"
+
+#: modules/system/system.install:287
+msgid "Fails"
+msgstr "Mislukt"
+
+#: modules/system/system.install:289
+msgid ""
+"Your system or network configuration does not allow Drupal to access web "
+"pages, resulting in reduced functionality. This could be due to your "
+"webserver configuration or PHP settings, and should be resolved in order to "
+"download information about available updates, fetch aggregator feeds, sign "
+"in via OpenID, or use other network-dependent services."
+msgstr ""
+"Een deel van de functionaliteit is niet beschikbaar omdat uw systeem- of "
+"netwerk-instellingen Drupal niet toestaan om webpagina's te benaderen. Dit "
+"kan veroorzaakt worden door instellingen van de webserver of PHP-"
+"instellingen. Wijzigen van deze instellingen is nodig voor downloaden van "
+"informatie over beschikbare updates, ophalen van feeds, inschrijven via "
+"OpenID of het gebruik van andere netwerkafhankelijke diensten."
+
+#: modules/system/system.admin.inc:1716
+msgid "Cron ran successfully."
+msgstr "Cron is met succes uitgevoerd."
+
+#: modules/system/system.admin.inc:1719
+msgid "Cron run failed."
+msgstr "Cron uitvoering niet succesvol."
+
+#: modules/system/system.module:158
+msgid "access site reports"
+msgstr "toegang tot site rapportages"
+
+#: modules/system/system.install:55
+msgid ""
+"<em>register_globals</em> is enabled. Drupal requires this configuration "
+"directive to be disabled. Your site may not be secure when "
+"<em>register_globals</em> is enabled. The PHP manual has instructions for <a "
+"href=\"http://php.net/configuration.changes\">how to change configuration "
+"settings</a>."
+msgstr ""
+"<em>register_globals</em> is ingeschakeld. Voor Drupal dient deze instelling "
+"uitgeschakeld te worden. De website is mogelijk niet veilig zolang "
+"<em>register_globals</em> is ingeschakeld. In het PHP-handboek vindt u "
+"aanwijzingen voor het  <a href=\"http://php.net/configuration.changes"
+"\">wijzigen van de configuratie-instellingen</a>."
+
+#: modules/system/system.install:66
+msgid "PHP memory limit"
+msgstr "PHP-geheugenlimiet"
+
+#: modules/system/system.install:73
+msgid ""
+"Consider increasing your PHP memory limit to %memory_minimum_limit to help "
+"prevent errors in the installation process."
+msgstr ""
+"Overweeg om de PHP-geheugenlimiet te verhogen tot %memory_minimum_limit om "
+"fouten tijdens het installatieproces te voorkomen."
+
+#: modules/system/system.install:79
+msgid ""
+"Depending on your configuration, Drupal can run with a %memory_limit PHP "
+"memory limit. However, a %memory_minimum_limit PHP memory limit or above is "
+"recommended, especially if your site uses additional custom or contributed "
+"modules."
+msgstr ""
+"Afhankelijk van de configuratie kan Drupal werken met een PHP-geheugenlimiet "
+"van %memory_limit. Echter een limiet van %memory_minimum_limit of hoger "
+"wordt aanbevolen, vooral wanneer de website uitbreidingsmodules gebruikt."
+
+#: modules/system/system.install:84
+msgid ""
+"Increase the memory limit by editing the memory_limit parameter in the file %"
+"configuration-file and then restart your web server (or contact your system "
+"administrator or hosting provider for assistance)."
+msgstr ""
+"Verhoog de geheugenlimiet door de parameter memory_limit in het %"
+"configuration-file-bestand aan te passen en vervolgens de webserver opnieuw "
+"te starten (of neem voor assistentie contact op met de systeembeheerder of "
+"webhost)."
+
+#: modules/system/system.install:87
+msgid ""
+"Contact your system administrator or hosting provider for assistance with "
+"increasing your PHP memory limit."
+msgstr ""
+"Neem contact op met uw systeembeheerder of hostingpartij voor hulp bij het "
+"verhogen van de PHP-geheugenlimiet."
+
+#: modules/system/system.install:90
+msgid "See the <a href=\"@url\">Drupal requirements</a> for more information."
+msgstr ""
+"Zie de <a href=\"@url\">Drupal systeemvereisten</a> voor meer informatie."
+
+#: modules/system/system.install:210
+msgid ""
+"An automated attempt to create this directory failed, possibly due to a "
+"permissions problem. To proceed with the installation, either create the "
+"directory and modify its permissions manually, or ensure that the installer "
+"has the permissions to create it automatically. For more information, please "
+"see INSTALL.txt or the <a href=\"@handbook_url\">on-line handbook</a>."
+msgstr ""
+"Een automatische poging om deze map aan te maken is mislukt door onvoldoende "
+"toegangsrechten. Om de installatie te vervolgen maakt u zelf de map aan en "
+"wijzigt u de toegangsrechten of zorgt u er voor dat het installatieprogramma "
+"voldoende rechten heeft om de map automatisch aan te maken. Lees voor meer "
+"informatie het bestand INSTALL.txt of het <a href=\"@handbook_url\">online "
+"handboek</a>."
+
+#: modules/system/system.admin.inc:1779
+msgid ""
+"The number of joins without keys that check for key usage after each row; "
+"should be zero."
+msgstr ""
+"Het aantal joins zonder sleutel die na iedere regel op het sleutelgebruik "
+"controleren; moet nul zijn."
+
+#: modules/system/system.install:46
+msgid "PHP register globals"
+msgstr "PHP register globals"
+
+#: modules/system/system.install:57
+msgid "Enabled ('@value')"
+msgstr "Ingeschakeld ('@value')"
+
+#: modules/system/system.install:76
+msgid ""
+"Consider increasing your PHP memory limit to %memory_minimum_limit to help "
+"prevent errors in the update process."
+msgstr ""
+"Overweeg om de PHP-geheugenlimiet te verhogen tot %memory_minimum_limit om "
+"fouten tijdens het bijwerkproces te voorkomen."

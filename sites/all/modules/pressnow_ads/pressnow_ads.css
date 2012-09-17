@@ -1,0 +1,9 @@
+#adtype-ahah-wrapper .container-inline {
+  border: 1px solid #ed5;
+  color: #840;
+  background: #fe6;
+  padding: 5px;
+}
+#adtype-ahah-wrapper .container-inline em {
+  font-weight: bold;
+}

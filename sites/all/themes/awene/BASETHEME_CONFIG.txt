@@ -1,0 +1,56 @@
+DATABASE:
+- Kopieerd de database van Basetheme voor de nieuwe site
+
+THEMES:
+- Kopieer de Basetheme en eventueel het Mobile theme voor de nieuwe site
+- Zet het nieuwe theme aan voor de site via: Site building > Themes
+
+SITE INFORMATION:
+- Ga naar: Site Configuration > Site information
+- Pas de gegevens aan voor de nieuwe website
+
+CONTENT TYPES:
+- Ga naar: Content management > Content types
+- Loop alle content types na op nieuwe types en/of extra velden
+
+NEWSLETTER SETTINGS:
+- Ga naar: Site Configuration > Simplenews > Newsletter
+- Pas de afzender gegevens aan voor de nieuwsbrief
+
+WEBFORM SETTINGS:
+- Ga naar: Site Configuration > Webform
+- Pas de default gegevens aan voor de formulieren (afz., form namen, etc.)
+- Ga naar: Content management > Content > List
+- Zoek alle content van het type webform
+- Controleer van deze content de inhoud
+
+TALEN CONTROLEREN / VERWIJDEREN:
+- Ga naar: Site Confuration > Languages > List
+- Verwijder de taal die niet nodig is voor deze website
+
+TALEN TOEVOEGEN:
+- Zoek de juiste taal op via http://drupal.org/project/Translations en download alle .po files met vertalingen
+- Ga naar: Site Confuration > Languages > Add language
+- Kies de language naam en importeer alle vertalingen
+
+VERTALINGEN CONTROLEREN / AANPASSEN:
+- User e-mails (Let op de taal van de admin interface en de language prefix in de URL): 
+  Ga naar: User management > User settings
+- Standaard translations: Ga naar Site building > Translate interface > Search
+  Zoek vervolgens op (een deel van) de tekst om de vertalingen te zoeken en aan te passen.
+- String overrides: Ga naar Site Confuration > String overrides
+
+MENU'S:
+- Ga naar: Site building > Menus > List menu
+- Zorg dat er voor elke taal minimaal de volgende menu's worden aangemaakt (let op de naamgeving!):
+  - Footer menu
+  - Main menu
+  - Right menu
+- De menu's zijn al aangemaakt voor de Nederlands (NL), Arabische (AR) en Engelse (EN) taal
+- Gooi de menu's weg die je niet nodig hebt
+- Creeer voor elk menu een menu block en plaats deze in de juiste regio. Kopieer de settings van de default menu blokken.
+- Verwijder de menu blokken voor talen die niet nodig zijn
+
+
+
+

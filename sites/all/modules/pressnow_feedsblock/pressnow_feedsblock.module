@@ -1,0 +1,125 @@
+<?php
+
+define('MAX_ITEMS', 30);
+
+/**
+ * Implementation of hook_perm().
+ */
+function pressnow_feedsblock_perm() {
+  return array('administer feeds from our partners');
+}
+
+/**
+ * Implementation of hook_menu().
+ */
+function pressnow_feedsblock_menu() {
+  $items = array();
+  
+  $items['admin/content/pressnow_feedsblock'] = array(
+    'title' => t('Feeds from our partners'),
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('_pressnow_feedsblock_settings'),
+    'access arguments' => array('administer feeds from our partners'),
+  );
+  
+  return $items;
+}
+
+function _pressnow_feedsblock_settings() {
+  $form = array();
+  
+  for ($i = 1; $i <= 5; $i++) {
+    $form['pressnow_feeds_feed_' . $i] = array(
+      '#title' => t('Feed @count', array('@count' => $i)),
+      '#type' => 'textfield',
+      '#default_value' => variable_get('pressnow_feeds_feed_' . $i,''),
+    );
+  }
+  
+  $form = system_settings_form($form);
+  return $form;
+}
+
+/**
+ * Implementation of hook_block().
+ */
+function pressnow_feedsblock_block($op = 'list', $delta = 0, $edit = array()) {
+  switch ($op) {
+    case 'list':
+      $blocks['pressnow_feedsblock'] = array(
+        'info' => t('Feeds from our partners block'),
+      );
+      return $blocks;
+      break;
+    case 'view':
+      switch ($delta) {
+        case 'pressnow_feedsblock':
+          $block['subject'] = t('Feeds from our partners');
+          $block['content'] = _pressnow_feedsblock_getcontent();
+          break;
+      }
+      return $block;
+      break;
+  }
+}
+
+/**
+ * Implementation of hook_init().
+ */
+function pressnow_feedsblock_init() {
+  drupal_add_js(drupal_get_path('module', 'pressnow_feedsblock') . '/js/pressnow_feedsblock.js');
+}
+
+function _pressnow_feedsblock_getcontent() {
+  $array = _generate_feed_xml();
+  $ret = '<div class="feeds-newer"><div class="button">Newer</div></div>';
+  $ret .= '<div class="feeds-links">';
+  $ret .= theme('links', $array);
+  $ret .= '</div>';
+  $ret .= '<div class="feeds-older"><div class="button">Older</div></div>';
+  return $ret;
+}
+
+function _generate_feed_xml() {
+  $url = '';
+  $xml = array();
+  for ($i = 1; $i <= 5; $i++) {
+    $url = variable_get('pressnow_feeds_feed_' . $i,'');
+    if (!empty($url)) {
+      $feed = @simplexml_load_file($url);
+      if (!empty($feed->channel->item)) {
+        foreach ($feed->channel->item AS $item) {
+          $time = strtotime((String)$item->pubDate);
+          if (array_key_exists($time, $xml)) {
+            $time = $time . '_0';
+          }
+          $xml[$time] = array(
+            'title' => truncate_utf8((String)$item->title, 45, TRUE, TRUE),
+            'href' => (String)$item->link,
+          );
+        }
+      }
+      else if (!empty($feed->entry)) {
+        foreach ($feed->entry AS $item) {
+          $time = strtotime((String)$item->published);
+          if (array_key_exists($time, $xml)) {
+            $time = $time . '_' . mt_rand();
+          }
+          foreach($item->link->attributes() as $a => $b) {
+            if ($a == 'href') {
+              $link = $b;
+            }
+          }
+          
+          $xml[$time] = array(
+            'title' => truncate_utf8((String)$item->title, 45, TRUE, TRUE),
+            'href' => $link,
+            'attributes' => array('target' => '_blank'),
+          );
+        }
+      }
+    }
+  }
+  krsort($xml);
+  return array_slice($xml, 0, MAX_ITEMS);
+}

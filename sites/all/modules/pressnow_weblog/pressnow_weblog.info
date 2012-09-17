@@ -1,0 +1,5 @@
+; $Id$
+name = pressnow_weblog
+description = "press now weblog module"
+package = Pressnow
+core = 6.x

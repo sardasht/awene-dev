@@ -1,0 +1,58 @@
+<?php
+
+function pressnow_adsense_menu() {
+  $items = array();
+  $items['admin/content/pressnow_adsense'] = array(
+    'title' => t('Adsense configuration'),
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('_pressnow_adsense_settings'),
+    'access arguments' => array('administer nodes'),
+  );
+  return $items;
+}
+
+function _pressnow_adsense_settings() {
+  $form = array();
+  $max = variable_get('adsense_managed_number_blocks', ADSENSE_MANAGED_NUMBER_BLOCKS_DEFAULT);
+  
+  for ($count=0 ; $count < $max ; $count++) {
+    if ($ad = _adsense_managed_get_block_config($count)) {
+      $title = $ad[0];
+    }
+    else {
+      $title = t('AdSense: unconfigured ') . $count;
+    }
+    
+    $form['pressnow_adsense_info_' . $count] = array(
+      '#type' => 'hidden',
+      '#value' => $ad[0],
+    );
+    $form['pressnow_adsense_format_' . $count] = array(
+      '#type' => 'hidden',
+      '#value' => $ad[1],
+    );
+    $form['pressnow_adsense_slot_' . $count] = array(
+      '#title' => $title,
+      '#type' => 'textfield',
+      '#default_value' => $ad[2],
+      '#description' => t('Empty this field to hide the adsense banner.'),
+    );
+    $form['pressnow_adsense_align_' . $count] = array(
+      '#type' => 'hidden',
+      '#value' => $ad[3],
+    );
+  }
+  
+  $form = system_settings_form($form);
+  $form['#submit'][] = '_pressnow_adsense_submithandler';
+  return $form;
+}
+
+function _pressnow_adsense_submithandler(&$form, &$form_state) {
+  $max = variable_get('adsense_managed_number_blocks', ADSENSE_MANAGED_NUMBER_BLOCKS_DEFAULT);
+  
+  for ($count=0 ; $count < $max ; $count++) {
+    $data = implode(':', array(urlencode($form_state['values']['pressnow_adsense_info_' . $count]), $form_state['values']['pressnow_adsense_format_' . $count], $form_state['values']['pressnow_adsense_slot_' . $count], $form_state['values']['pressnow_adsense_align_' . $count]));
+    variable_set('adsense_managed_ad_block_'. $count, $data);
+  }
+}

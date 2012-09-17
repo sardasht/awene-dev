@@ -1,0 +1,701 @@
+# Dutch translation of drupal (6.0)
+# Copyright (c) 2008 by the Dutch translation team
+# Generated from files:
+#  comment.module,v 1.617 2008/01/25 16:19:12 goba
+#  comment.pages.inc,v 1.2.2.1 2008/02/07 18:53:38 goba
+#  comment.admin.inc,v 1.4 2008/01/08 10:35:41 goba
+#  comment-folded.tpl.php,v 1.2 2007/08/07 08:39:35 goba
+#  comment.install,v 1.19 2008/01/16 21:45:30 goba
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: drupal (6.0)\n"
+"POT-Creation-Date: 2008-02-14 07:52+0000\n"
+"PO-Revision-Date: 2008-02-06 15:25+0000\n"
+"Language-Team: Dutch\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: modules/comment/comment.module:136
+msgid ""
+"Below is a list of the comments posted to your site that need approval. To "
+"approve a comment, click on 'edit' and then change its 'moderation status' "
+"to Approved. Click on a subject to see the comment, the author's name to "
+"edit the author's user information, 'edit' to modify the text, and 'delete' "
+"to remove their submission."
+msgstr ""
+"Hieronder staat een lijst van recente reacties die moeten worden "
+"goedgekeurd. Klik op \"bewerken\" en wijzig de \"moderatiestatus\" in "
+"Goedgekeurd om een reactie goed te keuren. Klik op een onderwerp om de "
+"reactie te zien, op de naam van de schrijver om de gebruikersinformatie te "
+"bewerken, op \"bewerken\" om de tekst te bewerken en op \"verwijderen\" om "
+"de reactie te verwijderen."
+
+#: modules/comment/comment.module:199
+msgid "List and edit site comments and the comment moderation queue."
+msgstr "Reacties en de moderatiewachtrij voor reacties weergeven en wijzigen."
+
+#: modules/comment/comment.module:207
+msgid "Published comments"
+msgstr "Gepubliceerde reacties"
+
+#: modules/comment/comment.module:212
+msgid "Approval queue"
+msgstr "Goedkeuringsrij"
+
+#: modules/comment/comment.module:219
+msgid "Delete comment"
+msgstr "Reactie verwijderen"
+
+#: modules/comment/comment.module:227
+msgid "Edit comment"
+msgstr "Reactie bewerken"
+
+#: modules/comment/comment.module:234
+msgid "Reply to comment"
+msgstr "Reageer op reactie"
+
+#: modules/comment/comment.module:284,288
+msgid "Recent comments"
+msgstr "Recente reacties"
+
+#: modules/comment/comment.module:420
+msgid "Jump to the first comment of this posting."
+msgstr "Ga naar de eerste reactie op deze inzending."
+
+#: modules/comment/comment.module:431
+msgid "Jump to the first new comment of this posting."
+msgstr "Ga naar de eerste nieuwe reactie op deze inzending."
+
+#: modules/comment/comment.module:440,461
+msgid "Add new comment"
+msgstr "Reactie toevoegen"
+
+#: modules/comment/comment.module:442
+msgid "Add a new comment to this page."
+msgstr "Nieuwe reactie aan deze pagina toevoegen."
+
+#: modules/comment/comment.module:463
+msgid "Share your thoughts and opinions related to this posting."
+msgstr "Uw gedachten en meningen over dit bericht delen."
+
+#: modules/comment/comment.module:498
+msgid "Default comment setting"
+msgstr "Standaard reactie-instelling"
+
+#: modules/comment/comment.module:500,584
+msgid "Read only"
+msgstr "Alleen lezen"
+
+#: modules/comment/comment.module:500,584
+msgid "Read/Write"
+msgstr "Lezen/Schrijven"
+
+#: modules/comment/comment.module:501
+msgid ""
+"Users with the <em>administer comments</em> permission will be able to "
+"override this setting."
+msgstr ""
+"Gebruikers met toegangsrechten voor <em>reacties beheren</em> kunnen deze "
+"instelling negeren."
+
+#: modules/comment/comment.module:492,575
+msgid "Comment settings"
+msgstr "Reactie-instellingen"
+
+#: modules/comment/comment.module:505
+msgid "Default display mode"
+msgstr "Standaard weergavemodus"
+
+#: modules/comment/comment.module:508
+msgid ""
+"The default view for comments. Expanded views display the body of the "
+"comment. Threaded views keep replies together."
+msgstr ""
+"De standaardweergave voor reacties. De uitgeklapt weergave toont de "
+"berichttekst van de reactie. De vertakte weergave toont gerelateerde "
+"reacties tezamen."
+
+#: modules/comment/comment.module:512
+msgid "Default display order"
+msgstr "Standaard weergave-volgorde"
+
+#: modules/comment/comment.module:515
+msgid ""
+"The default sorting for new users and anonymous users while viewing "
+"comments. These users may change their view using the comment control panel. "
+"For registered users, this change is remembered as a persistent user "
+"preference."
+msgstr ""
+"De standaardmethode van sorteren bij het weergeven van reacties voor nieuwe "
+"gebruikers en anonieme gebruikers. Deze gebruikers kunnen de weergave met "
+"behulp van het reactie-instellingenscherm wijzigen. Bij geregistreerde "
+"gebruikers wordt deze wijziging als voorkeursinstelling bewaard."
+
+#: modules/comment/comment.module:519
+msgid "Default comments per page"
+msgstr "Standaard aantal reacties per pagina"
+
+#: modules/comment/comment.module:522
+msgid ""
+"Default number of comments for each page: more comments are distributed in "
+"several pages."
+msgstr ""
+"Standaard aantal reacties per pagina: meer reacties worden verdeeld over "
+"verschillende pagina's."
+
+#: modules/comment/comment.module:526
+msgid "Comment controls"
+msgstr "Reactie-instellingen"
+
+#: modules/comment/comment.module:529
+msgid "Display above the comments"
+msgstr "Boven de reacties weergeven"
+
+#: modules/comment/comment.module:530
+msgid "Display below the comments"
+msgstr "Onder de reacties weergeven"
+
+#: modules/comment/comment.module:531
+msgid "Display above and below the comments"
+msgstr "Boven en onder de reacties weergeven"
+
+#: modules/comment/comment.module:532
+msgid "Do not display"
+msgstr "Niet weergeven"
+
+#: modules/comment/comment.module:533
+msgid ""
+"Position of the comment controls box. The comment controls let the user "
+"change the default display mode and display order of comments."
+msgstr ""
+"Positie van het reactie-instellingenscherm. Met de reactie-instellingen kan "
+"de gebruiker de standaardweergavemethode en weergavevolgorde van de reacties "
+"aanpassen."
+
+#: modules/comment/comment.module:537
+msgid "Anonymous commenting"
+msgstr "Anoniem reageren"
+
+#: modules/comment/comment.module:540
+msgid "Anonymous posters may not enter their contact information"
+msgstr "Anonieme berichtenschrijvers mogen geen contactinformatie invoeren"
+
+#: modules/comment/comment.module:541
+msgid "Anonymous posters may leave their contact information"
+msgstr "Anonieme berichtenschrijvers mogen contactinformatie invoeren"
+
+#: modules/comment/comment.module:542
+msgid "Anonymous posters must leave their contact information"
+msgstr "Anonieme berichtenschrijvers moeten contactinformatie invoeren"
+
+#: modules/comment/comment.module:543
+msgid ""
+"This option is enabled when anonymous users have permission to post comments "
+"on the <a href=\"@url\">permissions page</a>."
+msgstr ""
+"Deze functie is alleen zinvol wanneer u anonieme gebruikers toestaat om te "
+"reageren. Zie <a href=\"@url\">toegangsrechtenpagina</a>."
+
+#: modules/comment/comment.module:550
+msgid "Comment subject field"
+msgstr "Reatie-onderwerpveld"
+
+#: modules/comment/comment.module:553
+msgid "Can users provide a unique subject for their comments?"
+msgstr "Kunnen gebruikers een uniek onderwerp opgeven voor hun reacties?"
+
+#: modules/comment/comment.module:557,1425
+msgid "Preview comment"
+msgstr "Voorbeeldweergave"
+
+#: modules/comment/comment.module:564
+msgid "Location of comment submission form"
+msgstr "Lokatie van het reactie-invoerveld"
+
+#: modules/comment/comment.module:566
+msgid "Display on separate page"
+msgstr "Op een afzonderlijke pagina weergeven"
+
+#: modules/comment/comment.module:566
+msgid "Display below post or comments"
+msgstr "Onder het bericht of de reacties weergeven"
+
+#: modules/comment/comment.pages.inc:65,105
+msgid "You are not authorized to post comments."
+msgstr "U heeft geen toegangsrechten om te reageren."
+
+#: modules/comment/comment.pages.inc:78,87
+msgid "The comment you are replying to does not exist."
+msgstr "De reactie waarop u reageert bestaat niet."
+
+#: modules/comment/comment.pages.inc:98
+msgid "This discussion is closed: you can't post new comments."
+msgstr "Deze discussie is gesloten: u kunt niet meer reageren."
+
+#: modules/comment/comment.pages.inc:102
+msgid "Reply"
+msgstr "Reageren"
+
+#: modules/comment/comment.pages.inc:111
+msgid "You are not authorized to view comments."
+msgstr "U heeft geen toegangsrechten om de reacties te bekijken."
+
+#: modules/comment/comment.module:768
+msgid "Comment: added %subject."
+msgstr "Reactie: %subject toegevoegd."
+
+#: modules/comment/comment.module:778
+msgid ""
+"Your comment has been queued for moderation by site administrators and will "
+"be published after approval."
+msgstr ""
+"Uw reactie wacht op de goedkeuring van een beheerder en zal pas na "
+"goedkeuring worden gepubliceerd."
+
+#: modules/comment/comment.module:1048
+msgid "Post new comment"
+msgstr "Nieuwe reactie inzenden"
+
+#: modules/comment/comment.admin.inc:228
+msgid "The comment no longer exists."
+msgstr "De reactie bestaat niet meer."
+
+#: modules/comment/comment.admin.inc:245
+msgid "Are you sure you want to delete the comment %title?"
+msgstr "Weet u zeker dat u reactie %title wilt verwijderen?"
+
+#: modules/comment/comment.admin.inc:247
+msgid "Any replies to this comment will be lost. This action cannot be undone."
+msgstr ""
+"Alle reacties op deze reactie zullen verloren gaan. Deze actie kan niet "
+"ongedaan worden gemaakt."
+
+#: modules/comment/comment.admin.inc:257
+msgid "The comment and all its replies have been deleted."
+msgstr "De reactie en alle reacties daarop zijn verwijderd."
+
+#: modules/comment/comment.module:1069,1081
+msgid "Publish the selected comments"
+msgstr "De geselecteerde reacties publiceren"
+
+#: modules/comment/comment.module:1070,1076,1083
+msgid "Delete the selected comments"
+msgstr "De geselecteerde reacties verwijderen"
+
+#: modules/comment/comment.module:1075,1082
+msgid "Unpublish the selected comments"
+msgstr "Publicatie van de geselecteerde reacties ongedaan maken"
+
+#: modules/comment/comment.admin.inc:86
+msgid "Please select one or more comments to perform the update on."
+msgstr "Selecteer één of meer reacties die u wenst bij te werken."
+
+#: modules/comment/comment.admin.inc:142
+msgid "No comments available."
+msgstr "Geen reacties beschikbaar."
+
+#: modules/comment/comment.admin.inc:183
+msgid ""
+"There do not appear to be any comments to delete or your selected comment "
+"was deleted by another administrator."
+msgstr ""
+"Er blijken geen reacties te zijn om te verwijderen of de geselecteerde "
+"reacties zijn door een andere beheerder verwijderd."
+
+#: modules/comment/comment.admin.inc:188
+msgid "Are you sure you want to delete these comments and all their children?"
+msgstr ""
+"Weet u zeker dat u deze reacties en alle onderliggende reacties wilt "
+"verwijderen?"
+
+#: modules/comment/comment.admin.inc:190
+msgid "Delete comments"
+msgstr "Reacties verwijderen"
+
+#: modules/comment/comment.admin.inc:207
+msgid "The comments have been deleted."
+msgstr "De reacties zijn verwijderd."
+
+#: modules/comment/comment.module:1192
+msgid "You have to specify a valid author."
+msgstr "Geef een geldige auteur op."
+
+#: modules/comment/comment.module:1203
+msgid "The name you used belongs to a registered user."
+msgstr "De naam die u gebruikte behoort toe aan een geregistreerde gebruiker."
+
+#: modules/comment/comment.module:1208
+msgid "You have to leave your name."
+msgstr "Vul uw naam in."
+
+#: modules/comment/comment.module:1213
+msgid "The e-mail address you specified is not valid."
+msgstr "Het opgegeven e-mailadres is ongeldig."
+
+#: modules/comment/comment.module:1217
+msgid "You have to leave an e-mail address."
+msgstr "Vul een e-mailadres in."
+
+#: modules/comment/comment.module:1222
+msgid ""
+"The URL of your homepage is not valid. Remember that it must be fully "
+"qualified, i.e. of the form <code>http://example.com/directory</code>."
+msgstr ""
+"De URL van uw website is niet geldig. Het moet een volledige URL zijn zoals "
+"http://example.com/directory"
+
+#: modules/comment/comment.module:1278
+msgid "Administration"
+msgstr "Beheer"
+
+#: modules/comment/comment.module:1321,1346,1353
+msgid "Homepage"
+msgstr "Homepagina"
+
+#: modules/comment/comment.module:1527
+msgid "(No subject)"
+msgstr "(Geen onderwerp)"
+
+#: modules/comment/comment.module:1613
+msgid "!a comments per page"
+msgstr "!a reacties per pagina"
+
+#: modules/comment/comment.module:1640
+msgid ""
+"Select your preferred way to display the comments and click \"Save settings"
+"\" to activate your changes."
+msgstr ""
+"Kies uw favoriete manier om reacties weer te geven en klik op \"instellingen "
+"opslaan\" om uw veranderingen te activeren."
+
+#: modules/comment/comment.module:1641
+msgid "Comment viewing options"
+msgstr "Opties reactieweergave"
+
+#: modules/comment/comment-folded.tpl.php:20
+msgid "by"
+msgstr "door"
+
+#: modules/comment/comment.module:1794
+msgid ""
+"<a href=\"@login\">Login</a> or <a href=\"@register\">register</a> to post "
+"comments"
+msgstr ""
+"<a href=\"@login\"> login</a> of <a href=\"@register\">registreer</a> om te "
+"reageren"
+
+#: modules/comment/comment.module:1798
+msgid "<a href=\"@login\">Login</a> to post comments"
+msgstr "<a href=\"@login\"> login</a> om te reageren"
+
+#: modules/comment/comment.admin.inc:286
+msgid "Comment: deleted %subject."
+msgstr "Reactie: %subject verwijderd."
+
+#: modules/comment/comment.module:1841
+msgid "Flat list - collapsed"
+msgstr "Platte lijst - ingeklapt"
+
+#: modules/comment/comment.module:1842
+msgid "Flat list - expanded"
+msgstr "Platte lijst - uitgeklapt"
+
+#: modules/comment/comment.module:1843
+msgid "Threaded list - collapsed"
+msgstr "Vertakte lijst - ingeklapt"
+
+#: modules/comment/comment.module:1844
+msgid "Threaded list - expanded"
+msgstr "Vertakte lijst - uitgeklapt"
+
+#: modules/comment/comment.module:428
+msgid "1 new comment"
+msgid_plural "@count new comments"
+msgstr[0] "1 nieuwe reactie"
+msgstr[1] "@count nieuwe reacties"
+
+#: modules/comment/comment.module:274
+msgid "access comments"
+msgstr "toegang tot reacties"
+
+#: modules/comment/comment.module:274
+msgid "post comments"
+msgstr "reacties inzenden"
+
+#: modules/comment/comment.module:274
+msgid "administer comments"
+msgstr "reacties beheren"
+
+#: modules/comment/comment.module:274
+msgid "post comments without approval"
+msgstr "reacties inzenden zonder goedkeuring"
+
+#: modules/comment/comment.admin.inc:56
+msgid "Posted in"
+msgstr "Geplaatst in"
+
+#: modules/comment/comment.admin.inc:280
+msgid "Cannot delete non-existent comment."
+msgstr "Kan niet-bestaande reacties niet verwijderen."
+
+#: modules/comment/comment.module:560
+msgid ""
+"Forces a user to look at their comment by clicking on a 'Preview' button "
+"before they can actually add the comment"
+msgstr ""
+"Verplicht een gebruiker om zijn reactie na te kijken door te klikken op een "
+"knop \"voorbeeldweergave\" voor de reactie kan worden toevoegen."
+
+#: modules/comment/comment.module:791,790
+msgid ""
+"Comment: unauthorized comment submitted or comment submitted to a closed "
+"post %subject."
+msgstr ""
+"Reacties: niet-toegestane reactie of reactie op een gesloten artikel %"
+"subject."
+
+#: modules/comment/comment.module:1826
+msgid "Submitted by !username on @datetime."
+msgstr "Ingediend door !username op @datetime."
+
+#: modules/comment/comment.module:2000
+msgid "After saving a new comment"
+msgstr "Na het opslaan van een nieuwe reactie"
+
+#: modules/comment/comment.module:2003
+msgid "After saving an updated comment"
+msgstr "Na het opslaan van een bijgewerkte reactie"
+
+#: modules/comment/comment.module:2006
+msgid "After deleting a comment"
+msgstr "Na het verwijderen van een reactie"
+
+#: modules/comment/comment.module:2009
+msgid "When a comment is being viewed by an authenticated user"
+msgstr "Als een reactie bekeken wordt door een geverifieerde gebruiker"
+
+#: modules/comment/comment.module:2022
+msgid "Unpublish comment"
+msgstr "Reactie intrekken"
+
+#: modules/comment/comment.module:2030
+msgid "Unpublish comment containing keyword(s)"
+msgstr "Reactie die trefwoord(en) bevat intrekken"
+
+#: modules/comment/comment.module:2070
+msgid ""
+"The comment will be unpublished if it contains any of the character "
+"sequences above. Use a comma-separated list of character sequences. Example: "
+"funny, bungee jumping, \"Company, Inc.\". Character sequences are case-"
+"sensitive."
+msgstr ""
+"De reactie zal worden verwijderd als het één van de tekenreeksen hierboven "
+"bevat. Gebruik een lijst met tekenreeksen, gescheiden door komma's. "
+"Voorbeeld: grapping, bungee jumpen, \"Vader, moeder en zoon\". De "
+"tekenreeksen zijn hoofdletterongevoelig."
+
+#: modules/comment/comment.module:2058,2098
+msgid "Unpublished comment %subject."
+msgstr "Niet gepubliceerde reactie: %subject."
+
+#: modules/comment/comment.install:81
+msgid "Primary Key: Unique comment ID."
+msgstr "Primaire sleutel: uniek commentaar-ID."
+
+#: modules/comment/comment.install:87
+msgid ""
+"The {comments}.cid to which this comment is a reply. If set to 0, this "
+"comment is not a reply to an existing comment."
+msgstr ""
+"Het {comments}.cid waarop dit commentaar een antwoord is. Indien de waarde 0 "
+"is is dit commentaar geen antwoord op een bestaand commentaar."
+
+#: modules/comment/comment.install:93
+msgid "The {node}.nid to which this comment is a reply."
+msgstr "De {node}.nid waar deze reactie bij hoort."
+
+#: modules/comment/comment.install:99
+msgid ""
+"The {users}.uid who authored the comment. If set to 0, this comment was "
+"created by an anonymous user."
+msgstr ""
+"De {users}.uid die deze reactie gemaakt heeft. Als het 0 is, dan heeft een "
+"anonieme gebruiker dit gemaakt."
+
+#: modules/comment/comment.install:106
+msgid "The comment title."
+msgstr "Titel van de reactie."
+
+#: modules/comment/comment.install:112
+msgid "The comment body."
+msgstr "Inhoud van de reactie."
+
+#: modules/comment/comment.install:119
+msgid "The author's host name."
+msgstr "De hostnaam van de auteur."
+
+#: modules/comment/comment.install:125
+msgid ""
+"The time that the comment was created, or last edited by its author, as a "
+"Unix timestamp."
+msgstr ""
+"Het tijdstip waarop de reactie is aangemaakt of het laatst is gewijzigd door "
+"de auteur als een Unix timestamp."
+
+#: modules/comment/comment.install:133
+msgid "The published status of a comment. (0 = Published, 1 = Not Published)"
+msgstr ""
+"De publicatiestatus van een reactie. (0 = Gepubliceerd, 1 = Niet "
+"gepubliceerd)"
+
+#: modules/comment/comment.install:140
+msgid "The {filter_formats}.format of the comment body."
+msgstr "Het {filter_formats}.format van de reactie-inhoud."
+
+#: modules/comment/comment.install:146
+msgid "The vancode representation of the comment's place in a thread."
+msgstr "De vancode-weergave van de plaats van de reactie in de discussie."
+
+#: modules/comment/comment.install:152
+msgid ""
+"The comment author's name. Uses {users}.name if the user is logged in, "
+"otherwise uses the value typed into the comment form."
+msgstr ""
+"Naam van de auteur van de reactie. Gebruikt {users}.name als de gebruiker "
+"ingelogd is, anders wordt de waarde gebruikt die in het reactieformulier is "
+"ingevoerd."
+
+#: modules/comment/comment.install:158
+msgid ""
+"The comment author's e-mail address from the comment form, if user is "
+"anonymous, and the 'Anonymous users may/must leave their contact "
+"information' setting is turned on."
+msgstr ""
+"Het e-mailadres van de auteur zoals in het reactieformulier is ingevuld "
+"(door anonieme gebruikers indien de instelling 'Anonieme berichtenschrijvers "
+"moeten contactinformatie invoeren' is ingeschakeld)."
+
+#: modules/comment/comment.install:164
+msgid ""
+"The comment author's home page address from the comment form, if user is "
+"anonymous, and the 'Anonymous users may/must leave their contact "
+"information' setting is turned on."
+msgstr ""
+"Het homepagina adres van de auteur van de reactie, zoals ingegeven in het "
+"reactie formulier, als gebruiker anoniem is en 'Anonieme gebruikers mogen/"
+"moeten hun contact informatie achterlaten' instelling is aangezet."
+
+#: modules/comment/comment.install:176
+msgid ""
+"Maintains statistics of node and comments posts to show \"new\" and \"updated"
+"\" flags."
+msgstr ""
+"Onderhoudt statistieken van nodes en reacties om deze als 'nieuw' of "
+"'bijgewerkt' te kunnen aanmerken"
+
+#: modules/comment/comment.install:183
+msgid "The {node}.nid for which the statistics are compiled."
+msgstr "De {node}.id waarvoor de statistieken gecompileerd worden."
+
+#: modules/comment/comment.install:189
+msgid ""
+"The Unix timestamp of the last comment that was posted within this node, "
+"from {comments}.timestamp."
+msgstr ""
+"Het Unix-tijdsstip waarop de laatste reactie op deze node werd ingediend, "
+"uit {comments}.timestamp."
+
+#: modules/comment/comment.install:195
+msgid ""
+"The name of the latest author to post a comment on this node, from "
+"{comments}.name."
+msgstr ""
+"De naam van de laatste auteur die een reactie op deze node gaf. Gebruikt "
+"{comments}.name."
+
+#: modules/comment/comment.install:201
+msgid ""
+"The user ID of the latest author to post a comment on this node, from "
+"{comments}.uid."
+msgstr ""
+"Het gebruiker-ID van de laatste auteur die een reactie op deze node gaf. "
+"Gebruikt {comments}.uid"
+
+#: modules/comment/comment.install:208
+msgid "The total number of comments on this node."
+msgstr "Het totaal aantal reacties op deze node"
+
+#: modules/comment/comment.install:76
+msgid "Stores comments and associated data."
+msgstr "Bewaart commentaren en verwante gegevens."
+
+#: modules/comment/comment.module:814
+msgid "parent"
+msgstr "ouder"
+
+#: modules/comment/comment.module:831,843
+msgid "reply"
+msgstr "beantwoorden"
+
+#: modules/comment/comment.module:0
+msgid "comment"
+msgstr "reactie"
+
+#: modules/comment/comment.module:129
+msgid ""
+"The comment module allows visitors to comment on your posts, creating ad hoc "
+"discussion boards. Any <a href=\"@content-type\">content type</a> may have "
+"its <em>Default comment setting</em> set to <em>Read/Write</em> to allow "
+"comments, or <em>Disabled</em>, to prevent comments. Comment display "
+"settings and other controls may also be customized for each content type "
+"(some display settings are customizable by individual users)."
+msgstr ""
+"Met de Comment-module kunnen bezoekers reageren op uw bijdrage in een ad-hoc "
+"discussieforum. Ieder <a href=\"@content-type\">inhoudstype</a> kan "
+"<em>Standaard reactie-instellingen</em> hebben voor <em>Lezen/Schrijven</em> "
+"van een reactie of de mogelijkheid tot reageren is <em>Uitgeschakeld</em>. "
+"Instellingen voor weergave van reacties en andere reactie-instellingen "
+"kunnen ook per nodetype worden bepaald. Sommige weergave-instellingen zijn "
+"per gebruiker te bepalen."
+
+#: modules/comment/comment.module:130
+msgid ""
+"Comment permissions are assigned to user roles, and are used to determine "
+"whether anonymous users (or other roles) are allowed to comment on posts. If "
+"anonymous users are allowed to comment, their individual contact information "
+"may be retained in cookies stored on their local computer for use in later "
+"comment submissions. When a comment has no replies, it may be (optionally) "
+"edited by its author. The comment module uses the same input formats and "
+"HTML tags available when creating other forms of content."
+msgstr ""
+"Reactierechten worden toegekend per gebruikersrol en worden gebruikt om te "
+"bepalen of anonieme bezoekers of gebruikers met andere rollen het recht "
+"hebben op een inzending te reageren. Als anonieme bezoekers het recht hebben "
+"om te reageren, kan contactinformatie in een cookie op de computer van de "
+"bezoeker worden opgeslagen voor gebruik bij volgende reacties. Als er geen "
+"vervolg-reacties zijn op een reactie kan de auteur (optioneel) de eigen "
+"reactie wijzigen. De Comment-module gebruikt de zelfde invoerformaten en "
+"HTML-tags als bij het aanmaken van andere inhoud beschikbaar zijn."
+
+#: modules/comment/comment.module:131
+msgid ""
+"For more information, see the online handbook entry for <a href=\"@comment"
+"\">Comment module</a>."
+msgstr ""
+"Lees voor meer informatie het online-handboek over de <a href=\"@comment"
+"\">Comment-module</a>."
+
+#: modules/comment/comment.module:134
+msgid ""
+"Below is a list of the latest comments posted to your site. Click on a "
+"subject to see the comment, the author's name to edit the author's user "
+"information, 'edit' to modify the text, and 'delete' to remove their "
+"submission."
+msgstr ""
+"Hieronder staat een lijst van recente reacties op de site. Klik op het "
+"onderwerp om de reactie te lezen, op de naam van de schrijver om de "
+"gebruikersinformatie van de schrijver te bewerken, op 'bewerken' om de tekst "
+"te bewerken of op 'verwijderen' om de reactie te verwijderen."
