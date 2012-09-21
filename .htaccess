@@ -80,8 +80,8 @@ DirectoryIndex index.php
 <IfModule mod_rewrite.c>
   RewriteEngine on
 
-RewriteCond %{HTTP_HOST} !^www\.awene\.com$ [NC]
-RewriteRule ^(.*)$ http://www.awene.com/$1 [R=301,L]
+RewriteCond %{HTTP_HOST} !^test\.awene\.com$ [NC]
+RewriteRule ^(.*)$ http://test.awene.com/$1 [R=301,L]
 
   # If your site can be accessed both with and without the 'www.' prefix, you
   # can use one of the following settings to redirect users to your preferred
