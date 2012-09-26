@@ -1,1 +1,0 @@
-Drupal.locale = { 'pluralFormula': function($n) { return Number(($n!=1)); }, 'strings': { "Select all rows in this table": "هەموو ڕیزەکان هەڵبژێرە لەم خشتەیەدا", "Alias: @alias": "نازناو: @alias", "No alias": "نازناو نییە", "Translate Text": "دەق وەرگێڕە" } };
