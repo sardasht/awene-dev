@@ -89,7 +89,7 @@
  *   $db_url = 'mysqli://username:password@localhost/databasename';
  *   $db_url = 'pgsql://username:password@localhost/databasename';
  */
-$db_url = 'mysqli://awene:nifisHar7@awene-1.sql.greenhost.nl/awene_com';
+$db_url = 'mysqli://awene:nifisHar7@awene-1.sql.greenhost.nl/awene_com_test';
 $db_prefix = '';
 
 /**
