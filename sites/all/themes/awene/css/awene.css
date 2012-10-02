@@ -1554,7 +1554,7 @@ line-height:140%;
 .rtl #admin-menu li li.expandable ul{
 	margin: -20px 160px 0 0;
 }
-.rtl #block-awene_blocks-currency{
+.rtl #block-block-13{
 	clear: left;
 	float: left;
 }
@@ -2839,31 +2839,31 @@ line-height:115%;
 	margin: 0;
 	padding: 0;
 }
-#block-awene_blocks-currency{
+#block-block-13{
 	float: right;
 	width: 260px;
 }
-#block-awene_blocks-currency .even{
+#block-block-13 .even{
 	background: #fff;
 }
-#block-awene_blocks-currency h2{
+#block-block-13 h2{
 	font-size: 14px;
 	margin-top: 5px;
 }
-#block-awene_blocks-currency table{
+#block-block-13 table{
 	margin: 0 0 5px 0;
 }
-#block-awene_blocks-currency td,
-#block-awene_blocks-currency th{
+#block-block-13 td,
+#block-block-13 th{
 	padding: 3px 3px;
 }
-#block-awene_blocks-currency th{
+#block-block-13 th{
 	background: #717171;
 	color: #fff;
 	font-weight: normal;
 	text-transform: uppercase;
 }
-#block-awene_blocks-currency tr td:first-child{
+#block-block-13 tr td:first-child{
 	font-weight: bold;
 }
 #block-block-1 a{
@@ -4147,6 +4147,6 @@ font-size:15px;
 	float: left;
 }
 
-#block-awene_blocks-currency td a {
+#block-block-13 td a {
   display: none;
 }
