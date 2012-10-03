@@ -48,14 +48,11 @@ function user_token_values($type, $object = NULL, $options = array()) {
 
     // Adjust for the anonymous user name.
     if (!$account->uid && empty($account->name)) {
-      $account_name = variable_get('anonymous', 'Anonymous');
-    }
-    else {
-      $account_name = $account->name;
+      $account->name = variable_get('anonymous', 'Anonymous');
     }
 
-    $values['user']     = check_plain($account_name);
-    $values['user-raw'] = $account_name;
+    $values['user']     = check_plain($account->name);
+    $values['user-raw'] = $account->name;
     $values['uid']      = $account->uid;
     $values['mail']     = $account->uid ? $account->mail : '';
 

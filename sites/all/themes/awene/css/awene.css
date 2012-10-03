@@ -1554,7 +1554,7 @@ line-height:140%;
 .rtl #admin-menu li li.expandable ul{
 	margin: -20px 160px 0 0;
 }
-.rtl .exchange-rates{
+.rtl #block-awene_blocks-currency{
 	clear: left;
 	float: left;
 }
@@ -2839,31 +2839,31 @@ line-height:115%;
 	margin: 0;
 	padding: 0;
 }
-.exchange-rates{
+#block-awene_blocks-currency{
 	float: right;
 	width: 260px;
 }
-.exchange-rates .even{
+#block-awene_blocks-currency .even{
 	background: #fff;
 }
-.exchange-rates h2{
+#block-awene_blocks-currency h2{
 	font-size: 14px;
 	margin-top: 5px;
 }
-.exchange-rates table{
+#block-awene_blocks-currency table{
 	margin: 0 0 5px 0;
 }
-.exchange-rates td,
-.exchange-rates th{
+#block-awene_blocks-currency td,
+#block-awene_blocks-currency th{
 	padding: 3px 3px;
 }
-.exchange-rates th{
+#block-awene_blocks-currency th{
 	background: #717171;
 	color: #fff;
 	font-weight: normal;
 	text-transform: uppercase;
 }
-.exchange-rates tr td:first-child{
+#block-awene_blocks-currency tr td:first-child{
 	font-weight: bold;
 }
 #block-block-1 a{
@@ -4147,6 +4147,6 @@ font-size:15px;
 	float: left;
 }
 
-.exchange-rates td a {
+#block-awene_blocks-currency td a {
   display: none;
 }
