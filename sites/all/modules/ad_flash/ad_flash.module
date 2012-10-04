@@ -217,7 +217,7 @@ function ad_flash_adapi($op, $node) {
       return db_fetch_array(db_query("SELECT * FROM {ad_flash} WHERE aid = %d", $node['aid']));
 
     case 'validate':
-      if (!valid_url($node->url, TRUE)) {
+      if ($node->url && variable_get('ad_validate_url', 1) && (!valid_url($node->url, TRUE))) {
         form_set_error('url', t('You must specify a valid %field.', array('%field' => t('Destination URL'))));
       }
       break;
