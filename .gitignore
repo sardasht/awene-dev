@@ -2,8 +2,11 @@
 sites/*/settings*.php
 
 # Don't sync .htaccess, as it contains a hard redirect to awene.com
-.htaccess
+# .htaccess
 
 # Ignore paths that contain user-generated content.
 sites/*/files
 sites/*/private
+
+# Ignore github.php
+github.php
