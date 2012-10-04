@@ -8,6 +8,7 @@ body{
 	color: #000000;
 	font-family: Arial, Helvetica, Tahoma, Verdana, "Bitstream Vera Sans", sans-serif;
 	font-smooth: never;
+	color: black;
 }
 body.rtl,
 body.rtl * {
