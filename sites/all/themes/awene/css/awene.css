@@ -6,8 +6,10 @@ a{
 body{
 	background: #E9EDF6;
 	color: #000000;
-	font-family: Arial, Helvetica, Tahoma, Verdana, "Bitstream Vera Sans", sans-serif;
+	font-family: Arial, Helvetica, Tahoma, Verdana, "Bitstream Vera Sans", sans-serif, Ubuntu;
 	font-smooth: never;
+	color: black;
+
 }
 body.rtl,
 body.rtl * {
