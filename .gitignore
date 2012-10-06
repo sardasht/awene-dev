@@ -7,3 +7,13 @@ sites/*/settings*.php
 # Ignore paths that contain user-generated content.
 sites/*/files
 sites/*/private
+
+# Ignore postreceive.php
+postreceive.php
+
+# Ignore build.sh
+build.sh
+
+# Ignore log directory
+logs
+logs/github.txt
